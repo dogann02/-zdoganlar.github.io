@@ -68,7 +68,7 @@
     white-space:nowrap;transition:background .2s,color .2s;
   }
   .nav-btn:hover{background:var(--dark3);}
-  .nav-btn.active{color:var(--red);}
+  .nav-btn.active{color:var(--red);background:var(--dark2);}
   .auth-btn{
     background:var(--red);color:#fff;padding:10px 18px;border-radius:6px;
     font-weight:600;font-size:14px;white-space:nowrap;
@@ -127,6 +127,7 @@
     text-align:left;
     transition:transform .2s,border-color .2s,background .2s;
     position:relative;overflow:hidden;
+    cursor:pointer;
   }
   .quick-card:hover{transform:translateY(-5px);border-color:var(--red);}
   .quick-card::after{
@@ -206,11 +207,9 @@
     z-index:1000;
     align-items:center;justify-content:center;
     padding:20px;
-    pointer-events:none;
   }
   .modal-overlay.active{
     display:flex;
-    pointer-events:auto;
   }
   .modal-box{
     background:var(--dark2);
@@ -230,6 +229,7 @@
     background:var(--dark3);color:var(--muted);
     display:flex;align-items:center;justify-content:center;
     font-size:16px;transition:background .2s,color .2s;
+    cursor:pointer;
   }
   .modal-close:hover{background:var(--red);color:#fff;}
   .modal-box h3{font-size:20px;color:#fff;margin-bottom:4px;padding-right:30px;}
@@ -265,6 +265,7 @@
     background:var(--dark3);border:1px solid var(--border);border-radius:8px;
     padding:18px;display:flex;align-items:center;gap:14px;
     transition:border-color .2s,background .2s,transform .15s;
+    cursor:pointer;
   }
   .choice-item:hover{border-color:var(--red);background:#251313;transform:translateX(2px);}
   .choice-icon{font-size:24px;}
@@ -321,7 +322,7 @@
     </div>
   </div>
   <nav class="main-nav">
-    <button class="nav-btn" data-page="home" onclick="showPage('home')">Ana Sayfa</button>
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">Ana Sayfa</button>
     <button class="nav-btn" data-page="vehicles" onclick="showPage('vehicles')">Araçlar</button>
     <button class="nav-btn" data-page="parts" onclick="showPage('parts')">Parçalar</button>
     <button class="nav-btn" data-page="about" onclick="showPage('about')">Hakkımızda</button>
@@ -374,7 +375,6 @@
     <p>Tüm araçlarımız teknik ekibimiz tarafından kontrol edilmiş ve satışa hazır hale getirilmiştir.</p>
   </div>
   <div class="card-grid">
-
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1568844293986-8d0400bd4745?q=80&w=800&auto=format&fit=crop" alt="Kia Sportage">
       <div class="card-body">
@@ -418,7 +418,6 @@
         <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%202017%20Kia%20Ceed%201.6%20CRDi%20icin%20fiyat%20bilgisi%20almak%20istiyorum." target="_blank">💬 Fiyat Al</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -428,12 +427,11 @@
     <p>Ford, Kia ve Hyundai başta olmak üzere birçok marka için orijinal ve muadil yedek parça temin ediyoruz.</p>
   </div>
   <div class="card-grid">
-
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=800&auto=format&fit=crop" alt="Ford yedek parça">
       <div class="card-body">
         <span class="card-tag">FORD</span>
-        <h3>Ford Focus / Fiesta Fren Balata Seti</h3>
+        <h3>Ford Focus Fren Balata Seti</h3>
         <p class="meta">Orijinal Ford OEM · Ön & Arka set mevcut</p>
         <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%20Ford%20fren%20balata%20seti%20stok%20durumunu%20ogrenmek%20istiyorum." target="_blank">📦 Stok Sorgula</a>
       </div>
@@ -443,12 +441,15 @@
       <img class="card-img" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800&auto=format&fit=crop" alt="Kia yedek parça">
       <div class="card-body">
         <span class="card-tag">KIA</span>
-        <h3>Kia Sportage / Ceed Amortisör Takımı</h3>
+        <h3>Kia Sportage Amortisör Takımı</h3>
         <p class="meta">Orijinal Kia Mobis · Ön takım</p>
         <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%20Kia%20amortisor%20takimi%20stok%20durumunu%20ogrenmek%20istiyorum." target="_blank">📦 Stok Sorgula</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1621970513528-2e9ce46e5a72?q=80&w=800&auto=format&fit=crop" alt="Hyundai yedek parça">
-      <div class="card-
+<section id="page-about" class="page">
+  <div class="page-header">
+    <h2>Hakkımızda</h2>
+    <p>Özdoğanlar Otomotiv'in köklü geçmişi ve çalışma prensipleri.
