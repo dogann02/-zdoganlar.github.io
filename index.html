@@ -5,393 +5,403 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Özdoğanlar Otomotiv | Araç, Yedek Parça ve Teknik Servis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --black:#0a0a0a;
-    --dark:#141414;
-    --dark2:#1c1c1c;
-    --dark3:#242424;
+    --bg-alt:#131313;
+    --surface:#1b1b1b;
+    --surface-2:#222222;
     --border:#2c2c2c;
     --red:#e50914;
-    --red-dark:#b0060f;
+    --red-hover:#f6121d;
+    --red-dark:#9c060c;
     --text:#f2f2f2;
-    --muted:#a3a3a3;
+    --text-dim:#a3a3a3;
+    --text-dimmer:#707070;
     --radius:10px;
+    --header-h:72px;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
     background:var(--black);
     color:var(--text);
-    font-family:'Inter',sans-serif;
-    scroll-behavior:smooth;
-    -webkit-tap-highlight-color:transparent;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6;
+    min-height:100vh;
+    overflow-x:hidden;
   }
-  body{min-height:100vh;overflow-x:hidden;}
-  h1,h2,h3,h4{font-family:'Oswald',sans-serif;letter-spacing:.5px;}
-  img{max-width:100%;display:block;}
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif;letter-spacing:.3px;font-weight:600;}
   a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;cursor:pointer;border:none;outline:none;}
+  button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  svg{display:block;}
 
-  header{
-    position:sticky;top:0;left:0;right:0;z-index:100;
-    background:rgba(10,10,10,.92);backdrop-filter:blur(8px);
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-track{background:var(--black);}
+  ::-webkit-scrollbar-thumb{background:var(--red-dark);border-radius:4px;}
+
+  /* ===================== ICON BASE ===================== */
+  .icon{width:24px;height:24px;flex-shrink:0;}
+  .icon svg{width:100%;height:100%;}
+
+  /* ===================== HEADER ===================== */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;height:var(--header-h);
+    background:rgba(10,10,10,.92);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
+    z-index:100;
+  }
+  .header-inner{
+    max-width:1280px;margin:0 auto;height:100%;
     display:flex;align-items:center;justify-content:space-between;
-    padding:14px 24px;gap:12px;
+    padding:0 20px;gap:16px;
   }
   .logo-area{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
-  .logo-mark{
-    width:42px;height:42px;border-radius:8px;
+  .logo-icon{
+    width:40px;height:40px;
     background:linear-gradient(145deg,var(--red),var(--red-dark));
+    border-radius:8px;
     display:flex;align-items:center;justify-content:center;
-    font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;color:#fff;
+    box-shadow:0 0 18px rgba(229,9,20,.45);
+    flex-shrink:0;color:#fff;
+  }
+  .logo-icon .icon{width:22px;height:22px;}
+  .logo-text{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;line-height:1.1;white-space:nowrap;}
+  .logo-text span{display:block;font-size:10px;font-weight:500;letter-spacing:2.5px;color:var(--red);text-transform:uppercase;}
+
+  .main-nav{display:flex;align-items:center;gap:4px;}
+  .nav-link{
+    padding:10px 16px;font-size:14px;font-weight:500;color:var(--text-dim);
+    border-radius:6px;transition:color .2s,background .2s;position:relative;white-space:nowrap;
+  }
+  .nav-link:hover{color:var(--text);background:rgba(255,255,255,.05);}
+  .nav-link.active{color:var(--text);}
+  .nav-link.active::after{
+    content:'';position:absolute;left:16px;right:16px;bottom:4px;height:2px;
+    background:var(--red);border-radius:2px;
+  }
+
+  .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .btn-auth{
+    background:linear-gradient(135deg,var(--red),var(--red-dark));
+    color:#fff;padding:10px 20px;border-radius:6px;font-size:14px;font-weight:600;
     box-shadow:0 4px 14px rgba(229,9,20,.35);
+    transition:transform .15s,box-shadow .15s;white-space:nowrap;
   }
-  .logo-text{display:flex;flex-direction:column;line-height:1.1;}
-  .logo-text .brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px;color:#fff;white-space:nowrap;}
-  .logo-text .sub{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+  .btn-auth:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(229,9,20,.5);}
 
-  nav.main-nav{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;}
-  nav.main-nav::-webkit-scrollbar{display:none;}
-  .nav-btn{
-    background:transparent;color:var(--text);padding:9px 14px;border-radius:6px;
-    font-size:14px;font-weight:500;white-space:nowrap;transition:background .2s;
+  .hamburger{
+    display:none;width:38px;height:38px;align-items:center;justify-content:center;
+    border:1px solid var(--border);border-radius:6px;color:var(--text);
   }
-  .nav-btn:hover{background:var(--dark3);}
-  .nav-btn.active{color:var(--red);background:var(--dark2);}
-  
-  .auth-btn{
-    background:var(--red);color:#fff;padding:10px 18px;border-radius:6px;
-    font-weight:600;font-size:14px;white-space:nowrap;transition:background .2s;
-  }
-  .auth-btn:hover{background:var(--red-dark);}
+  .hamburger .icon{width:20px;height:20px;}
 
-  .page{display:none;animation:fadein .35s ease;}
+  @media (max-width:860px){
+    .main-nav{
+      position:fixed;top:var(--header-h);left:0;right:0;
+      background:var(--bg-alt);border-bottom:1px solid var(--border);
+      flex-direction:column;align-items:stretch;padding:8px;gap:2px;
+      max-height:0;overflow:hidden;transition:max-height .25s ease;z-index:99;
+    }
+    .main-nav.open{max-height:320px;}
+    .nav-link{padding:14px 16px;text-align:left;}
+    .nav-link.active::after{display:none;}
+    .nav-link.active{background:rgba(229,9,20,.12);color:var(--red);}
+    .hamburger{display:flex;}
+    .logo-text{font-size:16px;}
+  }
+  @media (max-width:480px){.btn-auth{padding:9px 14px;font-size:12.5px;}}
+
+  /* ===================== LAYOUT ===================== */
+  main{padding-top:var(--header-h);}
+  .page{display:none;animation:fadeIn .35s ease;}
   .page.active{display:block;}
-  @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .section-inner{max-width:1280px;margin:0 auto;padding:0 20px;}
+  .eyebrow{color:var(--red);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
 
+  /* ===================== HERO ===================== */
   .hero{
-    position:relative;min-height:56vh;display:flex;align-items:center;
-    background:linear-gradient(90deg, rgba(10,10,10,.96) 10%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.15) 100%),
-    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-    padding:60px 6vw;
+    position:relative;min-height:560px;display:flex;align-items:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(229,9,20,.18), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(229,9,20,.1), transparent 50%),
+      linear-gradient(180deg,#0a0a0a 0%, #141414 60%, #0a0a0a 100%);
+    overflow:hidden;border-bottom:1px solid var(--border);
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 80px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:1280px;margin:0 auto;padding:80px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;
+    width:100%;position:relative;z-index:2;
   }
   .hero-content{max-width:560px;}
-  .hero-eyebrow{color:var(--red);font-weight:600;letter-spacing:3px;font-size:12px;text-transform:uppercase;margin-bottom:14px;display:block;}
-  .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.1;color:#fff;margin-bottom:16px;}
-  .hero h1 span{color:var(--red);}
-  .hero p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:26px;}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
-  
-  .btn-primary{background:var(--red);color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;transition:background .2s;display:inline-block;}
-  .btn-primary:hover{background:var(--red-dark);}
-  .btn-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.35);transition:background .2s;display:inline-block;}
-  .btn-outline:hover{background:rgba(255,255,255,.08);}
+  .hero-content h1{font-size:clamp(32px,5vw,52px);line-height:1.08;margin-bottom:18px;text-transform:uppercase;}
+  .hero-content h1 em{font-style:normal;color:var(--red);text-shadow:0 0 26px rgba(229,9,20,.5);}
+  .hero-content p{color:var(--text-dim);font-size:16px;margin-bottom:30px;max-width:460px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;
+    padding:15px 28px;border-radius:6px;font-weight:600;font-size:15px;
+    box-shadow:0 6px 20px rgba(229,9,20,.35);transition:transform .15s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{
+    padding:15px 28px;border-radius:6px;font-weight:600;font-size:15px;
+    border:1px solid var(--border);color:var(--text);
+    transition:border-color .15s, background .15s;
+  }
+  .btn-outline:hover{border-color:var(--red);background:rgba(229,9,20,.08);}
 
-  .section{padding:60px 6vw;}
-  .section-title{font-size:26px;color:#fff;margin-bottom:6px;}
-  .section-title .accent{color:var(--red);}
-  .section-desc{color:var(--muted);font-size:14px;margin-bottom:34px;}
+  .hero-visual{
+    flex-shrink:0;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(229,9,20,.25),transparent 70%);
+    display:flex;align-items:center;justify-content:center;
+    filter:drop-shadow(0 20px 40px rgba(229,9,20,.35));color:var(--red);
+  }
+  .hero-visual .icon{width:170px;height:170px;}
+  @media (max-width:760px){
+    .hero-inner{flex-direction:column;text-align:center;padding:60px 20px;}
+    .hero-content{max-width:100%;}
+    .hero-btns{justify-content:center;}
+    .hero-visual{width:180px;height:180px;}
+    .hero-visual .icon{width:100px;height:100px;}
+  }
 
-  .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  /* ===================== QUICK CATALOG ===================== */
+  .quick-catalog{padding:70px 0;}
+  .quick-catalog h2{text-align:center;font-size:28px;text-transform:uppercase;margin-bottom:8px;}
+  .quick-catalog .sub{text-align:center;color:var(--text-dim);margin-bottom:40px;font-size:15px;}
+  .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media (max-width:820px){.quick-grid{grid-template-columns:1fr;}}
   .quick-card{
-    background:linear-gradient(160deg,var(--dark2),var(--dark));border:1px solid var(--border);
-    border-radius:var(--radius);padding:34px 24px;cursor:pointer;transition:transform .2s,border-color .2s;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;
+    text-align:center;transition:transform .2s, border-color .2s, background .2s;
   }
-  .quick-card:hover{transform:translateY(-5px);border-color:var(--red);}
-  .quick-icon{font-size:34px;margin-bottom:16px;display:block;}
-  .quick-card h3{font-size:18px;color:#fff;margin-bottom:8px;}
-  .quick-card p{color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:18px;}
-  .quick-card .go{color:var(--red);font-weight:600;font-size:13px;}
+  .quick-card:hover{transform:translateY(-6px);border-color:var(--red);background:var(--surface-2);}
+  .quick-card .ic{
+    width:84px;height:84px;border-radius:50%;background:rgba(229,9,20,.12);
+    display:flex;align-items:center;justify-content:center;color:var(--red);
+  }
+  .quick-card .ic .icon{width:36px;height:36px;}
+  .quick-card span.label{font-size:17px;font-weight:600;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.5px;}
+  .quick-card small{color:var(--text-dim);font-size:13px;}
 
-  .page-header{padding:44px 6vw 20px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--dark2),var(--black));}
-  .page-header h2{font-size:30px;color:#fff;}
-  .page-header p{color:var(--muted);margin-top:8px;font-size:14px;}
+  /* ===================== GENERIC PAGE HEADER ===================== */
+  .page-header{padding:60px 0 40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#141414,transparent);}
+  .page-header h2{font-size:34px;text-transform:uppercase;margin-bottom:10px;}
+  .page-header p{color:var(--text-dim);max-width:640px;}
 
-  .card-grid{padding:44px 6vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
-  .card{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;}
-  .card-img{height:170px;width:100%;object-fit:cover;background:#000;}
-  .card-body{padding:18px;display:flex;flex-direction:column;flex:1;}
-  .card-tag{display:inline-block;background:rgba(229,9,20,.15);color:var(--red);font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:10px;width:fit-content;}
-  .card h3{font-size:17px;color:#fff;margin-bottom:6px;}
-  .card .meta{color:var(--muted);font-size:13px;margin-bottom:14px;}
-  .card .price{color:#fff;font-weight:700;font-size:16px;margin-bottom:16px;}
-  .card .price span{color:var(--muted);font-weight:400;font-size:12px;}
-  .card-btn{background:var(--red);color:#fff;padding:11px;border-radius:6px;font-weight:600;font-size:13px;text-align:center;transition:background .2s;}
-  .card-btn:hover{background:var(--red-dark);}
+  /* ===================== CARD GRIDS ===================== */
+  .grid-section{padding:50px 0 90px;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+  .item-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s, transform .2s;
+  }
+  .item-card:hover{border-color:#3a3a3a;transform:translateY(-4px);}
+  .item-media{
+    height:150px;background:linear-gradient(135deg,#1c1c1c,#101010);
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--border);position:relative;color:var(--red);
+  }
+  .item-media .icon{width:56px;height:56px;}
+  .item-media .tag{
+    position:absolute;top:10px;left:10px;background:var(--red);color:#fff;
+    font-size:11px;font-weight:700;padding:4px 9px;border-radius:4px;letter-spacing:.5px;
+  }
+  .item-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .item-body h3{font-size:17px;}
+  .item-body .meta{color:var(--text-dim);font-size:13px;}
+  .item-body .price{color:var(--red);font-weight:700;font-size:16px;font-family:'Oswald',sans-serif;margin-top:auto;}
+  .item-body .specs{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px;}
+  .item-body .specs span{
+    background:var(--surface-2);border:1px solid var(--border);font-size:11.5px;
+    color:var(--text-dim);padding:4px 8px;border-radius:4px;
+  }
+  .btn-whatsapp{
+    margin-top:12px;width:100%;background:linear-gradient(135deg,var(--red),var(--red-dark));
+    color:#fff;padding:12px;border-radius:6px;font-weight:600;font-size:14px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-whatsapp .icon{width:17px;height:17px;}
+  .btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(229,9,20,.35);}
 
-  .about-wrap{padding:60px 6vw 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start;}
-  .about-wrap h2{font-size:30px;color:#fff;margin-bottom:18px;}
-  .about-wrap p{color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:18px;}
-  .stat-box{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-  .stat{border-left:3px solid var(--red);padding-left:14px;}
-  .stat .num{font-family:'Oswald',sans-serif;font-size:28px;color:#fff;font-weight:700;}
-  .stat .lbl{color:var(--muted);font-size:12px;margin-top:2px;}
-  .about-img img{width:100%;height:220px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border);}
+  /* ===================== ABOUT PAGE ===================== */
+  .about-wrap{padding:60px 0 100px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start;}
+  @media (max-width:900px){.about-wrap{grid-template-columns:1fr;}}
+  .about-text h2{font-size:30px;text-transform:uppercase;margin-bottom:20px;}
+  .about-text p{color:var(--text-dim);margin-bottom:16px;font-size:15.5px;}
+  .about-text strong{color:var(--text);}
 
-  footer{border-top:1px solid var(--border);padding:26px 6vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px;}
-  footer .fbrand{color:#fff;font-weight:600;}
-  footer .fbrand span{color:var(--red);}
+  .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 20px;text-align:center;}
+  .stat-box .num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--red);}
+  .stat-box .lbl{color:var(--text-dim);font-size:12.5px;margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
 
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+  .value-list{margin-top:30px;display:flex;flex-direction:column;gap:14px;}
+  .value-item{
+    display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+    border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;
+  }
+  .value-item .vi{
+    width:38px;height:38px;flex-shrink:0;border-radius:8px;background:rgba(229,9,20,.12);
+    color:var(--red);display:flex;align-items:center;justify-content:center;
+  }
+  .value-item .vi .icon{width:20px;height:20px;}
+  .value-item h4{font-size:15px;margin-bottom:3px;}
+  .value-item p{color:var(--text-dim);font-size:13.5px;margin:0;}
+
+  /* ===================== FOOTER ===================== */
+  footer{border-top:1px solid var(--border);padding:34px 20px;text-align:center;color:var(--text-dimmer);font-size:13px;background:var(--bg-alt);}
+  footer strong{color:var(--text-dim);}
+
+  /* ===================== MODALS ===================== */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);
+    z-index:1000;align-items:center;justify-content:center;padding:20px;
+  }
   .modal-overlay.active{display:flex;}
-  .modal-box{background:var(--dark2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:420px;padding:26px 24px;position:relative;animation:pop .25s ease;}
-  @keyframes pop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
-  .modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--dark3);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;}
-  .modal-close:hover{background:var(--red);color:#fff;}
-  .modal-box h3{font-size:20px;color:#fff;margin-bottom:4px;}
-  .modal-sub{color:var(--muted);font-size:13px;margin-bottom:20px;}
-
-  .tab-row{display:flex;background:var(--dark3);border-radius:8px;padding:4px;margin-bottom:20px;}
-  .tab-btn{flex:1;background:transparent;color:var(--muted);padding:10px;border-radius:6px;font-weight:600;font-size:13px;}
-  .tab-btn.active{background:var(--red);color:#fff;}
-  .tab-panel{display:none;}
-  .tab-panel.active{display:block;}
-
-  .field{margin-bottom:14px;}
-  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;}
-  .field input{width:100%;background:var(--dark3);border:1px solid var(--border);border-radius:6px;padding:11px 12px;color:#fff;font-size:14px;}
-  .modal-submit{width:100%;background:var(--red);color:#fff;padding:13px;border-radius:7px;font-weight:700;font-size:14px;margin-top:6px;}
-
-  .choice-list{display:flex;flex-direction:column;gap:12px;}
-  .choice-item{background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .2s;}
-  .choice-item:hover{border-color:var(--red);}
-  .choice-icon{font-size:24px;}
-  .choice-text strong{display:block;color:#fff;font-size:14px;}
-  .choice-text span{color:var(--muted);font-size:12px;}
-
-  .contact-card{background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;margin-bottom:18px;}
-  .contact-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(145deg,var(--red),var(--red-dark));display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;font-weight:700;margin:0 auto 12px;}
-  .contact-card h4{color:#fff;font-size:16px;margin-bottom:2px;}
-  .contact-card .role{color:var(--muted);font-size:12px;margin-bottom:8px;}
-  .contact-card .phone{color:var(--red);font-weight:700;font-size:16px;}
-  .contact-actions{display:flex;gap:10px;}
-  .contact-actions a{flex:1;text-align:center;padding:12px;border-radius:7px;font-weight:600;font-size:13px;}
-  .call-btn{background:#fff;color:#111;}
-  .wa-btn{background:#25D366;color:#fff;}
-
-  @media(max-width:880px){document.getElementById{grid-template-columns:1fr;}.about-wrap{grid-template-columns:1fr;}}
-  @media(max-width:680px){
-    header{flex-wrap:wrap;padding:12px 16px;}
-    nav.main-nav{order:3;width:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid var(--border);margin-top:6px;}
-    .hero{padding:44px 5vw;min-height:46vh;}
-    .section,.card-grid,.about-wrap,.page-header{padding-left:5vw;padding-right:5vw;}
+  .modal-box{
+    position:relative;z-index:1001;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:30px 26px 28px;animation:popIn .25s ease;
   }
+  @keyframes popIn{from{opacity:0;transform:scale(.94) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+    background:var(--surface-2);color:var(--text-dim);font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s, color .15s;
+  }
+  .modal-close:hover{background:var(--red);color:#fff;}
+  .modal-title{font-size:20px;text-transform:uppercase;margin-bottom:6px;padding-right:20px;}
+  .modal-sub{color:var(--text-dim);font-size:13.5px;margin-bottom:22px;}
+
+  .auth-tabs{display:flex;background:var(--surface-2);border-radius:8px;padding:4px;margin-bottom:22px;}
+  .auth-tab-btn{flex:1;padding:10px;border-radius:6px;font-weight:600;font-size:13.5px;color:var(--text-dim);transition:background .2s, color .2s;}
+  .auth-tab-btn.active{background:var(--red);color:#fff;}
+  .auth-tab-content{display:none;flex-direction:column;gap:12px;}
+  .auth-tab-content.active{display:flex;}
+
+  .field-label{font-size:12.5px;color:var(--text-dim);margin-bottom:5px;display:block;}
+  .field{
+    width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;
+    padding:12px 14px;color:var(--text);font-size:14px;transition:border-color .15s;
+  }
+  .field:focus{border-color:var(--red);outline:none;}
+  textarea.field{resize:vertical;min-height:90px;font-family:inherit;}
+  .field-group{margin-bottom:2px;}
+  .form-submit{
+    margin-top:6px;width:100%;background:linear-gradient(135deg,var(--red),var(--red-dark));
+    color:#fff;padding:13px;border-radius:7px;font-weight:700;font-size:14.5px;transition:transform .15s;
+  }
+  .form-submit:hover{transform:translateY(-2px);}
+  .form-hint{text-align:center;color:var(--text-dimmer);font-size:12px;margin-top:14px;}
+
+  .choice-grid{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .choice-btn{
+    display:flex;align-items:center;gap:16px;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:10px;padding:18px;text-align:left;transition:border-color .2s, background .2s, transform .15s;
+  }
+  .choice-btn:hover{border-color:var(--red);background:rgba(229,9,20,.08);transform:translateY(-2px);}
+  .choice-btn .ci{
+    width:44px;height:44px;flex-shrink:0;border-radius:10px;background:rgba(229,9,20,.12);
+    color:var(--red);display:flex;align-items:center;justify-content:center;
+  }
+  .choice-btn .ci .icon{width:22px;height:22px;}
+  .choice-btn h4{font-size:15px;margin-bottom:2px;}
+  .choice-btn p{color:var(--text-dim);font-size:12.5px;margin:0;}
+
+  .agent-card{
+    display:flex;align-items:center;gap:14px;background:var(--surface-2);
+    border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:20px;
+  }
+  .agent-avatar{
+    width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(135deg,var(--red),var(--red-dark));
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;
+  }
+  .agent-avatar .icon{width:24px;height:24px;}
+  .agent-info h4{font-size:15.5px;}
+  .agent-info p{color:var(--text-dim);font-size:13px;}
+  .agent-actions{display:flex;flex-direction:column;gap:10px;}
+  .btn-call{
+    background:var(--surface-2);border:1px solid var(--border);color:var(--text);
+    padding:13px;border-radius:7px;font-weight:600;font-size:14px;
+    display:flex;align-items:center;justify-content:center;gap:8px;transition:border-color .15s;
+  }
+  .btn-call .icon{width:17px;height:17px;}
+  .btn-call:hover{border-color:var(--red);}
+
+  @media (max-width:480px){.modal-box{padding:24px 18px 22px;}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-area" onclick="showPage('home')">
-    <div class="logo-mark">ÖZ</div>
-    <div class="logo-text">
-      <span class="brand">ÖZDOĞANLAR</span>
-      <span class="sub">Otomotiv</span>
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area" onclick="showPage('home')">
+      <div class="logo-icon"><span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/><path d="M3 13h18v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>
+      </span></div>
+      <div class="logo-text">Özdoğanlar<span>Otomotiv</span></div>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <button type="button" class="nav-link active" data-page="home" onclick="showPage('home')">Ana Sayfa</button>
+      <button type="button" class="nav-link" data-page="vehicles" onclick="showPage('vehicles')">Araçlar</button>
+      <button type="button" class="nav-link" data-page="parts" onclick="showPage('parts')">Parçalar</button>
+      <button type="button" class="nav-link" data-page="about" onclick="showPage('about')">Hakkımızda</button>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="btn-auth" onclick="openModal('authModal')">Giriş / Kayıt Ol</button>
+      <button type="button" class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span>
+      </button>
     </div>
   </div>
-  <nav class="main-nav">
-    <button class="nav-btn active" data-page="home" onclick="showPage('home')">Anasayfa</button>
-    <button class="nav-btn" data-page="vehicles" onclick="showPage('vehicles')">Araçlar</button>
-    <button class="nav-btn" data-page="parts" onclick="showPage('parts')">Parçalar</button>
-    <button class="nav-btn" data-page="about" onclick="showPage('about')">Hakkımızda</button>
-  </nav>
-  <button class="auth-btn" onclick="openModal('authModal')">Giriş Yap</button>
 </header>
 
-<!-- ANA SAYFA -->
-<section id="page-home" class="page active">
-  <div class="hero">
-    <div class="hero-content">
-      <span class="hero-eyebrow">Güvenilir Otomotiv Çözümleri</span>
-      <h1>İkinci El Araçta ve <span>Yedek Parçada</span> Adres Bir</h1>
-      <p>Özdoğanlar Otomotiv olarak; satılık araç, orijinal yedek parça ve uzman teknik servis hizmetlerini tek çatı altında sunuyoruz.</p>
-      <div class="hero-cta">
-        <button class="btn-primary" onclick="showPage('vehicles')">Araçları İncele</button>
-        <button class="btn-outline" onclick="openModal('maintenanceModal')">Randevu Al</button>
-      </div>
-    </div>
-  </div>
+<main>
 
-  <div class="section">
-    <h2 class="section-title">Hızlı <span class="accent">Katalog</span> Seçimi</h2>
-    <p class="section-desc">İhtiyacınıza uygun kategoriyi seçin, saniyeler içinde yönlendirelim.</p>
-    <div class="quick-grid">
-      <div class="quick-card" onclick="showPage('vehicles')">
-        <span class="quick-icon">🚗</span>
-        <h3>Araçlar Kataloğu</h3>
-        <p>Kontrolden geçmiş, güvenilir ikinci el araç seçenekleri.</p>
-        <span class="go">Kataloğu Gör →</span>
-      </div>
-      <div class="quick-card" onclick="openModal('maintenanceModal')">
-        <span class="quick-icon">🔧</span>
-        <h3>Tamir & Bakım</h3>
-        <p>Uzman ekibimizden hızlı destek veya randevu oluşturun.</p>
-        <span class="go">Seçim Yap →</span>
-      </div>
-      <div class="quick-card" onclick="showPage('parts')">
-        <span class="quick-icon">⚙️</span>
-        <h3>Parçalar Kataloğu</h3>
-        <p>Ford, Kia, Hyundai ve daha fazlası için orijinal parça.</p>
-        <span class="go">Kataloğu Gör →</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ARAÇLAR SAYFASI -->
-<section id="page-vehicles" class="page">
-  <div class="page-header">
-    <h2>Satılık Araçlar</h2>
-    <p>Tüm araçlarımız teknik ekibimiz tarafından kontrol edilmiş ve satışa hazır hale getirilmiştir.</p>
-  </div>
-  <div class="card-grid">
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1568844293986-8d0400bd4745?q=80&w=800&auto=format&fit=crop" alt="Kia Sportage">
-      <div class="card-body">
-        <span class="card-tag">SUV</span>
-        <h3>2016 Kia Sportage</h3>
-        <p class="meta">1.6 CRDi · Dizel · Otomatik · 142.000 km</p>
-        <div class="price">385.000 ₺ <span>/ pazarlık payı</span></div>
-        <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%202016%20Kia%20Sportage%20icin%20fiyat%20bilgisi%20almak%20istiyorum." target="_blank">💬 Fiyat Al</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop" alt="Ford Focus">
-      <div class="card-body">
-        <span class="card-tag">SEDAN</span>
-        <h3>2018 Ford Focus 1.5 TDCi</h3>
-        <p class="meta">Dizel · Manuel · 98.500 km · Boyasız</p>
-        <div class="price">465.000 ₺ <span>/ pazarlık payı</span></div>
-        <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%202018%20Ford%20Focus%201.5%20TDCi%20icin%20fiyat%20bilgisi%20almak%20istiyorum." target="_blank">💬 Fiyat Al</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARÇALAR SAYFASI -->
-<section id="page-parts" class="page">
-  <div class="page-header">
-    <h2>Yedek Parça Kataloğu</h2>
-    <p>Ford, Kia ve Hyundai başta olmak üzere birçok marka için orijinal ve muadil yedek parça temin ediyoruz.</p>
-  </div>
-  <div class="card-grid">
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?q=80&w=800&auto=format&fit=crop" alt="Ford yedek parça">
-      <div class="card-body">
-        <span class="card-tag">FORD</span>
-        <h3>Ford Focus Fren Balata Seti</h3>
-        <p class="meta">Orijinal Ford OEM · Ön & Arka set mevcut</p>
-        <a class="card-btn" href="https://wa.me/905079876219?text=Merhaba%2C%20Ford%20fren%20balata%20seti%20stok%20durumunu%20ogrenmek%20istiyorum." target="_blank">📦 Stok Sorgula</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HAKKIMIZDA SAYFASI -->
-<section id="page-about" class="page">
-  <div class="page-header">
-    <h2>Hakkımızda</h2>
-    <p>Özdoğanlar Otomotiv'in köklü geçmişi ve çalışma prensipleri.</p>
-  </div>
-  <div class="about-wrap">
-    <div>
-      <h2>Biz Kimiz?</h2>
-      <p>Özdoğanlar Otomotiv, sektörde uzun yıllara dayanan tecrübesiyle dürüstlük ve güven ilkelerini benimseyerek kurulmuştur. Kurucularımız Zeynal Doğan ve Yaşar Doğan önderliğinde, her zaman en kaliteli araç ve parçaları en doğru fiyatlarla sunmayı amaçlıyoruz.</p>
-      <div class="stat-box">
-        <div class="stat">
-          <div class="num">100%</div>
-          <div class="lbl">Müşteri Memnuniyeti</div>
+  <!-- ===================== HOME PAGE ===================== -->
+  <section id="page-home" class="page active">
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="eyebrow">Galeri · Yedek Parça · Teknik Servis</div>
+          <h1>Yolda Güven <em>Özdoğanlar</em> İmzası Taşır</h1>
+          <p>2. el araç alım-satımından orijinal yedek parçaya, periyodik bakımdan onarıma kadar tüm otomotiv ihtiyaçlarınız tek adreste.</p>
+          <div class="hero-btns">
+            <button type="button" class="btn-primary" onclick="showPage('vehicles')">Araçları İncele</button>
+            <button type="button" class="btn-outline" onclick="openModal('maintenanceModal')">Randevu Al</button>
+          </div>
         </div>
-        <div class="stat">
-          <div class="num">1000+</div>
-          <div class="lbl">Mutlu Müşteri</div>
+        <div class="hero-visual">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/><path d="M3 13h18v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>
+          </span>
         </div>
       </div>
     </div>
-    <div class="about-img">
-      <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=800&auto=format&fit=crop" alt="Hakkımızda">
-    </div>
-  </div>
-</section>
 
-<!-- MODAL: GİRİŞ / KAYIT -->
-<div id="authModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'authModal')">
-  <div class="modal-box">
-    <div class="modal-close" onclick="closeModal('authModal')">×</div>
-    <h3>Hesap İşlemleri</h3>
-    <div class="modal-sub">Profilinize erişmek için giriş yapın.</div>
-    <div class="tab-row">
-      <button class="tab-btn active" id="btn-login-tab" onclick="switchTab('loginTab', 'btn-login-tab')">Giriş Yap</button>
-      <button class="tab-btn" id="btn-register-tab" onclick="switchTab('registerTab', 'btn-register-tab')">Kayıt Ol</button>
-    </div>
-    <div id="loginTab" class="tab-panel active">
-      <div class="field"><label>E-posta</label><input type="email" placeholder="ornek@mail.com"></div>
-      <div class="field"><label>Şifre</label><input type="password" placeholder="••••••"></div>
-      <button class="modal-submit">Giriş Yap</button>
-    </div>
-    <div id="registerTab" class="tab-panel">
-      <div class="field"><label>Ad Soyad</label><input type="text" placeholder="Ahmet Yılmaz"></div>
-      <div class="field"><label>E-posta</label><input type="email" placeholder="ornek@mail.com"></div>
-      <div class="field"><label>Şifre</label><input type="password" placeholder="••••••"></div>
-      <button class="modal-submit">Kayıt Ol</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL: RANDEVU SEÇİMİ -->
-<div id="maintenanceModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'maintenanceModal')">
-  <div class="modal-box">
-    <div class="modal-close" onclick="closeModal('maintenanceModal')">×</div>
-    <h3>Hızlı Teknik Destek</h3>
-    <div class="modal-sub">Bizimle iletişime geçin veya randevu talep edin.</div>
-    <div class="choice-list">
-      <div class="choice-item" onclick="openContactModal()">
-        <span class="choice-icon">📞</span>
-        <div class="choice-text">
-          <strong>Yetkiliyi Ara / WhatsApp</strong>
-          <span>Muhammed Bey ile anında görüşün</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL: İLETİŞİM KARTI -->
-<div id="contactModal" class="modal-overlay" onclick="closeModalOnOverlay(event, 'contactModal')">
-  <div class="modal-box">
-    <div class="modal-close" onclick="closeModal('contactModal')">×</div>
-    <div class="contact-card">
-      <div class="contact-avatar">M</div>
-      <h4>Muhammed Bey</h4>
-      <div class="role">Müşteri İlişkileri & Teknik Sorumlu</div>
-      <div class="phone">0507 987 62 19</div>
-    </div>
-    <div class="contact-actions">
-      <a class="call-btn" href="tel:+905079876219">📞 Hemen Ara</a>
-      <a class="wa-btn" href="https://wa.me/905079876219?text=Merhaba%20web%20sitenizden%20ulasiyorum%2C%20bilgi%20alabilir%20miyim%3F" target="_blank">💬 WhatsApp</a>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="fbrand">ÖZDOĞANLAR <span>Otomotiv</span></div>
-  <div>© 2026 Tüm Hakları Saklıdır.</div>
-</footer>
-
-<script>
-  // Sayfa Değiştirme Fonksiyonu
-  function showPage(pageId) {
-    // Tüm sayfaları gizle
-    var pages = document.querySelectorAll('.page');
-    pages.forEach(function(page) {
-      page.classList.remove('active');
-    });
-    
-    // Hedef sayfayı göster
-    var targetPage = document.getElementById('page-' + pageId);
-    if(targetPage) {
-      targetPage.classList.add('active');
-    }
-
-    // Navigasyon b
+    <section class="quick-catalog">
+      <div class="section-inner">
+        <h2>Hızlı Katalog Seçimi</h2>
+        <p class="sub">İhtiyacınız olan hizmete tek dokunuşla ulaşın</p>
+        <div class="quick-grid">
+          <button type="button" class="q
