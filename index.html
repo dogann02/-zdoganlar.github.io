@@ -84,9 +84,9 @@
   .hero p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:26px;}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
   
-  .btn-primary{background:var(--red);color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;transition:background .2s;}
+  .btn-primary{background:var(--red);color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;transition:background .2s;display:inline-block;}
   .btn-primary:hover{background:var(--red-dark);}
-  .btn-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.35);transition:background .2s;}
+  .btn-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.35);transition:background .2s;display:inline-block;}
   .btn-outline:hover{background:rgba(255,255,255,.08);}
 
   .section{padding:60px 6vw;}
@@ -171,7 +171,7 @@
   .call-btn{background:#fff;color:#111;}
   .wa-btn{background:#25D366;color:#fff;}
 
-  @media(max-width:880px){.quick-grid{grid-template-columns:1fr;}.about-wrap{grid-template-columns:1fr;}}
+  @media(max-width:880px){document.getElementById{grid-template-columns:1fr;}.about-wrap{grid-template-columns:1fr;}}
   @media(max-width:680px){
     header{flex-wrap:wrap;padding:12px 16px;}
     nav.main-nav{order:3;width:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid var(--border);margin-top:6px;}
@@ -191,10 +191,10 @@
     </div>
   </div>
   <nav class="main-nav">
-    <button class="nav-btn active" id="btn-home" onclick="showPage('home')">Anasayfa</button>
-    <button class="nav-btn" id="btn-vehicles" onclick="showPage('vehicles')">Araçlar</button>
-    <button class="nav-btn" id="btn-parts" onclick="showPage('parts')">Parçalar</button>
-    <button class="nav-btn" id="btn-about" onclick="showPage('about')">Hakkımızda</button>
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">Anasayfa</button>
+    <button class="nav-btn" data-page="vehicles" onclick="showPage('vehicles')">Araçlar</button>
+    <button class="nav-btn" data-page="parts" onclick="showPage('parts')">Parçalar</button>
+    <button class="nav-btn" data-page="about" onclick="showPage('about')">Hakkımızda</button>
   </nav>
   <button class="auth-btn" onclick="openModal('authModal')">Giriş Yap</button>
 </header>
@@ -207,8 +207,8 @@
       <h1>İkinci El Araçta ve <span>Yedek Parçada</span> Adres Bir</h1>
       <p>Özdoğanlar Otomotiv olarak; satılık araç, orijinal yedek parça ve uzman teknik servis hizmetlerini tek çatı altında sunuyoruz.</p>
       <div class="hero-cta">
-        <a class="btn-primary" href="javascript:void(0)" onclick="showPage('vehicles')">Araçları İncele</a>
-        <a class="btn-outline" href="javascript:void(0)" onclick="openModal('maintenanceModal')">Randevu Al</a>
+        <button class="btn-primary" onclick="showPage('vehicles')">Araçları İncele</button>
+        <button class="btn-outline" onclick="openModal('maintenanceModal')">Randevu Al</button>
       </div>
     </div>
   </div>
@@ -382,16 +382,16 @@
 <script>
   // Sayfa Değiştirme Fonksiyonu
   function showPage(pageId) {
+    // Tüm sayfaları gizle
     var pages = document.querySelectorAll('.page');
     pages.forEach(function(page) {
       page.classList.remove('active');
     });
     
+    // Hedef sayfayı göster
     var targetPage = document.getElementById('page-' + pageId);
     if(targetPage) {
       targetPage.classList.add('active');
     }
 
-    var navButtons = document.querySelectorAll('.nav-btn');
-    navButtons.forEach(function(btn) {
-      btn
+    // Navigasyon b
