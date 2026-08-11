@@ -1,0 +1,4377 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Özdoğanlar Otomotiv | Araç, Yedek Parça ve Teknik Servis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght=500;600;700&family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+body{
+  padding-top:25px;
+} 
+
+.contact-actions{
+  display:flex;
+  gap:10px;
+}
+
+.call-btn,
+.wa-btn{
+  flex:1;
+  padding:12px;
+  border-radius:7px;
+  text-align:center;
+  font-weight:700;
+  color:#fff;
+}
+
+.call-btn{
+  background:#e50914;
+}
+
+.wa-btn{
+  background:#25D366;
+}
+
+:root{
+    --black:#0a0a0a;
+    --dark:#141414;
+    --dark2:#1c1c1c;
+    --dark3:#242424;
+    --border:#2c2c2c;
+    --red:#e50914;
+    --red-dark:#b0060f;
+    --text:#f2f2f2;
+    --muted:#a3a3a3;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:var(--black);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    scroll-behavior:smooth;
+    -webkit-tap-highlight-color:transparent;
+  }
+  body{min-height:100vh;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif;letter-spacing:.5px;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;outline:none;}
+  ::selection{background:var(--red);color:#fff;}
+
+  header{
+    position:sticky;top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(10,10,10,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+    gap:12px;
+  }
+  .logo-area{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .logo-mark{
+    width:42px;height:42px;border-radius:8px;
+    background:linear-gradient(145deg,var(--red),var(--red-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;color:#fff;
+    box-shadow:0 4px 14px rgba(229,9,20,.35);
+  }
+  .logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .logo-text .brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px;color:#fff;white-space:nowrap;}
+  .logo-text .sub{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+
+  nav.main-nav{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;}
+  nav.main-nav::-webkit-scrollbar{display:none;}
+  .nav-btn{
+    background:transparent;color:var(--text);padding:9px 14px;border-radius:6px;
+    font-size:14px;font-weight:500;white-space:nowrap;transition:all 0.2s ease;
+    display: inline-block;
+  }
+  .nav-btn:hover{background:var(--dark3);}
+  
+  .auth-btn{
+    background:var(--red);color:#fff;padding:10px 18px;border-radius:6px;
+    font-weight:600;font-size:14px;white-space:nowrap;transition:background .2s;
+    display: inline-block;
+  }
+  .auth-btn:hover{background:var(--red-dark);}
+
+  /* JAVASCRIPT OLMADAN SAYFA GEÇİŞ SİSTEMİ (CSS :target) */
+  .page {
+    display: none;
+  }
+  #page-home {
+    display: block;
+  }
+  body:has(#page-vehicles:target) .page,
+  body:has(#page-parts:target) .page,
+  body:has(#page-market:target) .page,
+  body:has(#page-about:target) .page {
+    display: none;
+  }
+  #page-home:target,
+  #page-vehicles:target,
+  #page-parts:target,
+  #page-market:target,
+  #page-about:target {
+    display: block !important;
+  }
+
+  body:has(#page-home:target) [data-page="home"],
+  body:not(:has(:target)) [data-page="home"],
+  body:has(#page-vehicles:target) [data-page="vehicles"],
+  body:has(#page-parts:target) [data-page="parts"],
+  body:has(#page-market:target) [data-page="market"],
+  body:has(#page-about:target) [data-page="about"] {
+    color: var(--red);
+    background: var(--dark2);
+  }
+
+  .hero{
+    position:relative;min-height:56vh;display:flex;align-items:center;
+    background:linear-gradient(90deg, rgba(10,10,10,.96) 10%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.15) 100%),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    padding:60px 6vw;
+  }
+  .hero-content{max-width:620px;}
+  .hero-eyebrow{color:var(--red);font-weight:600;letter-spacing:3px;font-size:12px;text-transform:uppercase;margin-bottom:14px;display:block;}
+  .hero h1{font-size:clamp(26px,4.5vw,42px);line-height:1.2;color:#fff;margin-bottom:16px;}
+  .hero h1 span{color:var(--red);}
+  .hero p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:26px;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  
+  .btn-primary{padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;transition:background .2s;display:inline-block;background:var(--red);color:#fff;}
+  .btn-primary:hover{background:var(--red-dark);}
+  .btn-outline{padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.35);transition:background .2s;display:inline-block;background:transparent;color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.08);}
+
+  .section{padding:60px 6vw;}
+  .section-title{font-size:26px;color:#fff;margin-bottom:6px;}
+  .section-title .accent{color:var(--red);}
+  .section-desc{color:var(--muted);font-size:14px;margin-bottom:34px;}
+
+  .quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .quick-card{
+    background:linear-gradient(160deg,var(--dark2),var(--dark));border:1px solid var(--border);
+    border-radius:var(--radius);padding:34px 24px;display:block;transition:all .25s ease;
+  }
+  .quick-card:hover{transform:translateY(-4px);border-color:var(--red);box-shadow: 0 5px 15px rgba(229,9,20,0.15);}
+  .quick-icon{font-size:34px;margin-bottom:16px;display:block;}
+  .quick-card h3{font-size:18px;color:#fff;margin-bottom:8px;}
+  .quick-card p{color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:18px;}
+  .quick-card .go{color:var(--red);font-weight:600;font-size:13px;}
+
+  .page-header{padding:44px 6vw 20px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--dark2),var(--black));}
+  .page-header h2{font-size:30px;color:#fff;}
+  .page-header p{color:var(--muted);margin-top:8px;font-size:14px;}
+
+  .card-grid{padding:44px 6vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
+  .card{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s;}
+  .card:hover{transform: translateY(-2px);}
+  .card-img{height:170px;width:100%;object-fit:cover;background:#000;}
+  .card-body{padding:18px;display:flex;flex-direction:column;flex:1;}
+  .card-tag{display:inline-block;background:rgba(229,9,20,.15);color:var(--red);font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:10px;width:fit-content;}
+  .card h3{font-size:17px;color:#fff;margin-bottom:6px;}
+  .card .meta{color:var(--muted);font-size:13px;margin-bottom:14px;}
+  .card .price{color:#fff;font-weight:700;font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .card .price span{color:var(--muted);font-weight:400;font-size:12px;}
+  .card .price .old-price{color:var(--muted);font-weight:500;font-size:13px;text-decoration:line-through;}
+  .discount-badge{
+    display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--red),var(--red-dark));
+    color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:10px;width:fit-content;
+    box-shadow:0 3px 10px rgba(229,9,20,.35);
+  }
+  .discount-badge::before{content:"🔥";font-size:11px;}
+  .featured-badge{
+    display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#f5b301,#b97d00);
+    color:#1a1200;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:10px;width:fit-content;
+    box-shadow:0 3px 10px rgba(245,179,1,.35);
+  }
+  .card-tag-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .card-tag-row .card-tag,.card-tag-row .discount-badge,.card-tag-row .featured-badge{margin-bottom:0;}
+  .indirim-field-note{color:var(--muted);font-weight:400;font-size:11px;}
+  .featured-card{border-color:#b97d00;box-shadow:0 0 0 1px rgba(245,179,1,.25);}
+  .checkbox-field{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+  .checkbox-field input[type="checkbox"]{width:17px;height:17px;accent-color:var(--red);cursor:pointer;}
+  .checkbox-field label{color:var(--text);font-size:13.5px;font-weight:500;cursor:pointer;}
+
+  .address-list{display:flex;flex-direction:column;gap:10px;margin-bottom:10px;}
+  .address-option{
+    background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;
+    display:flex;align-items:flex-start;gap:10px;cursor:pointer;transition:border-color .2s ease;margin-bottom:10px;
+  }
+  .address-option:hover{border-color:var(--red);}
+  .address-option input[type="radio"]{width:17px;height:17px;accent-color:var(--red);cursor:pointer;margin-top:2px;flex-shrink:0;}
+  .address-option .ao-info{flex:1;min-width:0;}
+  .address-option .ao-info h5{font-size:13.5px;color:#fff;margin-bottom:3px;}
+  .address-option .ao-info span{font-size:12px;color:var(--muted);display:block;line-height:1.4;}
+  .address-new-form{display:none;margin-top:2px;padding-top:12px;border-top:1px dashed var(--border);}
+  .tx-address{display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted);background:var(--dark2);border-radius:6px;padding:8px 10px;width:100%;}
+  #oneCikanSection{display:none;}
+  #oneCikanSection.has-items{display:block;}
+  .card-btn{background:var(--red);color:#fff;padding:11px;border-radius:6px;font-weight:600;font-size:13px;text-align:center;transition:background .2s;}
+  .card-btn:hover{background:var(--red-dark);}
+
+  /* SEPET / SATIN AL BUTONLARI */
+  .card-actions{display:flex;gap:8px;margin-top:auto;padding-top:14px;}
+  .card-actions .card-btn{flex:1;border:none;cursor:pointer;}
+  .card-btn-cart{background:transparent;border:1px solid var(--border);color:var(--text);padding:11px;border-radius:6px;font-weight:600;font-size:13px;text-align:center;transition:all .2s;flex:1;cursor:pointer;}
+  .card-btn-cart:hover{border-color:var(--red);color:var(--red);background:rgba(229,9,20,.08);}
+  .card-btn-buy{background:linear-gradient(135deg,var(--red),var(--red-dark));}
+
+  .cart-btn{
+    position:relative;width:42px;height:42px;border-radius:8px;background:var(--dark3);
+    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+    font-size:18px;color:var(--text);flex-shrink:0;transition:border-color .2s;
+  }
+  .cart-btn:hover{border-color:var(--red);}
+  .cart-badge{
+    position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:10.5px;font-weight:700;
+    min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 4px;
+    box-shadow:0 2px 6px rgba(229,9,20,.5);
+  }
+  .cart-badge.hidden{display:none;}
+  .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+
+  .cart-item{background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .cart-item img{width:54px;height:54px;border-radius:6px;object-fit:cover;background:#000;flex-shrink:0;}
+  .cart-item .ci-info{flex:1;min-width:0;}
+  .cart-item .ci-info h5{font-size:13.5px;color:#fff;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cart-item .ci-info span{font-size:12px;color:var(--muted);display:block;}
+  .cart-item .ci-qty{display:flex;align-items:center;gap:6px;}
+  .cart-item .ci-qty button{width:24px;height:24px;border-radius:5px;background:var(--dark2);color:var(--text);font-size:13px;display:flex;align-items:center;justify-content:center;}
+  .cart-item .ci-qty button:hover{background:var(--red);color:#fff;}
+  .cart-item .ci-qty span{font-size:13px;color:#fff;min-width:16px;text-align:center;}
+  .cart-item .ci-remove{color:var(--muted);font-size:15px;flex-shrink:0;}
+  .cart-item .ci-remove:hover{color:var(--red);}
+  .cart-total{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--border);margin-top:6px;font-weight:700;color:#fff;font-size:15px;}
+
+  /* YENİ HAKKIMIZDA BÖLÜMÜ STİLLERİ */
+  .about-wrap{padding:44px 6vw 80px;display:flex;flex-direction:column;gap:24px;}
+  .about-card{
+    background:var(--dark2); border:1px solid var(--border); border-radius:var(--radius);
+    padding:30px; display:grid; grid-template-columns:70px 1fr; gap:24px; align-items:center;
+  }
+  .about-icon-box{
+    width:70px; height:70px; border-radius:50%; background:var(--dark3);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    font-size:36px;
+  }
+  .about-content h3{font-size:22px; color:#fff; margin-bottom:8px;}
+  .about-content p{color:var(--muted); font-size:14.5px; line-height:1.7;}
+
+  /* ================= ADMİN PANELİ ================= */
+  .admin-panel{max-width:1000px;padding:28px 26px;}
+  .admin-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+  .admin-head-ico{width:52px;height:52px;border-radius:14px;background:linear-gradient(145deg,var(--red),var(--red-dark));display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 6px 18px rgba(229,9,20,.35);flex-shrink:0;}
+  .admin-head h3{font-size:21px;margin-bottom:2px;}
+
+  .admin-menu{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:18px;}
+  .admin-menu .modal-submit{width:auto;flex:1 1 150px;background:var(--dark3);color:var(--text);border:1px solid var(--border);font-size:12.5px;padding:11px 10px;margin-top:0;}
+  .admin-menu .modal-submit:hover{border-color:var(--red);background:var(--dark2);color:#fff;}
+  .admin-menu .modal-submit.active{background:var(--red);color:#fff;border-color:var(--red);}
+  .admin-subtabs{display:flex;gap:8px;margin:14px 0 22px;}
+  .sub-tab-btn{flex:1;background:var(--dark3);color:var(--text);border:1px solid var(--border);font-size:12.5px;font-weight:700;padding:11px 8px;border-radius:7px;text-align:center;cursor:pointer;transition:all .2s ease;}
+  .sub-tab-btn:hover{border-color:var(--red);background:var(--dark2);color:#fff;}
+  .sub-tab-btn.active{background:var(--red);color:#fff;border-color:var(--red);}
+  .admin-subsection h4{margin-top:0;}
+
+  .admin-section{animation:profileFadeIn .3s ease;}
+  .admin-section h4{font-size:16px;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:30px;}
+  .stat-card{
+    background:linear-gradient(160deg,var(--dark2),var(--dark));border:1px solid var(--border);
+    border-radius:12px;padding:18px 16px;position:relative;overflow:hidden;
+    backdrop-filter:blur(6px);transition:all .25s ease;
+  }
+  .stat-card:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 8px 20px rgba(229,9,20,.15);}
+  .stat-card .st-ico{font-size:20px;margin-bottom:10px;display:block;opacity:.9;}
+  .stat-card .st-val{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:4px;word-break:break-all;}
+  .stat-card .st-lbl{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.3px;}
+  .stat-card::after{content:"";position:absolute;top:-30px;right:-30px;width:80px;height:80px;border-radius:50%;background:rgba(229,9,20,.08);}
+
+  .admin-columns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:10px;}
+  .admin-col-box{background:var(--dark2);border:1px solid var(--border);border-radius:10px;padding:16px;}
+  .admin-col-box h5{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:700;}
+  .admin-col-box .mini-list{gap:8px;}
+  .admin-col-box .mini-item{padding:9px 10px;background:var(--dark3);}
+  .admin-col-box .mini-item img{width:38px;height:38px;}
+
+  .tx-item{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;background:var(--dark3);border-radius:7px;font-size:12px;gap:8px;}
+  .tx-item + .tx-item{margin-top:8px;}
+  .tx-item .tx-l{color:var(--text);font-weight:600;}
+  .tx-item .tx-s{color:var(--muted);font-size:11px;display:block;margin-top:2px;}
+  .tx-item .tx-amt{font-weight:700;white-space:nowrap;}
+  .tx-amt.pos{color:#3ddc84;}
+  .tx-amt.neg{color:var(--red);}
+
+  .send-box{max-width:440px;background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:22px;}
+  .send-result{margin-top:12px;font-size:12.5px;color:var(--muted);}
+
+  @media(max-width:900px){
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .admin-columns{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .admin-panel{padding:20px 16px;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ================= PUAN MARKET / GENEL GLASS ================= */
+  .glass{background:rgba(28,28,28,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);}
+
+  footer{border-top:1px solid var(--border);padding:26px 6vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px;}
+  footer .fbrand{color:#fff;font-weight:600;}
+  footer .fbrand span{color:var(--red);}
+
+  /* JAVASCRIPT OLMADAN MODAL SİSTEMİ */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay:target {
+    display: flex;
+  }
+  .modal-box{
+    background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+    width:100%;max-width:440px;padding:26px 24px;position:relative;
+    max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  }
+  .modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--dark3);color:var(--muted);display:flex;align-items:center;justify-content:center;z-index:5;}
+  .modal-close:hover{background:var(--red);color:#fff;}
+  .modal-box h3{font-size:20px;color:#fff;margin-bottom:4px;}
+  .modal-sub{color:var(--muted);font-size:13px;margin-bottom:20px;}
+
+  /* No-JS Tab Yapısı Mekaniği */
+  .tab-row{display:flex;background:var(--dark3);border-radius:8px;padding:4px;margin-bottom:20px;}
+  .tab-btn{flex:1;text-align:center;color:var(--muted);padding:10px;border-radius:6px;font-weight:600;font-size:13px;}
+  
+  .tab-panel { display: none; }
+  
+  #authModal:target #loginTab, 
+  #login-target:target #loginTab { display: block; }
+  #register-target:target #registerTab { display: block; }
+  #register-target .modal-submit{
+  cursor:pointer;
+}
+  #authModal:target #btn-tab-l, #login-target:target #btn-tab-l { background: var(--red); color: #fff; }
+  #register-target:target #btn-tab-r { background: var(--red); color: #fff; }
+
+  .divider { height: 1px; background: var(--border); margin: 22px 0; position: relative; text-align: center; }
+  .divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark2); padding: 0 10px; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  .field{margin-bottom:14px; text-align: left;}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:500;}
+  .field input, .field textarea, .field select{width:100%;background:var(--dark3);border:1px solid var(--border);border-radius:6px;padding:11px 12px;color:#fff;font-size:14px;font-family:inherit;outline:none;appearance:none;-webkit-appearance:none;}
+  .field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a3' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;}
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--red);}
+  .field textarea{resize:none; height:70px;}
+
+  .market-balance-bar{
+    margin:0 6vw 0;display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,rgba(229,9,20,.16),rgba(229,9,20,.04));
+    border:1px solid rgba(229,9,20,.35);border-radius:10px;padding:14px 20px;
+    color:var(--muted);font-size:13px;font-weight:600;width:fit-content;
+    backdrop-filter:blur(6px);
+  }
+  .market-balance-bar strong{color:#fff;font-size:20px;font-family:'Oswald',sans-serif;}
+  @media(max-width:680px){.market-balance-bar{margin:0 5vw;}}
+  .point-price{color:var(--red);font-weight:700;font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+  .point-price::before{content:"🏆";font-size:14px;}
+  
+  .modal-submit{width:100%;background:var(--red);color:#fff;padding:13px;border-radius:7px;font-weight:700;font-size:14px;margin-top:6px;text-align:center;display:block;}
+  .modal-submit:hover{background:var(--red-dark);}
+
+  /* ================= PROFİL SİSTEMİ ================= */
+  @keyframes profileFadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes avatarPop{from{transform:scale(.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+  .profile-trigger{
+    display:flex;align-items:center;justify-content:center;background:var(--dark3);
+    width:40px;height:40px;padding:0;border-radius:50%;border:1px solid var(--border);
+    transition:all .25s ease;animation:profileFadeIn .3s ease;flex-shrink:0;
+  }
+  .profile-trigger:hover{border-color:var(--red);background:var(--dark2);}
+  .profile-avatar,.profile-avatar-fallback{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+  .profile-avatar-fallback{
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(145deg,var(--red),var(--red-dark));
+    color:#fff;font-weight:700;font-size:13px;font-family:'Oswald',sans-serif;
+  }
+
+  .user-menu-wrap{position:relative;flex-shrink:0;}
+  .menu-trigger{
+    display:flex;align-items:center;justify-content:center;background:var(--dark3);
+    width:40px;height:40px;padding:0;border-radius:50%;border:1px solid var(--border);
+    color:var(--text);font-size:17px;line-height:1;
+    transition:all .25s ease;animation:profileFadeIn .3s ease;
+  }
+  .menu-trigger:hover,.menu-trigger.open{border-color:var(--red);background:var(--dark2);color:#fff;}
+  .user-menu-dropdown{
+    position:absolute;top:calc(100% + 10px);right:0;min-width:230px;
+    background:var(--dark2);border:1px solid var(--border);border-radius:10px;
+    padding:8px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 12px 32px rgba(0,0,0,.45);z-index:200;
+    animation:profileFadeIn .2s ease;
+  }
+  .user-menu-dropdown.open{display:flex;}
+  .user-menu-btn{
+    width:100%;text-align:left;background:transparent;color:var(--text);
+    padding:10px 12px;border-radius:7px;font-size:13px;font-weight:600;
+    display:flex;align-items:center;gap:9px;
+  }
+  .user-menu-btn:hover{background:var(--dark3);color:#fff;}
+  .user-menu-btn.logout-btn{color:var(--red);}
+  .user-menu-btn.logout-btn:hover{background:var(--red);color:#fff;}
+  .user-menu-divider{height:1px;background:var(--border);margin:6px 2px;}
+
+  .profile-box{max-width:820px;padding:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:profileFadeIn .35s ease;}
+  .profile-head{
+    background:linear-gradient(135deg,var(--dark3),var(--dark2));
+    padding:30px 28px;display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--border);position:relative;
+  }
+  .profile-head .modal-close{top:16px;right:16px;}
+  .profile-avatar-lg,.profile-avatar-lg-fallback{width:78px;height:78px;border-radius:50%;object-fit:cover;border:3px solid var(--red);animation:avatarPop .4s ease;flex-shrink:0;}
+  .profile-avatar-lg-fallback{
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(145deg,var(--red),var(--red-dark));
+    color:#fff;font-weight:700;font-size:28px;font-family:'Oswald',sans-serif;
+  }
+  .profile-head-info h3{font-size:20px;color:#fff;margin-bottom:4px;}
+  .profile-head-info p{color:var(--muted);font-size:13px;}
+
+  .profile-layout{display:grid;grid-template-columns:190px 1fr;min-height:420px;}
+  .profile-tabs{background:var(--black);border-right:1px solid var(--border);padding:14px 0;display:flex;flex-direction:column;}
+  .profile-tab-btn{
+    background:transparent;color:var(--muted);text-align:left;padding:12px 22px;font-size:13.5px;font-weight:500;
+    border-left:3px solid transparent;transition:all .2s ease;display:flex;align-items:center;gap:9px;width:100%;
+  }
+  .profile-tab-btn:hover{color:#fff;background:var(--dark3);}
+  .profile-tab-btn.active{color:#fff;border-left-color:var(--red);background:var(--dark2);font-weight:600;}
+
+  .profile-panels{padding:26px 28px;max-height:60vh;overflow-y:auto;}
+  .profile-panel{display:none;animation:profileFadeIn .3s ease;}
+  .profile-panel.active{display:block;}
+  .profile-panel h4{font-size:16px;color:#fff;margin-bottom:16px;}
+
+  .info-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border);gap:14px;}
+  .info-row:last-child{border-bottom:none;}
+  .info-row .k{color:var(--muted);font-size:12.5px;font-weight:500;}
+  .info-row .v{color:#fff;font-size:13.5px;font-weight:600;text-align:right;word-break:break-all;}
+
+  .mini-list{display:flex;flex-direction:column;gap:10px;}
+  .mini-item{background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:12px;transition:border-color .2s ease;}
+  .mini-item:hover{border-color:var(--red);}
+  .mini-item img{width:52px;height:52px;border-radius:6px;object-fit:cover;background:#000;flex-shrink:0;}
+  .mini-item .mi-info{flex:1;min-width:0;}
+  .mini-item .mi-info h5{font-size:13.5px;color:#fff;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .mini-item .mi-info span{font-size:12px;color:var(--muted);}
+  .mini-actions{display:flex;gap:6px;flex-shrink:0;}
+  .mi-btn{width:32px;height:32px;border-radius:6px;background:var(--dark2);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s ease;}
+  .mi-btn:hover{background:var(--red);color:#fff;}
+  .empty-state{color:var(--muted);font-size:13px;text-align:center;padding:30px 10px;}
+
+  .card{position:relative;}
+  .fav-heart{
+    position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;
+    background:rgba(10,10,10,.65);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;
+    font-size:15px;transition:all .2s ease;z-index:2;
+  }
+  .fav-heart:hover{transform:scale(1.12);background:rgba(229,9,20,.85);}
+  .fav-heart.active{background:var(--red);}
+
+  .notif-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--border);}
+  .notif-item:last-child{border-bottom:none;}
+  .notif-ico{width:36px;height:36px;border-radius:50%;background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .notif-body h5{font-size:13px;color:#fff;margin-bottom:3px;}
+  .notif-body p{font-size:12px;color:var(--muted);line-height:1.5;}
+  .notif-body .nt-time{font-size:10.5px;color:#5a5a5a;margin-top:4px;display:block;}
+  .notif-group-title{font-size:11px;color:var(--red);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin:20px 0 10px;}
+  .notif-group-title:first-child{margin-top:0;}
+
+  .settings-photo-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+  .settings-photo-row .profile-avatar-lg,.settings-photo-row .profile-avatar-lg-fallback{width:64px;height:64px;font-size:22px;}
+  .file-btn{background:var(--dark3);border:1px solid var(--border);color:#fff;padding:9px 16px;border-radius:6px;font-size:12.5px;font-weight:600;transition:all .2s ease;position:relative;overflow:hidden;display:inline-block;}
+  .file-btn:hover{border-color:var(--red);}
+  .file-btn input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .settings-divider{height:1px;background:var(--border);margin:24px 0;}
+
+  .forgot-pass-link{display:block;text-align:center;margin-top:16px;font-size:12.5px;color:var(--muted);text-decoration:underline;}
+  .forgot-pass-link:hover{color:var(--red);}
+
+  .method-tab-row{display:flex;background:var(--dark3);border-radius:8px;padding:4px;margin-bottom:20px;gap:4px;}
+  .method-tab-btn{flex:1;text-align:center;color:var(--muted);padding:10px 6px;border-radius:6px;font-weight:600;font-size:12.5px;background:transparent;}
+  .method-tab-btn.active{background:var(--red);color:#fff;}
+
+  .fp-step{animation:profileFadeIn .25s ease;}
+
+  /* ============ CÜZDAN / BAKİYE YÜKLEME — PROFESYONEL PANEL ============ */
+  .wallet-hero{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;
+  }
+  .wallet-hero-card{
+    position:relative;overflow:hidden;border-radius:14px;padding:20px 22px;
+    background:linear-gradient(135deg,var(--dark3) 0%,var(--dark2) 100%);
+    border:1px solid var(--border);
+  }
+  .wallet-hero-card.balance{
+    background:linear-gradient(135deg,#123a2a 0%,var(--dark2) 65%);border-color:#1f5c40;
+  }
+  .wallet-hero-card.points{
+    background:linear-gradient(135deg,#3a1214 0%,var(--dark2) 65%);border-color:var(--red-dark);
+  }
+  .wallet-hero-card::after{
+    content:"";position:absolute;top:-40px;right:-30px;width:120px;height:120px;border-radius:50%;
+    background:rgba(255,255,255,.04);
+  }
+  .wallet-hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .wallet-hero-label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;}
+  .wallet-hero-ico{font-size:20px;opacity:.85;}
+  .wallet-hero-val{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#fff;line-height:1;position:relative;z-index:1;}
+  .wallet-hero-card.balance .wallet-hero-val{color:#3ddc84;}
+  .wallet-hero-card.points .wallet-hero-val{color:#ff5c63;}
+
+  .wallet-section-title{
+    display:flex;align-items:center;gap:8px;font-size:14.5px;color:#fff;font-weight:700;
+    margin:26px 0 14px;font-family:'Oswald',sans-serif;letter-spacing:.4px;
+  }
+  .wallet-section-title .line{flex:1;height:1px;background:var(--border);}
+
+  .amount-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .amount-chip{
+    background:var(--dark3);border:1px solid var(--border);color:var(--text);
+    padding:9px 16px;border-radius:20px;font-size:13px;font-weight:600;transition:all .18s ease;
+  }
+  .amount-chip:hover{border-color:var(--red);color:#fff;}
+  .amount-chip.active{background:var(--red);border-color:var(--red);color:#fff;}
+
+  .bank-info-box{
+    background:var(--dark3);border:1px dashed var(--border);border-radius:10px;
+    padding:16px 18px;margin-bottom:16px;
+  }
+  .bank-info-box .bi-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;gap:10px;}
+  .bank-info-box .bi-row + .bi-row{border-top:1px solid var(--border);}
+  .bank-info-box .bi-k{color:var(--muted);font-size:12px;font-weight:500;}
+  .bank-info-box .bi-v{color:#fff;font-size:13px;font-weight:700;text-align:right;word-break:break-all;}
+  .bank-info-box .bi-note{color:var(--muted);font-size:11.5px;line-height:1.5;margin-top:10px;}
+
+  .status-badge{
+    display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:20px;
+    font-size:11px;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;
+  }
+  .status-badge.pending{background:rgba(255,180,0,.12);color:#ffb400;border:1px solid rgba(255,180,0,.35);}
+  .status-badge.approved{background:rgba(61,220,132,.12);color:#3ddc84;border:1px solid rgba(61,220,132,.35);}
+  .status-badge.rejected{background:rgba(229,9,20,.12);color:#ff5c63;border:1px solid rgba(229,9,20,.35);}
+
+  .request-item{
+    background:var(--dark3);border:1px solid var(--border);border-radius:8px;
+    padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .request-item + .request-item{margin-top:8px;}
+  .request-item .ri-info h5{font-size:13px;color:#fff;margin-bottom:3px;}
+  .request-item .ri-info span{font-size:11.5px;color:var(--muted);}
+  .request-item .ri-actions{display:flex;gap:6px;flex-shrink:0;}
+  .ri-btn{
+    padding:8px 13px;border-radius:6px;font-size:12px;font-weight:700;transition:all .18s ease;
+  }
+  .ri-btn.approve{background:rgba(61,220,132,.12);color:#3ddc84;border:1px solid rgba(61,220,132,.4);}
+  .ri-btn.approve:hover{background:#3ddc84;color:#0a0a0a;}
+  .ri-btn.reject{background:rgba(229,9,20,.1);color:#ff5c63;border:1px solid rgba(229,9,20,.35);}
+  .ri-btn.reject:hover{background:var(--red);color:#fff;}
+
+  .admin-tab-badge{
+    display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;
+    background:#fff;color:var(--red);font-size:10.5px;font-weight:800;border-radius:20px;
+    padding:0 5px;margin-left:6px;vertical-align:middle;
+  }
+
+  @media(max-width:520px){
+    .wallet-hero{grid-template-columns:1fr;}
+    .request-item{flex-direction:column;align-items:flex-start;}
+    .request-item .ri-actions{width:100%;}
+    .ri-btn{flex:1;text-align:center;}
+  }
+
+  .phone-link-status{font-size:12.5px;padding:9px 12px;border-radius:7px;background:var(--dark3);border:1px solid var(--border);color:var(--muted);margin-bottom:14px;}
+  .phone-link-status.verified{color:#3ddc84;border-color:#3ddc84;background:rgba(61,220,132,.08);}
+
+  .admin-security-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,220,132,.1);border:1px solid #3ddc84;color:#3ddc84;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:20px;letter-spacing:.3px;}
+  .admin-sec-box{background:var(--dark2);border:1px solid var(--border);border-radius:10px;padding:20px;max-width:420px;}
+  .admin-sec-box h5{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+  .logout-btn{background:transparent;border:1px solid var(--red);color:var(--red);}
+  .logout-btn:hover{background:var(--red);color:#fff;}
+
+  @media(max-width:720px){
+    .profile-box{max-width:94vw;}
+    .profile-layout{grid-template-columns:1fr;}
+    .profile-tabs{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:10px 8px;scrollbar-width:none;}
+    .profile-tabs::-webkit-scrollbar{display:none;}
+    .profile-tab-btn{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;padding:9px 14px;}
+    .profile-tab-btn.active{border-left-color:transparent;border-bottom-color:var(--red);}
+    .profile-head{padding:22px 18px;}
+    .profile-panels{padding:20px 18px;max-height:none;}
+  }
+
+  @media(max-width:880px){
+    .quick-grid{grid-template-columns:1fr;}
+    .about-card{grid-template-columns:1fr; text-align:center; justify-items:center;}
+  }
+  @media(max-width:680px){
+    header{flex-wrap:wrap;padding:12px 16px;}
+    nav.main-nav{order:3;width:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid var(--border);margin-top:6px;}
+    .hero{padding:44px 5vw;min-height:46vh;}
+    .section,.card-grid,.about-wrap,.page-header{padding-left:5vw;padding-right:5vw;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#page-home" class="logo-area">
+    <div class="logo-mark">ÖZ</div>
+    <div class="logo-text">
+      <span class="brand">ÖZDOĞANLAR</span>
+      <span class="sub">Otomotiv</span>
+    </div>
+  </a>
+  <nav class="main-nav">
+    <a href="#page-home" class="nav-btn" data-page="home">Ana Sayfa</a>
+    <a href="#page-vehicles" class="nav-btn" data-page="vehicles">Araçlar</a>
+    <a href="#page-parts" class="nav-btn" data-page="parts">Parçalar</a>
+    <a href="#page-market" class="nav-btn" data-page="market">Puan Market</a>
+    <a href="#page-about" class="nav-btn" data-page="about">Hakkımızda</a>
+  </nav>
+  <div class="header-actions">
+    <a href="#cartModal" class="cart-btn" title="Sepetim" onclick="return sepetAcKontrol();">🛒<span class="cart-badge hidden" id="cartBadge">0</span></a>
+    <div id="userArea">
+      <a href="#authModal" class="auth-btn">Giriş / Kayıt Ol</a>
+    </div>
+  </div>
+</header>
+<section id="page-home" class="page">
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">ÖZDOĞANLAR OTOMOTİV</span>
+      <h1>Güven ve Tecrübeyle Şekillenen <span>Otomotiv Çözümleri</span></h1>
+      <p>Özdoğanlar Otomotiv olarak; bütçenize uygun kaliteli sıfır ve ikinci el araç satışı, BSG ve Forka gibi dünya devleriyle iş birliği yaptığımız orijinal yedek parça tedariki ve çeyrek asırlık tecrübemizle uzman teknik servis, bakım ve onarım hizmetlerini tek çatı altında eksiksiz sunuyoruz.</p>
+      <div class="hero-cta">
+        <a href="#page-vehicles" class="btn-primary">Araçları İncele</a>
+        <a href="#maintenanceModal" class="btn-outline">Randevu Al</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="oneCikanSection" style="padding-bottom:26px;">
+    <h2 class="section-title">⚡<span class="accent">Öne Çıkan</span> İlanlar</h2>
+    <p class="section-desc">Sizin için özenle seçtiğimiz, uygun ve iyi öne çıkan ilanlar!</p>
+    <div class="card-grid" id="oneCikanListesi" style="padding:0;"></div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Hızlı <span class="accent">Katalog</span> Seçimi</h2>
+    <p class="section-desc">İhtiyacınıza uygun kategoriyi seçin, saniyeler içinde yönlendirelim.</p>
+    <div class="quick-grid">
+      <a href="#page-vehicles" class="quick-card">
+        <span class="quick-icon">🚗</span>
+        <h3>Araçlar Kataloğu</h3>
+        <p>Kontrolden geçmiş, güvenilir ikinci el ve sıfır araç seçenekleri.</p>
+        <span class="go">Kataloğu Gör →</span>
+      </a>
+      <a href="#maintenanceModal" class="quick-card">
+        <span class="quick-icon">🔧</span>
+        <h3>Tamir & Bakım</h3>
+        <p>Uzman ekibimizden hızlı destek veya randevu oluşturun.</p>
+        <span class="go">Seçim Yap →</span>
+      </a>
+      <a href="#page-parts" class="quick-card">
+        <span class="quick-icon">⚙️</span>
+        <h3>Parçalar Kataloğu</h3>
+        <p>Ford, Kia, Hyundai ve daha fazlası için orijinal parça.</p>
+        <span class="go">Kataloğu Gör →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="page-vehicles" class="page">
+  <div class="page-header">
+    <h2>Satılık Araçlar</h2>
+    <p>Tüm araçlarımız teknik ekibimiz tarafından kontrol edilmiş ve satışa hazır hale getirilmiştir.</p>
+  </div>
+  <div class="card-grid">
+    <div id="ilanListesi"></div>
+    
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+<section id="page-parts" class="page">
+  <div class="page-header">
+    <h2>Yedek Parça Kataloğu</h2>
+    <p>Ford, Kia ve Hyundai başta olmak üzere orijinal yedek parça temin ediyoruz.</p>
+  </div>
+  <div class="card-grid">
+    <div id="parcaListesi"></div>
+    
+    
+    </div>
+  </div>
+</section>
+
+<section id="page-market" class="page">
+  <div class="page-header">
+    <h2>Puan Market</h2>
+    <p>Kazandığınız puanlarla özel ürün ve avantajları hemen satın alın.</p>
+  </div>
+  <div class="market-balance-bar" id="marketBalanceBar" style="display:none;">
+    <span>Mevcut Puanınız</span>
+    <strong id="marketMyPoints">0</strong> P
+  </div>
+  <div class="card-grid" id="marketListesi">
+    <div class="empty-state">Yükleniyor...</div>
+  </div>
+</section>
+
+<section id="page-about" class="page">
+  <div class="page-header">
+    <h2>Kurumsal Kimliğimiz</h2>
+    <p>Özdoğanlar Otomotiv'in köklü geçmişi, uzman kadrosu ve sarsılmaz çalışma ilkeleri.</p>
+  </div>
+  <div class="about-wrap">
+    
+    <div class="about-card">
+      <div class="about-icon-box">🔧</div>
+      <div class="about-content">
+        <h3>Tamir & Bakım</h3>
+        <p>Kurucularımızdan <strong>Zeynal Doğan</strong>, 1999 yılından bu yana kesintisiz olarak otomotiv sektöründe faaliyet göstermektedir. Yılların verdiği derin tecrübe, profesyonel ekipmanlarla birleşerek her türlü periyodik bakım, ağır onarım ve teknik servis hizmetini en üst kalitede sunmamızı sağlar. Servisimizde güven, mutlak kalite ve kusursuz müşteri memnuniyeti ana ilkemizdir.</p>
+      </div>
+    </div>
+
+    <div class="about-card">
+      <div class="about-icon-box">🚗</div>
+      <div class="about-content">
+        <h3>Araç Galerisi</h3>
+        <p><strong>Yaşar Doğan & Zeynal Doğan</strong> ortaklığıyla yönetilen galerimiz, geniş araç yelpazesiyle hem sıfır hem de ikinci el araç satışı alanında hizmet vermektedir. Satış listemizde yer alan tüm araçlar şeffaf ekspertiz süreçlerinden geçirilir; kaliteli, güvenilir ve piyasa koşullarına göre en uygun fiyatlı seçeneklerle siz değerli müşterilerimize sunulur.</p>
+      </div>
+    </div>
+
+    <div class="about-card">
+      <div class="about-icon-box">⚙️</div>
+      <div class="about-content">
+        <h3>Yedek Parça</h3>
+        <p>Yedek parça departmanımızda, otomotiv sektörünün dünya çapındaki lider markaları olan <strong>BSG ve Forka</strong> başta olmak üzere büyük üreticilerle doğrudan iş birliği yapmaktayız. Stoklarımızda bulunan tüm parçalar tamamen sıfır, yüksek kaliteli ve güvenilirdir. Aracınızın performansını ve ömrünü korumak için sadece onaylı ürünleri titizlikle temin ediyoruz.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="maintenanceModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#" class="modal-close">×</a>
+    <h3>Hızlı Teknik Destek & Randevu</h3>
+    <p class="modal-sub" style="margin-bottom:12px;">Hızlı iletişim kanallarımızı kullanabilir veya formu doldabilirsiniz.</p>
+    
+    <div class="contact-actions" style="margin-bottom: 5px;">
+      <a class="call-btn" href="tel:+905079876219">📞 Hemen Ara</a>
+      <a class="wa-btn" href="https://wa.me/905079876219?text=Merhaba%20servis%20randevusu%20almak%20istiyorum." target="_blank">💬 WhatsApp</a>
+    </div>
+
+    <div class="divider">
+      <span>VEYA RANDEVU FORMU</span>
+    </div>
+
+    <form id="randevuForm" action="#" method="POST" onsubmit="return false;">
+      <div class="field">
+        <label>Adınız Soyadınız</label>
+        <input type="text" id="randevuAd" placeholder="Örn: Ahmet Yılmaz" required>
+      </div>
+      <div class="field">
+        <label>Numaranız</label>
+        <input type="tel" id="randevuTel" placeholder="Örn: 0507 123 45 67" required>
+      </div>
+      <div class="field">
+        <label>Araç Markası ve Modeli</label>
+        <input type="text" id="randevuArac" placeholder="Örn: 2018 Ford Focus" required>
+      </div>
+      <div class="field">
+        <label>Aracın Neyi Var? (Şikayet / İşlem)</label>
+        <textarea id="randevuSikayet" placeholder="Örn: Periyodik bakım yapılacak ve fren balataları değişecek." required></textarea>
+      </div>
+      <a href="#" class="modal-submit" id="randevuSubmitBtn" onclick="randevuGonder(); return false;">Randevu Talebi Gönder</a>
+    </form>
+  </div>
+</div>
+<div id="cartModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#" class="modal-close">×</a>
+    <h3>Sepetim</h3>
+    <p class="modal-sub" style="margin-bottom:14px;">Seçtiğiniz araç ve parçalar. Siparişi WhatsApp üzerinden iletebilirsiniz.</p>
+    <div id="cartListWrap"></div>
+    <div class="cart-total" id="cartTotalWrap" style="display:none;">
+      <span>Toplam</span>
+      <span id="cartTotalText">0 ₺</span>
+    </div>
+    <a href="#" class="modal-submit" id="cartWaBtn" onclick="sepetiWhatsappGonder(); return false;">💬 Siparişi WhatsApp'tan Gönder</a>
+    <div class="contact-actions" style="margin-top:10px;">
+      <a class="call-btn" href="tel:+905079876219">📞 Canlı Destek: Hemen Ara</a>
+    </div>
+  </div>
+</div>
+<div id="buySelectModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#" class="modal-close">×</a>
+    <h3>⚡ Satın Alma</h3>
+
+    <div id="buySelectStep1">
+      <p class="modal-sub" style="margin-bottom:16px;" id="buySelectText">Nasıl devam etmek istersiniz?</p>
+      <a href="#" class="modal-submit" id="buyBakiyeBtn" onclick="bakiyeSatinAlBaslat(); return false;" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;background:#1f8a4c;">💰 Bakiyemle Satın Al</a>
+      <div class="contact-actions">
+        <a href="#" class="wa-btn" onclick="satinAlWhatsappGonder(); return false;">💬 WhatsApp</a>
+        <a href="tel:+905079876219" class="call-btn">📞 Telefon</a>
+      </div>
+    </div>
+
+    <div id="buySelectStep2" style="display:none;">
+      <p class="modal-sub" style="margin-bottom:14px;">📍 Teslimat adresinizi seçin</p>
+
+      <div id="buyAdresListe" class="address-list"></div>
+
+      <label class="address-option">
+        <input type="radio" name="buyAdresSecim" id="buyAdresYeniRadio" value="yeni" onchange="buyAdresSecimGuncelle()">
+        <div class="ao-info">
+          <h5>➕ Yeni Adres Kullan</h5>
+          <span>Bu sipariş için farklı bir adres girin</span>
+        </div>
+      </label>
+
+      <div id="buyAdresYeniForm" class="address-new-form">
+        <div class="field">
+          <label>Adres Başlığı <span class="indirim-field-note">(opsiyonel)</span></label>
+          <input id="buyYeniAdresBaslik" type="text" placeholder="Örn: Ev, İş">
+        </div>
+        <div class="field">
+          <label>Telefon</label>
+          <input id="buyYeniAdresTelefon" type="tel" placeholder="+90 5XX XXX XX XX">
+        </div>
+        <div class="field">
+          <label>Şehir</label>
+          <input id="buyYeniAdresSehir" type="text" placeholder="Örn: İstanbul">
+        </div>
+        <div class="field">
+          <label>Açık Adres</label>
+          <textarea id="buyYeniAdresMetni" placeholder="Mahalle, cadde/sokak, ilçe, kapı no vb."></textarea>
+        </div>
+        <div class="checkbox-field">
+          <input id="buyYeniAdresKaydet" type="checkbox" checked>
+          <label for="buyYeniAdresKaydet">Bu adresi hesabıma kaydet</label>
+        </div>
+      </div>
+
+      <a href="#" class="modal-submit" onclick="bakiyeIleSatinAl(); return false;" style="background:#1f8a4c;">✅ Satın Almayı Tamamla</a>
+      <a href="#" class="modal-submit" style="background:var(--dark3);margin-top:10px;" onclick="buySelectStepGeri(); return false;">◀ Geri Dön</a>
+    </div>
+
+    <div class="send-result" id="buyBakiyeSonuc"></div>
+  </div>
+</div>
+<div id="recaptcha-container"></div>
+<div id="authModal" class="modal-overlay">
+  <div class="modal-box">
+
+    <a href="#" class="modal-close">×</a>
+
+    <h3>Hesap İşlemleri</h3>
+    <p class="modal-sub">Hesabınıza giriş yapın veya kayıt olun.</p>
+
+    <div class="tab-row">
+      <a href="#authModal" class="tab-btn">Giriş Yap</a>
+      <a href="#register-target" class="tab-btn">Kayıt Ol</a>
+    </div>
+
+    <div class="field">
+      <label>E-posta</label>
+      <input id="loginEmail" type="email" placeholder="E-posta adresiniz">
+    </div>
+
+    <div class="field">
+      <label>Şifre</label>
+      <input id="loginPassword" type="password" placeholder="Şifreniz">
+    </div>
+
+    <button class="modal-submit" onclick="loginUser()">
+Giriş Yap
+</button>
+
+    <a href="#forgotPasswordModal" class="forgot-pass-link">Şifremi unuttum?</a>
+
+  </div>
+</div>
+
+<!-- ================= ŞİFREMİ UNUTTUM ================= -->
+<div id="forgotPasswordModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#authModal" class="modal-close">×</a>
+
+    <h3>🔐 Şifremi Unuttum</h3>
+    <p class="modal-sub">Hesabınızı doğrulamak için bir yöntem seçin. Size gönderdiğimiz kodla şifrenizi güvenle sıfırlayabilirsiniz.</p>
+
+    <div class="method-tab-row" id="fpMethodTabs">
+      <button type="button" class="method-tab-btn active" onclick="fpSwitchMethod('email',this)">📧 E-posta ile</button>
+      <button type="button" class="method-tab-btn" onclick="fpSwitchMethod('phone',this)">📱 Telefon ile</button>
+    </div>
+
+    <!-- ADIM 1: E-POSTA -->
+    <div id="fp-email-step1" class="fp-step">
+      <div class="field">
+        <label>Kayıtlı E-posta Adresiniz</label>
+        <input id="fpEmail" type="email" placeholder="ornek@mail.com">
+      </div>
+      <button class="modal-submit" onclick="fpSendEmailCode()">📨 Kodu / Bağlantıyı Gönder</button>
+      <div class="send-result" id="fpEmailSonuc"></div>
+    </div>
+
+    <!-- ADIM 2: E-POSTA KODU DOĞRULAMA (link tıklanamazsa manuel kod) -->
+    <div id="fp-email-step2" class="fp-step" style="display:none;">
+      <p class="modal-sub">E-postanıza bir sıfırlama bağlantısı gönderdik. Bağlantıya tıklamanız yeterlidir; bağlantıyı açamıyorsanız, e-postadaki bağlantının sonunda yer alan <b>kodu</b> (oobCode=... kısmındaki değer) aşağıya yapıştırın.</p>
+      <div class="field">
+        <label>Doğrulama Kodu</label>
+        <input id="fpEmailCode" type="text" placeholder="E-postadaki kodu yapıştırın">
+      </div>
+      <button class="modal-submit" onclick="fpVerifyEmailCode()">✅ Kodu Doğrula</button>
+      <div class="send-result" id="fpEmailCodeSonuc"></div>
+    </div>
+
+    <!-- ADIM 1: TELEFON -->
+    <div id="fp-phone-step1" class="fp-step" style="display:none;">
+      <div class="field">
+        <label>Kayıtlı Telefon Numaranız</label>
+        <input id="fpPhone" type="tel" placeholder="+90 5XX XXX XX XX">
+      </div>
+      <p class="modal-sub" style="font-size:12px;">Bu numaranın, hesabınızda önceden "Telefon Numaramı Doğrula" ile bağlanmış olması gerekir (Hesap Ayarları içinden yapılabilir).</p>
+      <button class="modal-submit" onclick="fpSendPhoneCode()">📨 SMS Kodu Gönder</button>
+      <div class="send-result" id="fpPhoneSonuc"></div>
+    </div>
+
+    <!-- ADIM 2: TELEFON KODU -->
+    <div id="fp-phone-step2" class="fp-step" style="display:none;">
+      <div class="field">
+        <label>SMS ile Gelen 6 Haneli Kod</label>
+        <input id="fpPhoneCode" type="text" maxlength="6" placeholder="123456">
+      </div>
+      <button class="modal-submit" onclick="fpVerifyPhoneCode()">✅ Kodu Doğrula</button>
+      <div class="send-result" id="fpPhoneCodeSonuc"></div>
+    </div>
+
+    <!-- ADIM 3 (HER İKİ YÖNTEM): YENİ ŞİFRE -->
+    <div id="fp-newpass-step" class="fp-step" style="display:none;">
+      <p class="modal-sub">✅ Kimliğiniz doğrulandı. Şimdi yeni şifrenizi belirleyin.</p>
+      <div class="field">
+        <label>Yeni Şifre</label>
+        <input id="fpNewPassword" type="password" placeholder="En az 6 karakter">
+      </div>
+      <div class="field">
+        <label>Yeni Şifre (Tekrar)</label>
+        <input id="fpNewPassword2" type="password" placeholder="Şifrenizi tekrar girin">
+      </div>
+      <button class="modal-submit" onclick="fpSetNewPassword()">🔒 Şifremi Sıfırla</button>
+      <div class="send-result" id="fpNewPassSonuc"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- E-POSTA BAĞLANTISINDAN DÖNÜLDÜĞÜNDE OTOMATİK AÇILAN ŞİFRE YENİLEME -->
+<div id="resetLinkModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#page-home" class="modal-close">×</a>
+    <h3>🔐 Yeni Şifre Belirle</h3>
+    <p class="modal-sub" id="resetLinkInfo">Doğrulanıyor...</p>
+    <div class="field">
+      <label>Yeni Şifre</label>
+      <input id="resetLinkNewPassword" type="password" placeholder="En az 6 karakter">
+    </div>
+    <div class="field">
+      <label>Yeni Şifre (Tekrar)</label>
+      <input id="resetLinkNewPassword2" type="password" placeholder="Şifrenizi tekrar girin">
+    </div>
+    <button class="modal-submit" id="resetLinkBtn" onclick="confirmResetLinkPassword()" disabled>🔒 Şifremi Sıfırla</button>
+    <div class="send-result" id="resetLinkSonuc"></div>
+  </div>
+</div>
+<div id="register-target" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#" class="modal-close">×</a>
+
+    <h3>Hesap İşlemleri</h3>
+
+    <div class="field">
+      <label>Ad Soyad</label>
+      <input id="registerAdSoyad" type="text" placeholder="Adınız Soyadınız">
+    </div>
+
+    <div class="field">
+      <label>Telefon</label>
+      <input id="registerTelefon" type="tel" placeholder="05XX XXX XX XX">
+    </div>
+
+    <div class="field">
+      <label>E-posta</label>
+      <input id="registerEmail" type="email">
+    </div>
+
+    <div class="field">
+      <label>Şifre</label>
+      <input id="registerPassword" type="password">
+    </div>
+
+    <button class="modal-submit" onclick="registerUser()">
+      Kayıt Ol
+    </button>
+
+  </div>
+</div>
+
+<div id="profileModal" class="modal-overlay">
+  <div class="modal-box profile-box">
+    <a href="#" class="modal-close">×</a>
+
+    <div class="profile-head">
+      <img id="profileAvatarLg" class="profile-avatar-lg" style="display:none;">
+      <div id="profileAvatarLgFallback" class="profile-avatar-lg-fallback">Ö</div>
+      <div class="profile-head-info">
+        <h3 id="profileHeadName">Kullanıcı</h3>
+        <p id="profileHeadEmail">-</p>
+      </div>
+    </div>
+
+    <div class="profile-layout">
+      <div class="profile-tabs">
+        <button class="profile-tab-btn active" onclick="showProfileTab('bilgiler',this)">👤 Profil Bilgileri</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('ilanlarim',this)">🚗 İlanlarım</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('parcalarim',this)">⚙️ Parça İlanlarım</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('favoriler',this)">❤️ Favoriler</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('cuzdan',this)">💸 Cüzdanım</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('bildirimler',this)">🔔 Bildirimler</button>
+        <button class="profile-tab-btn" onclick="showProfileTab('ayarlar',this)">⚙️ Hesap Ayarları</button>
+      </div>
+
+      <div class="profile-panels">
+
+        <div id="panel-bilgiler" class="profile-panel active">
+          <h4>👤 Profil Bilgileri</h4>
+          <div class="info-row"><span class="k">Ad Soyad</span><span class="v" id="infoAdSoyad">-</span></div>
+          <div class="info-row"><span class="k">E-posta</span><span class="v" id="infoEmail">-</span></div>
+          <div class="info-row"><span class="k">Telefon</span><span class="v" id="infoTelefon">-</span></div>
+          <div class="info-row"><span class="k">Kayıt Tarihi</span><span class="v" id="infoTarih">-</span></div>
+          <div class="info-row"><span class="k">Kullanıcı ID</span><span class="v" id="infoUid">-</span></div>
+          <div class="info-row"><span class="k">💰 Bakiye</span><span class="v" id="infoBakiye" style="color:#3ddc84;">0 ₺</span></div>
+          <div class="info-row"><span class="k">🏆 Puan</span><span class="v" id="infoPuan" style="color:var(--red);">0 P</span></div>
+        </div>
+
+        <div id="panel-ilanlarim" class="profile-panel">
+          <h4>🚗 Eklediğim Araç İlanları</h4>
+          <div id="myIlanListe" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+        </div>
+
+        <div id="panel-parcalarim" class="profile-panel">
+          <h4>⚙️ Eklediğim Parça İlanları</h4>
+          <div id="myParcaListe" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+        </div>
+
+        <div id="panel-favoriler" class="profile-panel">
+          <h4>❤️ Favori Araçlar</h4>
+          <div id="favAracListe" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+          <h4 style="margin-top:24px;">❤️ Favori Parçalar</h4>
+          <div id="favParcaListe" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+        </div>
+
+        <div id="panel-cuzdan" class="profile-panel">
+          <h4>💸 Cüzdanım</h4>
+
+          <div class="wallet-hero">
+            <div class="wallet-hero-card balance">
+              <div class="wallet-hero-top"><span class="wallet-hero-label">Bakiyeniz</span><span class="wallet-hero-ico">💰</span></div>
+              <div class="wallet-hero-val"><span id="walletBakiye">0 ₺</span></div>
+            </div>
+            <div class="wallet-hero-card points">
+              <div class="wallet-hero-top"><span class="wallet-hero-label">Puanınız</span><span class="wallet-hero-ico">🏆</span></div>
+              <div class="wallet-hero-val"><span id="walletPuan">0 P</span></div>
+            </div>
+          </div>
+
+          <div class="wallet-section-title">💳 Bakiye Yükle<span class="line"></span></div>
+
+          <div class="amount-chip-row" id="yuklemeChipRow">
+            <button type="button" class="amount-chip" onclick="setYuklemeTutar(100,this)">100 ₺</button>
+            <button type="button" class="amount-chip" onclick="setYuklemeTutar(250,this)">250 ₺</button>
+            <button type="button" class="amount-chip" onclick="setYuklemeTutar(500,this)">500 ₺</button>
+            <button type="button" class="amount-chip" onclick="setYuklemeTutar(1000,this)">1.000 ₺</button>
+            <button type="button" class="amount-chip" onclick="setYuklemeTutar(2500,this)">2.500 ₺</button>
+          </div>
+
+          <div class="field">
+            <label>Yüklenecek Tutar (₺)</label>
+            <input id="yuklemeTutar" type="number" min="1" placeholder="Örn: 500" oninput="clearYuklemeChipSelection()">
+          </div>
+
+          <div class="bank-info-box">
+            <div class="bi-row"><span class="bi-k">Banka</span><span class="bi-v">Ziraat Bankası</span></div>
+            <div class="bi-row"><span class="bi-k">Hesap Sahibi</span><span class="bi-v">Muhammed Doğan</span></div>
+            <div class="bi-row"><span class="bi-k">IBAN</span><span class="bi-v">TR77 0001 0090 1056 4997 8050 01</span></div>
+            <p class="bi-note">Havale/EFT açıklama kısmına <strong>kayıtlı olduğunuz telefon numaranızı</strong> yazınız. Ardından gönderdiğiniz tutarı ve (varsa) dekont numaranızı aşağıdaki forma girerek talebinizi iletin. Talebiniz yönetici onayından geçtikten sonra bakiyeniz otomatik olarak yüklenecektir.</p>
+          </div>
+
+          <div class="field">
+            <label>Dekont / Referans No <span class="indirim-field-note">(opsiyonel)</span></label>
+            <input id="yuklemeDekont" type="text" placeholder="Örn: Havale referans numarası">
+          </div>
+
+          <a href="#" class="modal-submit" onclick="bakiyeYuklemeTalebiGonder();return false;">📤 Yükleme Talebi Gönder</a>
+          <div class="send-result" id="yuklemeSonuc"></div>
+
+          <h4 style="margin-top:26px;">📄 Yükleme Taleplerim</h4>
+          <div id="yuklemeTaleplerim" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+
+          <div class="settings-divider"></div>
+
+          <div class="wallet-section-title">👤 Kullanıcıya Bakiye Gönder<span class="line"></span></div>
+          <div class="field">
+            <label>Alıcının E-posta Adresi</label>
+            <input id="transferAliciEmail" type="email" placeholder="ornek@mail.com">
+          </div>
+          <div class="field">
+            <label>Tutar (₺)</label>
+            <input id="transferTutar" type="number" min="1" placeholder="Örn: 100">
+          </div>
+          <div class="field">
+            <label>Açıklama</label>
+            <input id="transferAciklama" type="text" placeholder="Örn: İyilik borcu">
+          </div>
+          <a href="#" class="modal-submit" onclick="kullaniciBakiyeGonder();return false;">💸 Gönder</a>
+          <div class="send-result" id="transferSonuc"></div>
+        </div>
+
+        <div id="panel-bildirimler" class="profile-panel">
+          <div class="notif-group-title">📢 Sistem Duyuruları</div>
+          <div id="notifSistem" class="mini-list"></div>
+          <div class="notif-group-title">📦 İlan Durumu</div>
+          <div id="notifIlan" class="mini-list"><div class="empty-state">Henüz bildirim yok.</div></div>
+          <div class="notif-group-title">💬 Yeni Mesajlar</div>
+          <div class="empty-state">Henüz yeni mesajınız yok.</div>
+        </div>
+
+        <div id="panel-ayarlar" class="profile-panel">
+          <h4>⚙️ Hesap Ayarları</h4>
+
+          <div class="settings-photo-row">
+            <img id="settingsAvatarLg" class="profile-avatar-lg" style="display:none;">
+            <div id="settingsAvatarLgFallback" class="profile-avatar-lg-fallback">Ö</div>
+            <label class="file-btn">📷 Fotoğraf Yükle
+              <input type="file" accept="image/*" onchange="uploadProfilePhoto(event)">
+            </label>
+          </div>
+
+          <div class="field">
+            <label>Ad Soyad</label>
+            <input id="settingsAdSoyad" type="text">
+          </div>
+          <div class="field">
+            <label>Telefon</label>
+            <input id="settingsTelefon" type="tel">
+          </div>
+          <a href="#" class="modal-submit" onclick="updateProfileInfo();return false;">Bilgileri Kaydet</a>
+
+          <div class="settings-divider"></div>
+
+          <div class="field">
+            <label>Mevcut Şifre</label>
+            <input id="settingsCurrentPassword" type="password" placeholder="Mevcut şifreniz">
+          </div>
+          <div class="field">
+            <label>Yeni Şifre</label>
+            <input id="settingsNewPassword" type="password" placeholder="En az 6 karakter">
+          </div>
+          <a href="#" class="modal-submit" onclick="changeUserPassword();return false;">🔒 Şifreyi Güncelle</a>
+
+          <div class="settings-divider"></div>
+
+          <h4>📱 Telefon Numaramı Doğrula</h4>
+          <p class="modal-sub" style="font-size:12.5px;margin-bottom:12px;">Numaranızı doğrulayıp hesabınıza bağlayın; ileride şifrenizi unutursanız SMS ile gelecek kodla sıfırlayabilirsiniz.</p>
+          <div id="phoneLinkStatus" class="phone-link-status">Durum kontrol ediliyor...</div>
+          <div id="phoneLinkStep1">
+            <div class="field">
+              <label>Telefon Numarası</label>
+              <input id="settingsPhoneForLink" type="tel" placeholder="+90 5XX XXX XX XX">
+            </div>
+            <a href="#" class="modal-submit" onclick="startPhoneLink();return false;">📨 Doğrulama Kodu Gönder</a>
+          </div>
+          <div id="phoneLinkStep2" style="display:none;">
+            <div class="field">
+              <label>SMS ile Gelen 6 Haneli Kod</label>
+              <input id="settingsPhoneLinkCode" type="text" maxlength="6" placeholder="123456">
+            </div>
+            <a href="#" class="modal-submit" onclick="confirmPhoneLink();return false;">✅ Numarayı Doğrula ve Bağla</a>
+          </div>
+          <div class="send-result" id="phoneLinkSonuc"></div>
+
+          <div class="settings-divider"></div>
+
+          <h4>📍 Kayıtlı Adreslerim</h4>
+          <p class="modal-sub" style="font-size:12.5px;margin-bottom:12px;">Bakiyenizle satın alma yaparken kullanılacak teslimat adreslerinizi buradan yönetin. Kaydettiğiniz adresler hesabınızda kalıcı olarak saklanır.</p>
+          <div id="settingsAdresListe" class="mini-list"><div class="empty-state">Yükleniyor...</div></div>
+
+          <div class="field" style="margin-top:16px;">
+            <label>Adres Başlığı</label>
+            <input id="settingsAdresBaslik" type="text" placeholder="Örn: Ev, İş">
+          </div>
+          <div class="field">
+            <label>Telefon</label>
+            <input id="settingsAdresTelefon" type="tel" placeholder="+90 5XX XXX XX XX">
+          </div>
+          <div class="field">
+            <label>Şehir</label>
+            <input id="settingsAdresSehir" type="text" placeholder="Örn: İstanbul">
+          </div>
+          <div class="field">
+            <label>Açık Adres</label>
+            <textarea id="settingsAdresMetni" placeholder="Mahalle, cadde/sokak, ilçe, kapı no vb."></textarea>
+          </div>
+          <a href="#" class="modal-submit" onclick="adresEkle();return false;">📍 Yeni Adres Kaydet</a>
+
+          <div class="settings-divider"></div>
+          <a href="#page-home" class="modal-submit logout-btn" onclick="logoutUser();">🚪 Çıkış Yap</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="editIlanModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#profileModal" class="modal-close">×</a>
+    <h3>🚗 İlanı Düzenle</h3>
+    <p class="modal-sub">Araç ilan bilgilerinizi güncelleyin.</p>
+    <div class="field"><label>Araç Adı</label><input id="editIlanIsim" type="text"></div>
+    <div class="field"><label>Fiyat</label><input id="editIlanFiyat" type="text"></div>
+    <div class="field"><label>Kilometre</label><input id="editIlanKm" type="number" min="0"></div>
+    <div class="field"><label>Model Yılı</label><input id="editIlanYil" type="number" min="1950" max="2100"></div>
+    <div class="field">
+      <label>Vites</label>
+      <select id="editIlanVites">
+        <option value="">Seçiniz</option>
+        <option value="Manuel">Manuel</option>
+        <option value="Otomatik">Otomatik</option>
+        <option value="Yarı Otomatik">Yarı Otomatik</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Yakıt Tipi</label>
+      <select id="editIlanYakit">
+        <option value="">Seçiniz</option>
+        <option value="Benzin">Benzin</option>
+        <option value="Dizel">Dizel</option>
+        <option value="LPG">LPG</option>
+        <option value="Hibrit">Hibrit</option>
+        <option value="Elektrik">Elektrik</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Fotoğraf URL</label>
+      <input id="editIlanFoto" type="text">
+      <label>Açıklama</label>
+      <textarea id="editIlanAciklama"></textarea>
+    </div>
+    <a href="#profileModal" class="modal-submit" onclick="ilanGuncelle();">✅ Güncelle</a>
+  </div>
+</div>
+
+<div id="editParcaModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#profileModal" class="modal-close">×</a>
+    <h3>⚙️ Parçayı Düzenle</h3>
+    <p class="modal-sub">Parça ilan bilgilerinizi güncelleyin.</p>
+    <div class="field"><label>Parça Adı</label><input id="editParcaIsim" type="text"></div>
+    <div class="field"><label>Fiyat</label><input id="editParcaFiyat" type="text"></div>
+    <div class="field">
+      <label>Fotoğraf URL</label>
+      <input id="editParcaFoto" type="text">
+      <label>Açıklama</label>
+      <textarea id="editParcaAciklama"></textarea>
+    </div>
+    <a href="#profileModal" class="modal-submit" onclick="parcaGuncelle();">✅ Güncelle</a>
+  </div>
+</div>
+
+<div id="editAdminIlanModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#adminPanel" class="modal-close">×</a>
+    <h3>🚗 Araç İlanını Düzenle</h3>
+    <p class="modal-sub">Yönetim panelinden araç ilanını güncelleyin.</p>
+    <div class="field"><label>Araç Adı</label><input id="adminEditIlanIsim" type="text"></div>
+    <div class="field"><label>Fiyat</label><input id="adminEditIlanFiyat" type="text"></div>
+    <div class="field"><label>Kilometre</label><input id="adminEditIlanKm" type="number" min="0"></div>
+    <div class="field"><label>Model Yılı</label><input id="adminEditIlanYil" type="number" min="1950" max="2100"></div>
+    <div class="field">
+      <label>Vites</label>
+      <select id="adminEditIlanVites">
+        <option value="">Seçiniz</option>
+        <option value="Manuel">Manuel</option>
+        <option value="Otomatik">Otomatik</option>
+        <option value="Yarı Otomatik">Yarı Otomatik</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Yakıt Tipi</label>
+      <select id="adminEditIlanYakit">
+        <option value="">Seçiniz</option>
+        <option value="Benzin">Benzin</option>
+        <option value="Dizel">Dizel</option>
+        <option value="LPG">LPG</option>
+        <option value="Hibrit">Hibrit</option>
+        <option value="Elektrik">Elektrik</option>
+      </select>
+    </div>
+    <div class="field"><label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label><input id="adminEditIlanIndirim" type="number" min="0" max="90"></div>
+    <div class="checkbox-field">
+      <input id="adminEditIlanOneCikan" type="checkbox">
+      <label for="adminEditIlanOneCikan">⭐ Öne Çıkan İlan olarak ana sayfada göster</label>
+    </div>
+    <div class="field">
+      <label>Fotoğraf URL</label>
+      <input id="adminEditIlanFoto" type="text">
+      <label>Açıklama</label>
+      <textarea id="adminEditIlanAciklama"></textarea>
+    </div>
+    <a href="#adminPanel" class="modal-submit" onclick="adminIlanGuncelle();">✅ Güncelle</a>
+  </div>
+</div>
+
+<div id="editAdminParcaModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#adminPanel" class="modal-close">×</a>
+    <h3>⚙️ Parça İlanını Düzenle</h3>
+    <p class="modal-sub">Yönetim panelinden parça ilanını güncelleyin.</p>
+    <div class="field"><label>Parça Adı</label><input id="adminEditParcaIsim" type="text"></div>
+    <div class="field"><label>Fiyat</label><input id="adminEditParcaFiyat" type="text"></div>
+    <div class="field"><label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label><input id="adminEditParcaIndirim" type="number" min="0" max="90"></div>
+    <div class="checkbox-field">
+      <input id="adminEditParcaOneCikan" type="checkbox">
+      <label for="adminEditParcaOneCikan">⭐ Öne Çıkan İlan olarak ana sayfada göster</label>
+    </div>
+    <div class="field">
+      <label>Fotoğraf URL</label>
+      <input id="adminEditParcaFoto" type="text">
+      <label>Açıklama</label>
+      <textarea id="adminEditParcaAciklama"></textarea>
+    </div>
+    <a href="#adminPanel" class="modal-submit" onclick="adminParcaGuncelle();">✅ Güncelle</a>
+  </div>
+</div>
+
+<div id="editAdminMarketModal" class="modal-overlay">
+  <div class="modal-box">
+    <a href="#adminPanel" class="modal-close">×</a>
+    <h3>🛒 Market Ürününü Düzenle</h3>
+    <p class="modal-sub">Yönetim panelinden Puan Market ürününü güncelleyin.</p>
+    <div class="field"><label>Ürün Adı</label><input id="adminEditMarketIsim" type="text"></div>
+    <div class="field"><label>Puan Fiyatı</label><input id="adminEditMarketFiyat" type="number" min="1"></div>
+    <div class="field"><label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label><input id="adminEditMarketIndirim" type="number" min="0" max="90"></div>
+    <div class="field">
+      <label>Ürün Resmi URL</label>
+      <input id="adminEditMarketResim" type="text">
+      <label>Açıklama</label>
+      <textarea id="adminEditMarketAciklama"></textarea>
+    </div>
+    <a href="#adminPanel" class="modal-submit" onclick="adminMarketUrunGuncelle();">✅ Güncelle</a>
+  </div>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  onAuthStateChanged, updateProfile, updatePassword, signOut,
+  sendPasswordResetEmail, confirmPasswordReset, verifyPasswordResetCode,
+  reauthenticateWithCredential, EmailAuthProvider,
+  RecaptchaVerifier, signInWithPhoneNumber, linkWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
+  setDoc, getDoc, updateDoc, query, where, increment,
+  runTransaction, orderBy, limit, arrayUnion, arrayRemove, onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getStorage, ref, uploadBytes, getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDlm1QV9GVCDad0SmdQChPLvW1oJ3D-lDs",
+  authDomain: "ozdoganlar-otomotiv.firebaseapp.com",
+  projectId: "ozdoganlar-otomotiv",
+  storageBucket: "ozdoganlar-otomotiv.firebasestorage.app",
+  messagingSenderId: "867428619051",
+  appId: "1:867428619051:web:0996cc4363407516c32b6e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+const ADMIN_EMAIL = "muhammeddogan02dgnn@gmail.com";
+let currentUserData = null;
+let kullaniciDinleyiciIptal = null;
+let currentFavSet = { arac: new Set(), parca: new Set() };
+
+/* ================= YARDIMCI FONKSİYONLAR ================= */
+
+function initials(name){
+  if(!name) return "Ö";
+  return name.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join("").toUpperCase();
+}
+
+function tarihFormatla(iso){
+  if(!iso) return "-";
+  try{
+    return new Date(iso).toLocaleDateString("tr-TR",{day:"2-digit",month:"long",year:"numeric"});
+  }catch(e){
+    return "-";
+  }
+}
+
+function temizle(str){
+  return (str || "").toString().replace(/'/g,"’");
+}
+
+/* ================= İNDİRİM YARDIMCILARI ================= */
+
+function fiyatSayi(fiyatStr){
+  const rakamlar = (fiyatStr || "").toString().replace(/[^0-9]/g,"");
+  return rakamlar ? Number(rakamlar) : 0;
+}
+
+function indirimliFiyatHtml(fiyatStr, indirimYuzde, oneCikan){
+  const orijinal = fiyatSayi(fiyatStr);
+  const yuzde = Number(indirimYuzde) || 0;
+  const featuredEtiket = oneCikan ? `<span class="featured-badge">⭐ Öne Çıkan İlan!</span>` : "";
+  if(!yuzde || !orijinal){
+    return `${featuredEtiket ? `<div class="card-tag-row">${featuredEtiket}</div>` : ""}<div class="price">${fiyatStr || '0'} ₺</div>`;
+  }
+  const yeni = Math.round(orijinal * (1 - yuzde/100));
+  return `
+    <div class="card-tag-row">${featuredEtiket}<span class="discount-badge">%${yuzde} İndirim</span></div>
+    <div class="price"><span class="old-price">${orijinal.toLocaleString("tr-TR")} ₺</span>${yeni.toLocaleString("tr-TR")} ₺</div>
+  `;
+}
+
+function efektifFiyat(fiyatStr, indirimYuzde){
+  const orijinal = fiyatSayi(fiyatStr);
+  const yuzde = Number(indirimYuzde) || 0;
+  return yuzde ? Math.round(orijinal * (1 - yuzde/100)) : orijinal;
+}
+
+/* ================= SEPET ================= */
+
+const SEPET_ANAHTAR = "ozdoganlarSepet";
+const SEPET_WA_NO = "905079876219";
+
+function sepetGetir(){
+  try{
+    return JSON.parse(localStorage.getItem(SEPET_ANAHTAR)) || [];
+  }catch(e){
+    return [];
+  }
+}
+
+function sepetKaydet(sepet){
+  localStorage.setItem(SEPET_ANAHTAR, JSON.stringify(sepet));
+  sepetBadgeGuncelle();
+  sepetRender();
+}
+
+function sepetBadgeGuncelle(){
+  const badge = document.getElementById("cartBadge");
+  if(!badge) return;
+  const sepet = sepetGetir();
+  const toplamAdet = sepet.reduce((t,u)=>t+(u.adet||1),0);
+  badge.textContent = toplamAdet;
+  badge.classList.toggle("hidden", toplamAdet === 0);
+}
+
+window.sepetAcKontrol = function(){
+  if(!auth.currentUser){
+    alert("Sepeti kullanmak için giriş yapmalısınız.");
+    location.hash = "#authModal";
+    return false;
+  }
+  return true;
+};
+
+window.sepeteEkle = function(tip, id, isim, fiyat, foto){
+  if(!auth.currentUser){
+    alert("Sepete ürün eklemek için giriş yapmalısınız.");
+    location.hash = "#authModal";
+    return;
+  }
+  const sepet = sepetGetir();
+  const mevcut = sepet.find(u=>u.tip===tip && u.id===id);
+  if(mevcut){
+    mevcut.adet = (mevcut.adet||1) + 1;
+  }else{
+    sepet.push({ tip, id, isim, fiyat: Number(fiyat)||0, foto: foto || "", adet: 1 });
+  }
+  sepetKaydet(sepet);
+  alert(`"${isim}" sepete eklendi. 🛒`);
+};
+
+window.sepettenSil = function(tip, id){
+  const sepet = sepetGetir().filter(u=>!(u.tip===tip && u.id===id));
+  sepetKaydet(sepet);
+};
+
+window.sepetAdetDegistir = function(tip, id, delta){
+  const sepet = sepetGetir();
+  const urun = sepet.find(u=>u.tip===tip && u.id===id);
+  if(!urun) return;
+  urun.adet = (urun.adet||1) + delta;
+  const guncelSepet = urun.adet <= 0 ? sepet.filter(u=>!(u.tip===tip && u.id===id)) : sepet;
+  sepetKaydet(guncelSepet);
+};
+
+function sepetRender(){
+  const wrap = document.getElementById("cartListWrap");
+  const totalWrap = document.getElementById("cartTotalWrap");
+  const totalText = document.getElementById("cartTotalText");
+  if(!wrap) return;
+  const sepet = sepetGetir();
+  if(sepet.length === 0){
+    wrap.innerHTML = `<div class="empty-state">Sepetiniz boş. Araç veya parça ilanlarından "Sepete Ekle" ile ürün ekleyebilirsiniz.</div>`;
+    if(totalWrap) totalWrap.style.display = "none";
+    return;
+  }
+  let toplam = 0;
+  wrap.innerHTML = sepet.map(u=>{
+    toplam += (u.fiyat||0) * (u.adet||1);
+    return `
+      <div class="cart-item">
+        <img src="${u.foto || ''}" onerror="this.style.display='none'">
+        <div class="ci-info">
+          <h5>${u.isim}</h5>
+          <span>${(u.fiyat||0).toLocaleString("tr-TR")} ₺ · ${u.tip==='arac' ? 'Araç' : 'Parça'}</span>
+        </div>
+        <div class="ci-qty">
+          <button onclick="sepetAdetDegistir('${u.tip}','${u.id}',-1)">−</button>
+          <span>${u.adet||1}</span>
+          <button onclick="sepetAdetDegistir('${u.tip}','${u.id}',1)">+</button>
+        </div>
+        <button class="ci-remove" onclick="sepettenSil('${u.tip}','${u.id}')" title="Kaldır">🗑</button>
+      </div>
+    `;
+  }).join("");
+  if(totalWrap){
+    totalWrap.style.display = "flex";
+    totalText.textContent = `${toplam.toLocaleString("tr-TR")} ₺`;
+  }
+}
+
+window.sepetiWhatsappGonder = function(){
+  if(!auth.currentUser){
+    alert("Sepeti kullanmak için giriş yapmalısınız.");
+    location.hash = "#authModal";
+    return;
+  }
+  const sepet = sepetGetir();
+  if(sepet.length === 0){
+    alert("Sepetiniz boş.");
+    return;
+  }
+  let toplam = 0;
+  const satirlar = sepet.map(u=>{
+    const tutar = (u.fiyat||0) * (u.adet||1);
+    toplam += tutar;
+    return `• ${u.isim} x${u.adet||1} — ${tutar.toLocaleString("tr-TR")} ₺`;
+  }).join("\n");
+  const mesaj = `Merhaba, aşağıdaki ürünleri satın almak istiyorum:\n\n${satirlar}\n\nToplam: ${toplam.toLocaleString("tr-TR")} ₺`;
+  window.open(`https://wa.me/${SEPET_WA_NO}?text=${encodeURIComponent(mesaj)}`, "_blank");
+};
+
+window.hizliSatinAl = function(tip, id, isim, fiyat){
+  window.pendingSatinAl = { tip, id, isim, fiyat };
+  const text = document.getElementById("buySelectText");
+  if(text) text.textContent = `"${isim}" (${(Number(fiyat)||0).toLocaleString("tr-TR")} ₺) için nasıl devam etmek istersiniz?`;
+  const sonucEl = document.getElementById("buyBakiyeSonuc");
+  if(sonucEl) sonucEl.textContent = "";
+
+  const step1 = document.getElementById("buySelectStep1");
+  const step2 = document.getElementById("buySelectStep2");
+  if(step1) step1.style.display = "block";
+  if(step2) step2.style.display = "none";
+  ["buyYeniAdresBaslik","buyYeniAdresTelefon","buyYeniAdresSehir","buyYeniAdresMetni"].forEach(fid=>{
+    const el = document.getElementById(fid);
+    if(el) el.value = "";
+  });
+  const kaydetChk = document.getElementById("buyYeniAdresKaydet");
+  if(kaydetChk) kaydetChk.checked = true;
+
+  location.hash = "#buySelectModal";
+};
+
+/* ================= SATIN ALMA — TESLİMAT ADRESİ SEÇİMİ ================= */
+
+window.bakiyeSatinAlBaslat = function(){
+  const user = auth.currentUser;
+  if(!user){ location.hash = "#authModal"; return; }
+  if(!window.pendingSatinAl){ return; }
+  const step1 = document.getElementById("buySelectStep1");
+  const step2 = document.getElementById("buySelectStep2");
+  if(step1) step1.style.display = "none";
+  if(step2) step2.style.display = "block";
+  buyAdresListesiOlustur();
+};
+
+window.buySelectStepGeri = function(){
+  const step1 = document.getElementById("buySelectStep1");
+  const step2 = document.getElementById("buySelectStep2");
+  if(step2) step2.style.display = "none";
+  if(step1) step1.style.display = "block";
+  const sonucEl = document.getElementById("buyBakiyeSonuc");
+  if(sonucEl) sonucEl.textContent = "";
+};
+
+function buyAdresListesiOlustur(){
+  const wrap = document.getElementById("buyAdresListe");
+  if(!wrap) return;
+  const adresler = (currentUserData && currentUserData.adresler) || [];
+  wrap.innerHTML = adresler.map((a,i)=>`
+    <label class="address-option">
+      <input type="radio" name="buyAdresSecim" value="${a.id}" onchange="buyAdresSecimGuncelle()" ${i===0 ? "checked" : ""}>
+      <div class="ao-info">
+        <h5>📍 ${a.baslik}${a.sehir ? " — " + a.sehir : ""}</h5>
+        <span>${a.adres}</span>
+        <span>📞 ${a.telefon}</span>
+      </div>
+    </label>
+  `).join("");
+
+
+  const yeniRadio = document.getElementById("buyAdresYeniRadio");
+  if(yeniRadio) yeniRadio.checked = adresler.length === 0;
+  buyAdresSecimGuncelle();
+}
+
+window.buyAdresSecimGuncelle = function(){
+  const secili = document.querySelector('input[name="buyAdresSecim"]:checked');
+  const yeniForm = document.getElementById("buyAdresYeniForm");
+  if(yeniForm) yeniForm.style.display = (secili && secili.value === "yeni") ? "block" : "none";
+};
+
+function secilenTeslimatAdresiniAl(){
+  const secili = document.querySelector('input[name="buyAdresSecim"]:checked');
+  if(!secili) return { hata: "Lütfen bir teslimat adresi seçin." };
+
+  if(secili.value === "yeni"){
+    const baslik = document.getElementById("buyYeniAdresBaslik").value.trim() || "Teslimat Adresi";
+    const telefon = document.getElementById("buyYeniAdresTelefon").value.trim();
+    const sehir = document.getElementById("buyYeniAdresSehir").value.trim();
+    const adres = document.getElementById("buyYeniAdresMetni").value.trim();
+    if(!telefon || !sehir || !adres) return { hata: "Lütfen telefon numarası, şehir ve açık adres bilgisini girin." };
+    return { baslik, telefon, sehir, adres, yeni:true, kaydet: !!document.getElementById("buyYeniAdresKaydet").checked };
+  }
+
+  const adresler = (currentUserData && currentUserData.adresler) || [];
+  const secilenAdres = adresler.find(a => a.id === secili.value);
+  if(!secilenAdres) return { hata: "Lütfen bir teslimat adresi seçin." };
+  return { baslik: secilenAdres.baslik, telefon: secilenAdres.telefon, sehir: secilenAdres.sehir || "", adres: secilenAdres.adres, yeni:false };
+}
+
+window.bakiyeIleSatinAl = async function(){
+  const veri = window.pendingSatinAl;
+  const sonucEl = document.getElementById("buyBakiyeSonuc");
+  const user = auth.currentUser;
+  if(!veri || !veri.id){ if(sonucEl) sonucEl.textContent = "❌ İlan bilgisi bulunamadı."; return; }
+  if(!user){ location.hash = "#authModal"; return; }
+
+  const adresSonuc = secilenTeslimatAdresiniAl();
+  if(!adresSonuc || adresSonuc.hata){
+    if(sonucEl) sonucEl.textContent = "❌ " + (adresSonuc ? adresSonuc.hata : "Lütfen bir teslimat adresi seçin.");
+    return;
+  }
+
+  if(!confirm(`"${veri.isim}" için ${(Number(veri.fiyat)||0).toLocaleString("tr-TR")} ₺ bakiyenizden düşülecek. Onaylıyor musunuz?`)) return;
+
+  if(sonucEl) sonucEl.textContent = "İşleniyor...";
+  const koleksiyon = veri.tip === "arac" ? "ilanlar" : "parcalar";
+  const tutar = Number(veri.fiyat) || 0;
+  const teslimatAdresi = { baslik: adresSonuc.baslik, telefon: adresSonuc.telefon, sehir: adresSonuc.sehir || "", adres: adresSonuc.adres };
+
+  try{
+    // Yeni girilen adres kaydedilmek isteniyorsa, satın alma işleminden önce hesaba kaydet
+    if(adresSonuc.yeni && adresSonuc.kaydet){
+      const yeniAdresKaydi = { id: Date.now().toString(36)+Math.random().toString(36).slice(2,7), baslik: teslimatAdresi.baslik, telefon: teslimatAdresi.telefon, sehir: teslimatAdresi.sehir, adres: teslimatAdresi.adres };
+      try{
+        await updateDoc(doc(db,"users",user.uid), { adresler: arrayUnion(yeniAdresKaydi) });
+        currentUserData.adresler = [...(currentUserData.adresler||[]), yeniAdresKaydi];
+        doldurAyarlarAdresListesi();
+      }catch(e){ console.error(e); }
+    }
+
+    let satici = { uid:null, ad:"Özdoğanlar Otomotiv" };
+    await runTransaction(db, async (tx)=>{
+      const ilanRef = doc(db, koleksiyon, veri.id);
+      const aliciRef = doc(db, "users", user.uid);
+      const ilanSnap = await tx.get(ilanRef);
+      const aliciSnap = await tx.get(aliciRef);
+      if(!ilanSnap.exists()) throw new Error("Bu ilan artık mevcut değil.");
+      if(!aliciSnap.exists()) throw new Error("Kullanıcı bilgisi bulunamadı.");
+
+      const ilanData = ilanSnap.data();
+      if(ilanData.satildi) throw new Error("Bu ilan zaten satılmış.");
+
+      const aliciBakiye = aliciSnap.data().bakiye || 0;
+      if(aliciBakiye < tutar) throw new Error("Yetersiz bakiye. Cüzdanım bölümünden bakiye yükleyebilirsiniz.");
+
+      // ÖNEMLİ: Firestore transaction'larında TÜM okumalar (tx.get), herhangi bir
+      // yazma (tx.update) işleminden ÖNCE tamamlanmalıdır. Aksi halde işlem tamamen
+      // başarısız olur (satın alma gerçekleşmez, bakiye de düşmez). Bu yüzden satıcı
+      // bilgisini, yazma işlemlerinden önce burada okuyoruz.
+      const saticiUid = ilanData.ownerUid || null;
+      let saticiRef = null, saticiSnap = null;
+      if(saticiUid && saticiUid !== user.uid){
+        saticiRef = doc(db,"users",saticiUid);
+        saticiSnap = await tx.get(saticiRef);
+      }
+
+      // Artık tüm okumalar bitti, güvenle yazma işlemlerini yapabiliriz.
+      tx.update(ilanRef, { satildi:true, satildiTarihi:new Date().toISOString(), aliciUid:user.uid, teslimatAdresi });
+      tx.update(aliciRef, { bakiye: aliciBakiye - tutar });
+
+      if(saticiSnap && saticiSnap.exists()){
+        tx.update(saticiRef, { bakiye: (saticiSnap.data().bakiye || 0) + tutar });
+        satici = { uid:saticiUid, ad: saticiSnap.data().adSoyad || saticiSnap.data().email || "Satıcı" };
+      }
+    });
+
+    currentUserData.bakiye = (currentUserData.bakiye || 0) - tutar;
+    doldurCuzdan();
+    doldurProfilBilgileri();
+
+    await islemKaydet({
+      tip: veri.tip === "arac" ? "arac-satin-alma" : "parca-satin-alma",
+      gonderenUid: user.uid, gonderenAd: currentUserData.adSoyad || user.email,
+      aliciUid: satici.uid || "dealer", aliciAd: veri.isim, tutar,
+      aciklama: `"${veri.isim}" bakiye ile satın alındı.`,
+      teslimatAdresi
+    });
+    await bildirimEkle(user.uid, "ilan", "Satın Alma Başarılı", `"${veri.isim}" ilanını ${tutar.toLocaleString("tr-TR")} ₺ karşılığında satın aldınız. Teslimat için sizinle iletişime geçilecektir.`);
+    if(satici.uid) await bildirimEkle(satici.uid, "ilan", "İlanınız Satıldı", `"${veri.isim}" ilanınız ${tutar.toLocaleString("tr-TR")} ₺ karşılığında satıldı.`);
+
+    if(sonucEl) sonucEl.textContent = "✅ Satın alma başarılı! Ekibimiz sizinle iletişime geçecek.";
+    setTimeout(()=>{ location.hash = "#"; }, 1200);
+
+    if(veri.tip === "arac"){ ilanlariGetir(); } else { parcalariGetir(); }
+    oneCikanIlanlariGetir();
+  }catch(e){
+    if(sonucEl) sonucEl.textContent = "❌ " + e.message;
+  }
+};
+
+window.satinAlWhatsappGonder = function(){
+  const veri = window.pendingSatinAl;
+  if(!veri) return;
+  const mesaj = `Merhaba, "${veri.isim}" ${veri.tip==='arac' ? 'aracını' : 'parçasını'} (${(Number(veri.fiyat)||0).toLocaleString("tr-TR")} ₺) satın almak istiyorum.`;
+  window.open(`https://wa.me/${SEPET_WA_NO}?text=${encodeURIComponent(mesaj)}`, "_blank");
+  location.hash = "#";
+};
+
+sepetBadgeGuncelle();
+sepetRender();
+
+function indirimliPuanHtml(puanFiyat, indirimYuzde){
+  const orijinal = Number(puanFiyat) || 0;
+  const yuzde = Number(indirimYuzde) || 0;
+  if(!yuzde || !orijinal){
+    return `<div class="point-price">${orijinal.toLocaleString("tr-TR")} Puan</div>`;
+  }
+  const yeni = Math.round(orijinal * (1 - yuzde/100));
+  return `
+    <span class="discount-badge">%${yuzde} İndirim</span>
+    <div class="point-price"><span class="old-price">${orijinal.toLocaleString("tr-TR")} Puan</span>${yeni.toLocaleString("tr-TR")} Puan</div>
+  `;
+}
+
+/* ================= HEADER / OTURUM DURUMU ================= */
+
+function headerRender(user, udata){
+  const area = document.getElementById("userArea");
+  if(!user){
+    area.innerHTML = `<a href="#authModal" class="auth-btn">Giriş / Kayıt Ol</a>`;
+    return;
+  }
+  const ad = (udata && udata.adSoyad) || user.displayName || user.email.split("@")[0];
+  const foto = (udata && udata.photoURL) || "";
+  const avatarHtml = foto
+    ? `<img class="profile-avatar" src="${foto}">`
+    : `<div class="profile-avatar-fallback">${initials(ad)}</div>`;
+  const adminBtn = user.email === ADMIN_EMAIL
+    ? `<a href="#adminPanel" class="nav-btn" style="border:1px solid var(--red);color:var(--red);font-weight:700;" onclick="openAdminPanel();">👑 Admin</a>`
+    : "";
+  area.innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px;">
+      ${adminBtn}
+      <div class="user-menu-wrap">
+        <button type="button" class="menu-trigger" id="userMenuTrigger" onclick="toggleUserMenu(event)" aria-label="Üyelik İşlemleri Menüsü" title="Üyelik İşlemleri">☰</button>
+        <div class="user-menu-dropdown" id="userMenuDropdown">
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('bilgiler')">👤 Profil Bilgileri</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('ilanlarim')">🚗 İlanlarım</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('parcalarim')">⚙️ Parça İlanlarım</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('favoriler')">❤️ Favoriler</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('cuzdan')">💸 Cüzdanım</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('bildirimler')">🔔 Bildirimler</a>
+          <a href="#profileModal" class="user-menu-btn" onclick="openUserMenuTab('ayarlar')">⚙️ Hesap Ayarları</a>
+          <div class="user-menu-divider"></div>
+          <a href="#page-home" class="user-menu-btn logout-btn" onclick="closeUserMenu();logoutUser();">🚪 Çıkış Yap</a>
+        </div>
+      </div>
+      <a href="#profileModal" class="profile-trigger" title="${ad} — Üyelik İşlemleri" aria-label="Üyelik İşlemleri">
+        ${avatarHtml}
+      </a>
+    </div>
+  `;
+}
+
+window.toggleUserMenu = function(e){
+  if(e) e.stopPropagation();
+  const dd = document.getElementById("userMenuDropdown");
+  const btn = document.getElementById("userMenuTrigger");
+  if(!dd) return;
+  dd.classList.toggle("open");
+  if(btn) btn.classList.toggle("open", dd.classList.contains("open"));
+};
+
+window.closeUserMenu = function(){
+  const dd = document.getElementById("userMenuDropdown");
+  const btn = document.getElementById("userMenuTrigger");
+  if(dd) dd.classList.remove("open");
+  if(btn) btn.classList.remove("open");
+};
+
+window.openUserMenuTab = function(tab){
+  closeUserMenu();
+  location.hash = "#profileModal";
+  showProfileTab(tab);
+};
+
+document.addEventListener("click", function(e){
+  const dd = document.getElementById("userMenuDropdown");
+  if(!dd || !dd.classList.contains("open")) return;
+  if(dd.contains(e.target)) return;
+  if(e.target.closest && e.target.closest("#userMenuTrigger")) return;
+  closeUserMenu();
+});
+
+onAuthStateChanged(auth, async (user)=>{
+  // Önceki oturuma ait canlı dinleyici varsa kapat (bellek sızıntısı / izin hatası olmasın)
+  if(kullaniciDinleyiciIptal){ kullaniciDinleyiciIptal(); kullaniciDinleyiciIptal = null; }
+
+  if(!user){
+    currentUserData = null;
+    currentFavSet = { arac: new Set(), parca: new Set() };
+    headerRender(null);
+    ilanlariGetir();
+    parcalariGetir();
+    if(typeof marketUrunleriGetir === "function") marketUrunleriGetir();
+    return;
+  }
+  try{
+    const uref = doc(db,"users",user.uid);
+    let snap = await getDoc(uref);
+    if(!snap.exists()){
+      const yeniVeri = {
+        adSoyad: user.displayName || user.email.split("@")[0],
+        email: user.email,
+        telefon: "",
+        photoURL: user.photoURL || "",
+        createdAt: new Date().toISOString(),
+        uid: user.uid,
+        bakiye: 0,
+        puan: 0,
+        adresler: []
+      };
+      await setDoc(uref, yeniVeri);
+      snap = await getDoc(uref);
+    }
+    currentUserData = snap.data();
+  }catch(e){
+    console.error(e);
+  }
+  headerRender(user, currentUserData);
+  await loadFavoriteSet();
+  if(typeof marketUrunleriGetir === "function") marketUrunleriGetir();
+
+  // Bakiye/puan gibi alanlar başka bir yerden (örn. admin onayı) değiştiğinde
+  // sayfa yenilenmeden saniyeler içinde hesaba yansıması için canlı dinleyici
+  const canliRef = doc(db,"users",user.uid);
+  kullaniciDinleyiciIptal = onSnapshot(canliRef, (liveSnap)=>{
+    if(!liveSnap.exists()) return;
+    const eskiBakiye = currentUserData ? Number(currentUserData.bakiye || 0) : 0;
+    currentUserData = liveSnap.data();
+    const yeniBakiye = Number(currentUserData.bakiye || 0);
+
+    headerRender(auth.currentUser, currentUserData);
+    doldurProfilBilgileri();
+    doldurCuzdan();
+    doldurAyarlarAdresListesi();
+
+    if(yeniBakiye > eskiBakiye){
+      const fark = yeniBakiye - eskiBakiye;
+      const sonucEl = document.getElementById("yuklemeSonuc");
+      if(sonucEl) sonucEl.textContent = `✅ Hesabınıza ${fark.toLocaleString("tr-TR")} ₺ yüklendi! Güncel bakiyeniz: ${yeniBakiye.toLocaleString("tr-TR")} ₺`;
+    }
+  }, (err)=>{ console.error(err); });
+});
+
+window.addEventListener("hashchange", ()=>{
+  if(location.hash === "#adminPanel"){
+    const user = auth.currentUser;
+    if(!user || user.email !== ADMIN_EMAIL){
+      alert("Bu alana erişim yetkiniz yok.");
+      location.hash = "#page-home";
+      return;
+    }
+    openAdminPanel();
+  }
+});
+
+/* ================= PROFİL SEKME SİSTEMİ ================= */
+
+const TAB_ORDER = ["bilgiler","ilanlarim","parcalarim","favoriler","cuzdan","bildirimler","ayarlar"];
+
+window.showProfileTab = function(tab, btn){
+  document.querySelectorAll(".profile-panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".profile-tab-btn").forEach(b=>b.classList.remove("active"));
+  const panel = document.getElementById("panel-"+tab);
+  if(panel) panel.classList.add("active");
+  if(btn){
+    btn.classList.add("active");
+  }else{
+    const idx = TAB_ORDER.indexOf(tab);
+    const btns = document.querySelectorAll(".profile-tab-btn");
+    if(btns[idx]) btns[idx].classList.add("active");
+  }
+  if(tab==="bilgiler") doldurProfilBilgileri();
+  if(tab==="ilanlarim") loadMyIlanlar();
+  if(tab==="parcalarim") loadMyParcalar();
+  if(tab==="favoriler") loadFavorites();
+  if(tab==="cuzdan"){ doldurCuzdan(); loadKullaniciTaleplerim(); }
+  if(tab==="bildirimler") loadNotifications();
+  if(tab==="ayarlar") doldurAyarlar();
+};
+
+function doldurProfilBilgileri(){
+  const user = auth.currentUser;
+  if(!user || !currentUserData) return;
+  document.getElementById("profileHeadName").textContent = currentUserData.adSoyad || "-";
+  document.getElementById("profileHeadEmail").textContent = currentUserData.email || user.email;
+  document.getElementById("infoAdSoyad").textContent = currentUserData.adSoyad || "-";
+  document.getElementById("infoEmail").textContent = currentUserData.email || user.email;
+  document.getElementById("infoTelefon").textContent = currentUserData.telefon || "Belirtilmemiş";
+  document.getElementById("infoTarih").textContent = tarihFormatla(currentUserData.createdAt);
+  document.getElementById("infoUid").textContent = user.uid;
+  document.getElementById("infoBakiye").textContent = (currentUserData.bakiye || 0).toLocaleString("tr-TR") + " ₺";
+  document.getElementById("infoPuan").textContent = (currentUserData.puan || 0).toLocaleString("tr-TR") + " P";
+
+  const foto = currentUserData.photoURL;
+  const lg = document.getElementById("profileAvatarLg");
+  const lgFb = document.getElementById("profileAvatarLgFallback");
+  if(foto){
+    lg.src = foto; lg.style.display = "block"; lgFb.style.display = "none";
+  }else{
+    lg.style.display = "none"; lgFb.style.display = "flex";
+    lgFb.textContent = initials(currentUserData.adSoyad);
+  }
+}
+
+function doldurAyarlar(){
+  if(!currentUserData) return;
+  document.getElementById("settingsAdSoyad").value = currentUserData.adSoyad || "";
+  document.getElementById("settingsTelefon").value = currentUserData.telefon || "";
+  const foto = currentUserData.photoURL;
+  const lg = document.getElementById("settingsAvatarLg");
+  const lgFb = document.getElementById("settingsAvatarLgFallback");
+  if(foto){
+    lg.src = foto; lg.style.display = "block"; lgFb.style.display = "none";
+  }else{
+    lg.style.display = "none"; lgFb.style.display = "flex";
+    lgFb.textContent = initials(currentUserData.adSoyad);
+  }
+  guncellePhoneLinkDurumu();
+  doldurAyarlarAdresListesi();
+}
+
+/* ================= ADRES YÖNETİMİ (HESAP AYARLARI) ================= */
+
+function doldurAyarlarAdresListesi(){
+  const wrap = document.getElementById("settingsAdresListe");
+  if(!wrap || !currentUserData) return;
+  const adresler = currentUserData.adresler || [];
+  wrap.innerHTML = adresler.length ? adresler.map(a=>`
+    <div class="mini-item">
+      <div class="mi-info" style="white-space:normal;">
+        <h5 style="white-space:normal;">📍 ${a.baslik}${a.sehir ? " — " + a.sehir : ""}</h5>
+        <span style="display:block;">${a.adres}</span>
+        <span style="display:block;">📞 ${a.telefon}</span>
+      </div>
+      <button class="mi-btn" onclick="adresSil('${a.id}')" title="Adresi Sil">🗑</button>
+    </div>
+  `).join("") : `<div class="empty-state">Henüz kayıtlı adresiniz yok.</div>`;
+}
+
+window.adresEkle = async function(){
+  const user = auth.currentUser;
+  if(!user){ alert("Bu işlem için giriş yapmalısınız."); return; }
+  const baslik = document.getElementById("settingsAdresBaslik").value.trim() || "Adresim";
+  const telefon = document.getElementById("settingsAdresTelefon").value.trim();
+  const sehir = document.getElementById("settingsAdresSehir").value.trim();
+  const adres = document.getElementById("settingsAdresMetni").value.trim();
+  if(!telefon || !sehir || !adres){ alert("Lütfen telefon numarası, şehir ve açık adres bilgisini girin."); return; }
+
+  const yeniAdres = { id: Date.now().toString(36)+Math.random().toString(36).slice(2,7), baslik, telefon, sehir, adres };
+  try{
+    await updateDoc(doc(db,"users",user.uid), { adresler: arrayUnion(yeniAdres) });
+    currentUserData.adresler = [...(currentUserData.adresler||[]), yeniAdres];
+    doldurAyarlarAdresListesi();
+    document.getElementById("settingsAdresBaslik").value = "";
+    document.getElementById("settingsAdresTelefon").value = "";
+    document.getElementById("settingsAdresSehir").value = "";
+    document.getElementById("settingsAdresMetni").value = "";
+    alert("✅ Adres kaydedildi!");
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adresSil = async function(id){
+  const user = auth.currentUser;
+  if(!user) return;
+  const hedef = (currentUserData.adresler||[]).find(a=>a.id===id);
+  if(!hedef) return;
+  if(!confirm(`"${hedef.baslik}" adresini silmek istediğinize emin misiniz?`)) return;
+  try{
+    await updateDoc(doc(db,"users",user.uid), { adresler: arrayRemove(hedef) });
+    currentUserData.adresler = (currentUserData.adresler||[]).filter(a=>a.id!==id);
+    doldurAyarlarAdresListesi();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+function guncellePhoneLinkDurumu(){
+  const user = auth.currentUser;
+  const statusEl = document.getElementById("phoneLinkStatus");
+  const step1 = document.getElementById("phoneLinkStep1");
+  const step2 = document.getElementById("phoneLinkStep2");
+  if(!user || !statusEl) return;
+  const linkedPhone = (user.providerData || []).find(p => p.providerId === "phone");
+  if(linkedPhone){
+    statusEl.textContent = `✅ Doğrulanmış numara: ${linkedPhone.phoneNumber}`;
+    statusEl.classList.add("verified");
+    step1.style.display = "none";
+    step2.style.display = "none";
+  }else{
+    statusEl.textContent = "❌ Henüz doğrulanmış bir telefon numaranız yok.";
+    statusEl.classList.remove("verified");
+    step1.style.display = "block";
+  }
+}
+
+/* ================= HESAP AYARLARI ================= */
+
+window.updateProfileInfo = async function(){
+  const user = auth.currentUser;
+  if(!user) return;
+  const adSoyad = document.getElementById("settingsAdSoyad").value.trim();
+  const telefon = document.getElementById("settingsTelefon").value.trim();
+  try{
+    await updateDoc(doc(db,"users",user.uid), { adSoyad, telefon });
+    await updateProfile(user, { displayName: adSoyad });
+    currentUserData.adSoyad = adSoyad;
+    currentUserData.telefon = telefon;
+    headerRender(user, currentUserData);
+    doldurProfilBilgileri();
+    alert("Bilgileriniz güncellendi!");
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.previewSelectedImage = function(inputEl, previewId){
+  const file = inputEl.files && inputEl.files[0];
+  const img = document.getElementById(previewId);
+  if(!file){ img.style.display = "none"; img.src = ""; return; }
+  const reader = new FileReader();
+  reader.onload = e => { img.src = e.target.result; img.style.display = "block"; };
+  reader.readAsDataURL(file);
+};
+
+window.uploadProfilePhoto = async function(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  const user = auth.currentUser;
+  if(!user) return;
+  try{
+    const sref = ref(storage, `profil_fotograflari/${user.uid}/${Date.now()}_${file.name}`);
+    await uploadBytes(sref, file);
+    const url = await getDownloadURL(sref);
+    await updateDoc(doc(db,"users",user.uid), { photoURL: url });
+    await updateProfile(user, { photoURL: url });
+    currentUserData.photoURL = url;
+    headerRender(user, currentUserData);
+    doldurProfilBilgileri();
+    doldurAyarlar();
+    alert("Profil fotoğrafı güncellendi!");
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.changeUserPassword = async function(){
+  const user = auth.currentUser;
+  if(!user) return;
+  const mevcut = document.getElementById("settingsCurrentPassword").value;
+  const yeni = document.getElementById("settingsNewPassword").value;
+  if(!mevcut){
+    alert("Lütfen mevcut şifrenizi girin.");
+    return;
+  }
+  if(!yeni || yeni.length < 6){
+    alert("Yeni şifre en az 6 karakter olmalı.");
+    return;
+  }
+  try{
+    const cred = EmailAuthProvider.credential(user.email, mevcut);
+    await reauthenticateWithCredential(user, cred);
+    await updatePassword(user, yeni);
+    document.getElementById("settingsCurrentPassword").value = "";
+    document.getElementById("settingsNewPassword").value = "";
+    alert("Şifreniz güncellendi!");
+  }catch(e){
+    if(e.code === "auth/wrong-password" || e.code === "auth/invalid-credential"){
+      alert("Mevcut şifreniz hatalı.");
+    }else if(e.code === "auth/requires-recent-login"){
+      alert("Güvenlik nedeniyle şifre değiştirmeden önce tekrar giriş yapmanız gerekiyor.");
+    }else{
+      alert(e.message);
+    }
+  }
+};
+
+/* ================= TELEFON NUMARASI BAĞLAMA (Hesap Ayarları) ================= */
+
+function getRecaptcha(){
+  if(!window._recaptchaVerifier){
+    window._recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", { size: "invisible" });
+  }
+  return window._recaptchaVerifier;
+}
+
+function telefonNormallestir(raw){
+  let t = (raw || "").toString().trim().replace(/[\s()-]/g,"");
+  if(t.startsWith("0")) t = t.slice(1);
+  if(!t.startsWith("+")) t = "+90" + t.replace(/^90/,"");
+  return t;
+}
+
+window.startPhoneLink = async function(){
+  const user = auth.currentUser;
+  const sonuc = document.getElementById("phoneLinkSonuc");
+  if(!user){ sonuc.textContent = "Bu işlem için giriş yapmalısınız."; return; }
+  const raw = document.getElementById("settingsPhoneForLink").value;
+  if(!raw){ sonuc.textContent = "Lütfen telefon numaranızı girin."; return; }
+  const numara = telefonNormallestir(raw);
+  sonuc.textContent = "Kod gönderiliyor...";
+  try{
+    const confirmation = await linkWithPhoneNumber(user, numara, getRecaptcha());
+    window._phoneLinkConfirmation = confirmation;
+    document.getElementById("phoneLinkStep1").style.display = "none";
+    document.getElementById("phoneLinkStep2").style.display = "block";
+    sonuc.textContent = "Kod gönderildi. SMS'inizi kontrol edin.";
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+window.confirmPhoneLink = async function(){
+  const sonuc = document.getElementById("phoneLinkSonuc");
+  const kod = document.getElementById("settingsPhoneLinkCode").value.trim();
+  if(!window._phoneLinkConfirmation){ sonuc.textContent = "Önce kod isteyin."; return; }
+  if(!kod){ sonuc.textContent = "Lütfen kodu girin."; return; }
+  try{
+    await window._phoneLinkConfirmation.confirm(kod);
+    sonuc.textContent = "✅ Telefon numaranız başarıyla doğrulandı ve bağlandı!";
+    document.getElementById("settingsPhoneLinkCode").value = "";
+    guncellePhoneLinkDurumu();
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+/* ================= ŞİFREMİ UNUTTUM ================= */
+
+window.fpSwitchMethod = function(method, btn){
+  document.querySelectorAll("#fpMethodTabs .method-tab-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("fp-email-step1").style.display = method === "email" ? "block" : "none";
+  document.getElementById("fp-email-step2").style.display = "none";
+  document.getElementById("fp-phone-step1").style.display = method === "phone" ? "block" : "none";
+  document.getElementById("fp-phone-step2").style.display = "none";
+  document.getElementById("fp-newpass-step").style.display = "none";
+  window._fpMethod = method;
+};
+
+window.fpSendEmailCode = async function(){
+  const sonuc = document.getElementById("fpEmailSonuc");
+  const email = document.getElementById("fpEmail").value.trim();
+  if(!email){ sonuc.textContent = "Lütfen e-posta adresinizi girin."; return; }
+  sonuc.textContent = "Gönderiliyor...";
+  try{
+    await sendPasswordResetEmail(auth, email, { url: window.location.href.split("#")[0] });
+    window._fpEmail = email;
+    document.getElementById("fp-email-step1").style.display = "none";
+    document.getElementById("fp-email-step2").style.display = "block";
+    sonuc.textContent = "";
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+window.fpVerifyEmailCode = async function(){
+  const sonuc = document.getElementById("fpEmailCodeSonuc");
+  let kod = document.getElementById("fpEmailCode").value.trim();
+  if(!kod){ sonuc.textContent = "Lütfen kodu girin."; return; }
+  try{
+    const link = new URL(kod, window.location.href);
+    const param = link.searchParams.get("oobCode");
+    if(param) kod = param;
+  }catch(e){}
+  try{
+    await verifyPasswordResetCode(auth, kod);
+    window._fpOobCode = kod;
+    document.getElementById("fp-email-step2").style.display = "none";
+    document.getElementById("fp-newpass-step").style.display = "block";
+    sonuc.textContent = "";
+  }catch(e){
+    sonuc.textContent = "Kod geçersiz veya süresi dolmuş: " + e.message;
+  }
+};
+
+window.fpSendPhoneCode = async function(){
+  const sonuc = document.getElementById("fpPhoneSonuc");
+  const raw = document.getElementById("fpPhone").value;
+  if(!raw){ sonuc.textContent = "Lütfen telefon numaranızı girin."; return; }
+  const numara = telefonNormallestir(raw);
+  sonuc.textContent = "Kod gönderiliyor...";
+  try{
+    const confirmation = await signInWithPhoneNumber(auth, numara, getRecaptcha());
+    window._fpPhoneConfirmation = confirmation;
+    document.getElementById("fp-phone-step1").style.display = "none";
+    document.getElementById("fp-phone-step2").style.display = "block";
+    sonuc.textContent = "";
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+window.fpVerifyPhoneCode = async function(){
+  const sonuc = document.getElementById("fpPhoneCodeSonuc");
+  const kod = document.getElementById("fpPhoneCode").value.trim();
+  if(!window._fpPhoneConfirmation){ sonuc.textContent = "Önce kod isteyin."; return; }
+  if(!kod){ sonuc.textContent = "Lütfen kodu girin."; return; }
+  try{
+    await window._fpPhoneConfirmation.confirm(kod);
+    document.getElementById("fp-phone-step2").style.display = "none";
+    document.getElementById("fp-newpass-step").style.display = "block";
+    sonuc.textContent = "";
+  }catch(e){
+    sonuc.textContent = "Kod hatalı: " + e.message;
+  }
+};
+
+window.fpSetNewPassword = async function(){
+  const sonuc = document.getElementById("fpNewPassSonuc");
+  const p1 = document.getElementById("fpNewPassword").value;
+  const p2 = document.getElementById("fpNewPassword2").value;
+  if(!p1 || p1.length < 6){ sonuc.textContent = "Şifre en az 6 karakter olmalı."; return; }
+  if(p1 !== p2){ sonuc.textContent = "Şifreler eşleşmiyor."; return; }
+  try{
+    if(window._fpOobCode){
+      await confirmPasswordReset(auth, window._fpOobCode, p1);
+      window._fpOobCode = null;
+    }else if(auth.currentUser){
+      await updatePassword(auth.currentUser, p1);
+    }else{
+      sonuc.textContent = "Doğrulama tamamlanmadı, lütfen tekrar deneyin.";
+      return;
+    }
+    alert("Şifreniz başarıyla sıfırlandı! Şimdi yeni şifrenizle giriş yapabilirsiniz.");
+    signOut(auth).catch(()=>{});
+    location.hash = "#authModal";
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+/* ================= E-POSTA BAĞLANTISINDAN DÖNÜŞ (oobCode algılama) ================= */
+
+(async function resetLinkKontrol(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("mode") !== "resetPassword" || !params.get("oobCode")) return;
+  const oobCode = params.get("oobCode");
+  location.hash = "#resetLinkModal";
+  const info = document.getElementById("resetLinkInfo");
+  try{
+    const email = await verifyPasswordResetCode(auth, oobCode);
+    info.textContent = `${email} hesabı için yeni şifrenizi belirleyin.`;
+    document.getElementById("resetLinkBtn").disabled = false;
+    window._resetLinkOobCode = oobCode;
+  }catch(e){
+    info.textContent = "Bu bağlantının süresi dolmuş veya geçersiz. Lütfen yeniden kod isteyin.";
+  }
+})();
+
+window.confirmResetLinkPassword = async function(){
+  const sonuc = document.getElementById("resetLinkSonuc");
+  const p1 = document.getElementById("resetLinkNewPassword").value;
+  const p2 = document.getElementById("resetLinkNewPassword2").value;
+  if(!p1 || p1.length < 6){ sonuc.textContent = "Şifre en az 6 karakter olmalı."; return; }
+  if(p1 !== p2){ sonuc.textContent = "Şifreler eşleşmiyor."; return; }
+  try{
+    await confirmPasswordReset(auth, window._resetLinkOobCode, p1);
+    alert("Şifreniz başarıyla sıfırlandı! Şimdi yeni şifrenizle giriş yapabilirsiniz.");
+    window.location.href = window.location.href.split("?")[0].split("#")[0] + "#authModal";
+  }catch(e){
+    sonuc.textContent = "Hata: " + e.message;
+  }
+};
+
+window.logoutUser = function(){
+  signOut(auth).then(()=>{
+    location.hash = "#page-home";
+  }).catch(e=>alert(e.message));
+};
+
+/* ================= BİLDİRİMLER ================= */
+
+async function bildirimEkle(uid, tip, baslik, mesaj){
+  try{
+    await addDoc(collection(db,"bildirimler"), { uid, tip, baslik, mesaj, tarih: new Date().toISOString() });
+  }catch(e){
+    console.error(e);
+  }
+}
+
+window.randevuGonder = async function(){
+  const adEl = document.getElementById("randevuAd");
+  const telEl = document.getElementById("randevuTel");
+  const aracEl = document.getElementById("randevuArac");
+  const sikayetEl = document.getElementById("randevuSikayet");
+  const btn = document.getElementById("randevuSubmitBtn");
+
+  const ad = adEl.value.trim();
+  const telefon = telEl.value.trim();
+  const arac = aracEl.value.trim();
+  const sikayet = sikayetEl.value.trim();
+
+  if(!ad || !telefon || !arac || !sikayet){
+    alert("Lütfen tüm alanları doldurun.");
+    return;
+  }
+
+  const eskiYazi = btn.textContent;
+  btn.style.pointerEvents = "none";
+  btn.textContent = "Gönderiliyor...";
+
+  try{
+    const user = auth.currentUser;
+    await addDoc(collection(db,"randevular"), {
+      ad, telefon, arac, sikayet,
+      durum: "yeni",
+      kullaniciUid: user ? user.uid : null,
+      kullaniciEmail: user ? user.email : null,
+      tarih: new Date().toISOString()
+    });
+    document.getElementById("randevuForm").reset();
+    alert("Randevu talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.");
+    location.hash = "#";
+  }catch(e){
+    alert("Bir hata oluştu, lütfen tekrar deneyin: " + e.message);
+  }finally{
+    btn.style.pointerEvents = "auto";
+    btn.textContent = eskiYazi;
+  }
+};
+
+const SISTEM_DUYURULARI = [
+  { baslik:"Özdoğanlar Otomotiv'e Hoş Geldiniz", mesaj:"Profilinizden ilanlarınızı, favorilerinizi ve hesap ayarlarınızı yönetebilirsiniz." },
+  { baslik:"Yeni Parça Stokları", mesaj:"BSG ve Forka'dan yeni orijinal yedek parçalar kataloğumuza eklendi." }
+];
+
+async function loadNotifications(){
+  const user = auth.currentUser;
+  const sysWrap = document.getElementById("notifSistem");
+  const ilanWrap = document.getElementById("notifIlan");
+
+  sysWrap.innerHTML = SISTEM_DUYURULARI.map(n=>`
+    <div class="notif-item">
+      <div class="notif-ico">📢</div>
+      <div class="notif-body"><h5>${n.baslik}</h5><p>${n.mesaj}</p></div>
+    </div>
+  `).join("");
+
+  if(!user) return;
+  ilanWrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"bildirimler"), where("uid","==",user.uid));
+    const snap = await getDocs(q);
+    if(snap.empty){
+      ilanWrap.innerHTML = `<div class="empty-state">Henüz bildirim yok.</div>`;
+      return;
+    }
+    let list = [];
+    snap.forEach(v=>list.push(v.data()));
+    list.sort((a,b)=> new Date(b.tarih) - new Date(a.tarih));
+    ilanWrap.innerHTML = list.map(n=>`
+      <div class="notif-item">
+        <div class="notif-ico">${n.tip === "ilan" ? "📦" : "🔔"}</div>
+        <div class="notif-body">
+          <h5>${n.baslik}</h5>
+          <p>${n.mesaj}</p>
+          <span class="nt-time">${tarihFormatla(n.tarih)}</span>
+        </div>
+      </div>
+    `).join("");
+  }catch(e){
+    ilanWrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+/* ================= ARAÇLAR (İLANLAR) ================= */
+
+async function ilanlariGetir(){
+  const liste = document.getElementById("ilanListesi");
+  liste.innerHTML = "";
+  try{
+    const snap = await getDocs(collection(db,"ilanlar"));
+    snap.forEach((veri)=>{
+      const ilan = veri.data();
+      if(ilan.satildi) return;
+      const isFav = currentFavSet.arac.has(veri.id);
+      const specs = [
+        ilan.yil ? `${ilan.yil}` : "",
+        ilan.km ? `${Number(ilan.km).toLocaleString('tr-TR')} km` : "",
+        ilan.vites || "",
+        ilan.yakit || ""
+      ].filter(Boolean).join(" · ");
+      const aracEfektifFiyat = efektifFiyat(ilan.fiyat, ilan.indirim);
+      liste.innerHTML += `
+        <div class="card ${ilan.oneCikan ? "featured-card" : ""}">
+          <button class="fav-heart ${isFav ? "active" : ""}" onclick="toggleFavori('arac','${veri.id}','${temizle(ilan.isim)}','${temizle(ilan.foto)}','${temizle(ilan.fiyat)}')">${isFav ? "❤️" : "🤍"}</button>
+          <img class="card-img" src="${ilan.foto || ''}">
+          <div class="card-body">
+            <h3>${ilan.isim || ''}</h3>
+            ${indirimliFiyatHtml(ilan.fiyat, ilan.indirim, ilan.oneCikan)}
+            ${specs ? `<p class="meta" style="color:var(--red);font-weight:600;">${specs}</p>` : ""}
+            <p class="meta">${ilan.aciklama || ''}</p>
+            <div class="card-actions">
+              <button class="card-btn-cart" onclick="sepeteEkle('arac','${veri.id}','${temizle(ilan.isim)}',${aracEfektifFiyat},'${temizle(ilan.foto)}')">🛒 Sepete Ekle</button>
+              <button class="card-btn card-btn-buy" onclick="hizliSatinAl('arac','${veri.id}','${temizle(ilan.isim)}',${aracEfektifFiyat})">⚡ Satın Al</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }catch(e){
+    alert(e.message);
+  }
+}
+ilanlariGetir();
+
+window.ilanEkle = async function(){
+  const user = auth.currentUser;
+  if(!user){
+    alert("İlan eklemek için giriş yapmalısınız.");
+    return;
+  }
+  const isim = document.getElementById("ilanIsim").value;
+  const fiyat = document.getElementById("ilanFiyat").value;
+  const km = document.getElementById("ilanKm").value;
+  const yil = document.getElementById("ilanYil").value;
+  const vites = document.getElementById("ilanVites").value;
+  const yakit = document.getElementById("ilanYakit").value;
+  const indirim = Number(document.getElementById("ilanIndirim").value) || 0;
+  const oneCikan = document.getElementById("ilanOneCikan").checked;
+  const foto = document.getElementById("ilanFoto").value.trim();
+  const aciklama = document.getElementById("ilanAciklama").value;
+  const btn = document.getElementById("ilanEkleBtn");
+
+  if(!foto){ alert("Lütfen bir fotoğraf URL'si girin."); return; }
+
+  const eskiYazi = btn.textContent;
+  btn.disabled = true; btn.textContent = "⏳ Ekleniyor...";
+  try{
+    await addDoc(collection(db,"ilanlar"),{ isim, fiyat, km, yil, vites, yakit, indirim, oneCikan, foto, aciklama, ownerUid: user.uid, eklenmeTarihi: new Date().toISOString() });
+    bildirimEkle(user.uid, "ilan", "İlanınız Yayında", `"${isim}" adlı araç ilanınız başarıyla yayınlandı.`);
+    alert("İlan eklendi!");
+    location.reload();
+  }catch(e){
+    alert(e.message);
+    btn.disabled = false; btn.textContent = eskiYazi;
+  }
+};
+
+
+
+async function loadAdminFormlarList(){
+  const wrap = document.getElementById("adminFormlarListe");
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"randevular"), orderBy("tarih","desc"));
+    const snap = await getDocs(q);
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz gönderilen randevu formu yok.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      const telTemiz = (d.telefon || "").replace(/[^\d+]/g,"");
+      const waNo = telTemiz.replace(/^0/,"90").replace(/^\+/,"");
+      const yeniRozet = d.durum !== "okundu" ? `<span class="discount-badge" style="margin-left:8px;">Yeni</span>` : "";
+      html += `
+        <div class="mini-item" style="align-items:flex-start;">
+          <div class="mi-info">
+            <h5 style="white-space:normal;">${d.ad || 'İsimsiz'}${yeniRozet}</h5>
+            <span style="display:block;">📞 ${d.telefon || '-'} &nbsp;·&nbsp; 🚗 ${d.arac || '-'}</span>
+            <span style="display:block;margin-top:4px;color:var(--text);">${d.sikayet || ''}</span>
+            <span style="display:block;margin-top:4px;">${tarihFormatla(d.tarih)}</span>
+          </div>
+          <div class="mini-actions">
+            <a class="mi-btn" href="tel:${telTemiz}" title="Ara">📞</a>
+            <a class="mi-btn" href="https://wa.me/${waNo}" target="_blank" title="WhatsApp">💬</a>
+            ${d.durum !== "okundu" ? `<button class="mi-btn" onclick="adminFormOkunduYap('${v.id}')" title="Okundu olarak işaretle">✔️</button>` : ""}
+            <button class="mi-btn" onclick="adminFormSil('${v.id}')" title="Sil">🗑</button>
+          </div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.adminFormOkunduYap = async function(id){
+  try{
+    await updateDoc(doc(db,"randevular",id), { durum: "okundu" });
+    loadAdminFormlarList();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminFormSil = async function(id){
+  if(!confirm("Bu randevu formunu silmek istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"randevular", id));
+    loadAdminFormlarList();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+async function loadAdminAracList(mode){
+  mode = mode || "duzenle";
+  const wrap = document.getElementById(mode === "kaldir" ? "adminAracKaldirListe" : "adminAracDuzenleListe");
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const snap = await getDocs(collection(db,"ilanlar"));
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz araç ilanı eklenmedi.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      const etiket = (d.oneCikan ? " · ⭐ Öne Çıkan" : "") + (d.indirim ? ` · %${d.indirim} indirim` : "");
+      const aksiyon = mode === "kaldir"
+        ? `<button class="mi-btn" onclick="adminIlanSil('${v.id}')">🗑</button>`
+        : `<button class="mi-btn" onclick="adminIlanDuzenleAc('${v.id}')">✏️</button>`;
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}" onerror="this.style.display='none'">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺${etiket}</span></div>
+          <div class="mini-actions">${aksiyon}</div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.adminIlanSil = async function(id){
+  if(!confirm("Bu araç ilanını silmek istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"ilanlar",id));
+    loadAdminAracList("kaldir");
+    ilanlariGetir();
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminIlanDuzenleAc = async function(id){
+  try{
+    const snap = await getDoc(doc(db,"ilanlar",id));
+    if(!snap.exists()) return;
+    const d = snap.data();
+    document.getElementById("adminEditIlanIsim").value = d.isim || "";
+    document.getElementById("adminEditIlanFiyat").value = d.fiyat || "";
+    document.getElementById("adminEditIlanKm").value = d.km || "";
+    document.getElementById("adminEditIlanYil").value = d.yil || "";
+    document.getElementById("adminEditIlanVites").value = d.vites || "";
+    document.getElementById("adminEditIlanYakit").value = d.yakit || "";
+    document.getElementById("adminEditIlanIndirim").value = d.indirim || "";
+    document.getElementById("adminEditIlanOneCikan").checked = !!d.oneCikan;
+    document.getElementById("adminEditIlanFoto").value = d.foto || "";
+    document.getElementById("adminEditIlanAciklama").value = d.aciklama || "";
+    window.currentAdminEditIlanId = id;
+    location.hash = "#editAdminIlanModal";
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminIlanGuncelle = async function(){
+  const id = window.currentAdminEditIlanId;
+  if(!id) return;
+  try{
+    await updateDoc(doc(db,"ilanlar",id), {
+      isim: document.getElementById("adminEditIlanIsim").value,
+      fiyat: document.getElementById("adminEditIlanFiyat").value,
+      km: document.getElementById("adminEditIlanKm").value,
+      yil: document.getElementById("adminEditIlanYil").value,
+      vites: document.getElementById("adminEditIlanVites").value,
+      yakit: document.getElementById("adminEditIlanYakit").value,
+      indirim: Number(document.getElementById("adminEditIlanIndirim").value) || 0,
+      oneCikan: document.getElementById("adminEditIlanOneCikan").checked,
+      foto: document.getElementById("adminEditIlanFoto").value,
+      aciklama: document.getElementById("adminEditIlanAciklama").value
+    });
+    alert("Araç ilanı güncellendi!");
+    loadAdminAracList("duzenle");
+    ilanlariGetir();
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+async function loadMyIlanlar(){
+  const wrap = document.getElementById("myIlanListe");
+  const user = auth.currentUser;
+  if(!user) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"ilanlar"), where("ownerUid","==",user.uid));
+    const snap = await getDocs(q);
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz araç ilanınız yok.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺</span></div>
+          <div class="mini-actions">
+            <button class="mi-btn" onclick="editIlanAc('${v.id}')">✏️</button>
+            <button class="mi-btn" onclick="profilIlanSil('${v.id}')">🗑</button>
+          </div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.profilIlanSil = async function(id){
+  if(!confirm("Bu ilanı silmek istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"ilanlar",id));
+    loadMyIlanlar();
+    ilanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.editIlanAc = async function(id){
+  try{
+    const snap = await getDoc(doc(db,"ilanlar",id));
+    if(!snap.exists()) return;
+    const d = snap.data();
+    document.getElementById("editIlanIsim").value = d.isim || "";
+    document.getElementById("editIlanFiyat").value = d.fiyat || "";
+    document.getElementById("editIlanKm").value = d.km || "";
+    document.getElementById("editIlanYil").value = d.yil || "";
+    document.getElementById("editIlanVites").value = d.vites || "";
+    document.getElementById("editIlanYakit").value = d.yakit || "";
+    document.getElementById("editIlanFoto").value = d.foto || "";
+    document.getElementById("editIlanAciklama").value = d.aciklama || "";
+    window.currentEditIlanId = id;
+    location.hash = "#editIlanModal";
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.ilanGuncelle = async function(){
+  const id = window.currentEditIlanId;
+  if(!id) return;
+  try{
+    await updateDoc(doc(db,"ilanlar",id), {
+      isim: document.getElementById("editIlanIsim").value,
+      fiyat: document.getElementById("editIlanFiyat").value,
+      km: document.getElementById("editIlanKm").value,
+      yil: document.getElementById("editIlanYil").value,
+      vites: document.getElementById("editIlanVites").value,
+      yakit: document.getElementById("editIlanYakit").value,
+      foto: document.getElementById("editIlanFoto").value,
+      aciklama: document.getElementById("editIlanAciklama").value
+    });
+    alert("İlan güncellendi!");
+    loadMyIlanlar();
+    ilanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+/* ================= PARÇALAR ================= */
+
+async function parcalariGetir(){
+  const liste = document.getElementById("parcaListesi");
+  liste.innerHTML = "";
+  try{
+    const snap = await getDocs(collection(db,"parcalar"));
+    snap.forEach((veri)=>{
+      const parca = veri.data();
+      if(parca.satildi) return;
+      const isFav = currentFavSet.parca.has(veri.id);
+      const parcaEfektifFiyat = efektifFiyat(parca.fiyat, parca.indirim);
+      liste.innerHTML += `
+        <div class="card ${parca.oneCikan ? "featured-card" : ""}">
+          <button class="fav-heart ${isFav ? "active" : ""}" onclick="toggleFavori('parca','${veri.id}','${temizle(parca.isim)}','${temizle(parca.foto)}','${temizle(parca.fiyat)}')">${isFav ? "❤️" : "🤍"}</button>
+          <img class="card-img" src="${parca.foto || ''}">
+          <div class="card-body">
+            <h3>${parca.isim || ''}</h3>
+            ${indirimliFiyatHtml(parca.fiyat, parca.indirim, parca.oneCikan)}
+            <p class="meta">${parca.aciklama || ''}</p>
+            <div class="card-actions">
+              <button class="card-btn-cart" onclick="sepeteEkle('parca','${veri.id}','${temizle(parca.isim)}',${parcaEfektifFiyat},'${temizle(parca.foto)}')">🛒 Sepete Ekle</button>
+              <button class="card-btn card-btn-buy" onclick="hizliSatinAl('parca','${veri.id}','${temizle(parca.isim)}',${parcaEfektifFiyat})">⚡ Satın Al</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }catch(e){
+    alert(e.message);
+  }
+}
+parcalariGetir();
+
+/* ================= ÖNE ÇIKAN İLANLAR (ANA SAYFA) ================= */
+
+async function oneCikanIlanlariGetir(){
+  const wrap = document.getElementById("oneCikanListesi");
+  const section = document.getElementById("oneCikanSection");
+  if(!wrap || !section) return;
+  wrap.innerHTML = "";
+  try{
+    const [aracSnap, parcaSnap] = await Promise.all([
+      getDocs(collection(db,"ilanlar")),
+      getDocs(collection(db,"parcalar"))
+    ]);
+    let html = "";
+    let sayac = 0;
+
+    aracSnap.forEach((veri)=>{
+      const ilan = veri.data();
+      if(!ilan.oneCikan || ilan.satildi) return;
+      sayac++;
+      const specs = [
+        ilan.yil ? `${ilan.yil}` : "",
+        ilan.km ? `${Number(ilan.km).toLocaleString('tr-TR')} km` : "",
+        ilan.vites || "",
+        ilan.yakit || ""
+      ].filter(Boolean).join(" · ");
+      const aracEfektifFiyat = efektifFiyat(ilan.fiyat, ilan.indirim);
+      html += `
+        <div class="card featured-card">
+          <img class="card-img" src="${ilan.foto || ''}">
+          <div class="card-body">
+            <h3>${ilan.isim || ''}</h3>
+            ${indirimliFiyatHtml(ilan.fiyat, ilan.indirim, true)}
+            ${specs ? `<p class="meta" style="color:var(--red);font-weight:600;">${specs}</p>` : ""}
+            <p class="meta">${ilan.aciklama || ''}</p>
+            <div class="card-actions">
+              <button class="card-btn-cart" onclick="sepeteEkle('arac','${veri.id}','${temizle(ilan.isim)}',${aracEfektifFiyat},'${temizle(ilan.foto)}')">🛒 Sepete Ekle</button>
+              <button class="card-btn card-btn-buy" onclick="hizliSatinAl('arac','${veri.id}','${temizle(ilan.isim)}',${aracEfektifFiyat})">⚡ Satın Al</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    parcaSnap.forEach((veri)=>{
+      const parca = veri.data();
+      if(!parca.oneCikan || parca.satildi) return;
+      sayac++;
+      const parcaEfektifFiyat = efektifFiyat(parca.fiyat, parca.indirim);
+      html += `
+        <div class="card featured-card">
+          <img class="card-img" src="${parca.foto || ''}">
+          <div class="card-body">
+            <h3>${parca.isim || ''}</h3>
+            ${indirimliFiyatHtml(parca.fiyat, parca.indirim, true)}
+            <p class="meta">${parca.aciklama || ''}</p>
+            <div class="card-actions">
+              <button class="card-btn-cart" onclick="sepeteEkle('parca','${veri.id}','${temizle(parca.isim)}',${parcaEfektifFiyat},'${temizle(parca.foto)}')">🛒 Sepete Ekle</button>
+              <button class="card-btn card-btn-buy" onclick="hizliSatinAl('parca','${veri.id}','${temizle(parca.isim)}',${parcaEfektifFiyat})">⚡ Satın Al</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    wrap.innerHTML = html;
+    if(sayac > 0){
+      section.classList.add("has-items");
+    }else{
+      section.classList.remove("has-items");
+    }
+  }catch(e){
+    section.classList.remove("has-items");
+  }
+}
+oneCikanIlanlariGetir();
+
+window.parcaEkle = async function(){
+  const user = auth.currentUser;
+  if(!user){
+    alert("Parça eklemek için giriş yapmalısınız.");
+    return;
+  }
+  const isim = document.getElementById("parcaIsim").value;
+  const fiyat = document.getElementById("parcaFiyat").value;
+  const indirim = Number(document.getElementById("parcaIndirim").value) || 0;
+  const oneCikan = document.getElementById("parcaOneCikan").checked;
+  const foto = document.getElementById("parcaFoto").value.trim();
+  const aciklama = document.getElementById("parcaAciklama").value;
+  const btn = document.getElementById("parcaEkleBtn");
+
+  if(!foto){ alert("Lütfen bir fotoğraf URL'si girin."); return; }
+
+  const eskiYazi = btn.textContent;
+  btn.disabled = true; btn.textContent = "⏳ Ekleniyor...";
+  try{
+    await addDoc(collection(db,"parcalar"),{ isim, fiyat, indirim, oneCikan, foto, aciklama, ownerUid: user.uid, eklenmeTarihi: new Date().toISOString() });
+    bildirimEkle(user.uid, "ilan", "Parça İlanınız Yayında", `"${isim}" adlı parça ilanınız başarıyla yayınlandı.`);
+    alert("Parça eklendi!");
+    location.reload();
+  }catch(e){
+    alert(e.message);
+    btn.disabled = false; btn.textContent = eskiYazi;
+  }
+};
+
+async function loadAdminParcaList(mode){
+  mode = mode || "duzenle";
+  const wrap = document.getElementById(mode === "kaldir" ? "adminParcaKaldirListe" : "adminParcaDuzenleListe");
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const snap = await getDocs(collection(db,"parcalar"));
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz parça ilanı eklenmedi.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      const etiket = (d.oneCikan ? " · ⭐ Öne Çıkan" : "") + (d.indirim ? ` · %${d.indirim} indirim` : "");
+      const aksiyon = mode === "kaldir"
+        ? `<button class="mi-btn" onclick="adminParcaSil('${v.id}')">🗑</button>`
+        : `<button class="mi-btn" onclick="adminParcaDuzenleAc('${v.id}')">✏️</button>`;
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}" onerror="this.style.display='none'">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺${etiket}</span></div>
+          <div class="mini-actions">${aksiyon}</div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.adminParcaSil = async function(id){
+  if(!confirm("Bu parça ilanını silmek istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"parcalar",id));
+    loadAdminParcaList("kaldir");
+    parcalariGetir();
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminParcaDuzenleAc = async function(id){
+  try{
+    const snap = await getDoc(doc(db,"parcalar",id));
+    if(!snap.exists()) return;
+    const d = snap.data();
+    document.getElementById("adminEditParcaIsim").value = d.isim || "";
+    document.getElementById("adminEditParcaFiyat").value = d.fiyat || "";
+    document.getElementById("adminEditParcaIndirim").value = d.indirim || "";
+    document.getElementById("adminEditParcaOneCikan").checked = !!d.oneCikan;
+    document.getElementById("adminEditParcaFoto").value = d.foto || "";
+    document.getElementById("adminEditParcaAciklama").value = d.aciklama || "";
+    window.currentAdminEditParcaId = id;
+    location.hash = "#editAdminParcaModal";
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminParcaGuncelle = async function(){
+  const id = window.currentAdminEditParcaId;
+  if(!id) return;
+  try{
+    await updateDoc(doc(db,"parcalar",id), {
+      isim: document.getElementById("adminEditParcaIsim").value,
+      fiyat: document.getElementById("adminEditParcaFiyat").value,
+      indirim: Number(document.getElementById("adminEditParcaIndirim").value) || 0,
+      oneCikan: document.getElementById("adminEditParcaOneCikan").checked,
+      foto: document.getElementById("adminEditParcaFoto").value,
+      aciklama: document.getElementById("adminEditParcaAciklama").value
+    });
+    alert("Parça ilanı güncellendi!");
+    loadAdminParcaList("duzenle");
+    parcalariGetir();
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+async function loadMyParcalar(){
+  const wrap = document.getElementById("myParcaListe");
+  const user = auth.currentUser;
+  if(!user) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"parcalar"), where("ownerUid","==",user.uid));
+    const snap = await getDocs(q);
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz parça ilanınız yok.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺</span></div>
+          <div class="mini-actions">
+            <button class="mi-btn" onclick="editParcaAc('${v.id}')">✏️</button>
+            <button class="mi-btn" onclick="profilParcaSil('${v.id}')">🗑</button>
+          </div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.profilParcaSil = async function(id){
+  if(!confirm("Bu parçayı silmek istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"parcalar",id));
+    loadMyParcalar();
+    parcalariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.editParcaAc = async function(id){
+  try{
+    const snap = await getDoc(doc(db,"parcalar",id));
+    if(!snap.exists()) return;
+    const d = snap.data();
+    document.getElementById("editParcaIsim").value = d.isim || "";
+    document.getElementById("editParcaFiyat").value = d.fiyat || "";
+    document.getElementById("editParcaFoto").value = d.foto || "";
+    document.getElementById("editParcaAciklama").value = d.aciklama || "";
+    window.currentEditParcaId = id;
+    location.hash = "#editParcaModal";
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.parcaGuncelle = async function(){
+  const id = window.currentEditParcaId;
+  if(!id) return;
+  try{
+    await updateDoc(doc(db,"parcalar",id), {
+      isim: document.getElementById("editParcaIsim").value,
+      fiyat: document.getElementById("editParcaFiyat").value,
+      foto: document.getElementById("editParcaFoto").value,
+      aciklama: document.getElementById("editParcaAciklama").value
+    });
+    alert("Parça güncellendi!");
+    loadMyParcalar();
+    parcalariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+/* ================= FAVORİLER ================= */
+
+async function loadFavoriteSet(){
+  const user = auth.currentUser;
+  currentFavSet = { arac: new Set(), parca: new Set() };
+  if(!user){
+    ilanlariGetir();
+    parcalariGetir();
+    return;
+  }
+  try{
+    const q = query(collection(db,"favoriler"), where("uid","==",user.uid));
+    const snap = await getDocs(q);
+    snap.forEach(v=>{
+      const d = v.data();
+      if(d.tip === "arac") currentFavSet.arac.add(d.refId);
+      if(d.tip === "parca") currentFavSet.parca.add(d.refId);
+    });
+  }catch(e){
+    console.error(e);
+  }
+  ilanlariGetir();
+  parcalariGetir();
+}
+
+window.toggleFavori = async function(tip, id, isim, foto, fiyat){
+  const user = auth.currentUser;
+  if(!user){
+    alert("Favorilere eklemek için giriş yapmalısınız.");
+    location.hash = "#authModal";
+    return;
+  }
+  const favId = `${user.uid}_${tip}_${id}`;
+  try{
+    const fref = doc(db,"favoriler",favId);
+    const set = tip === "arac" ? currentFavSet.arac : currentFavSet.parca;
+    const mevcut = set.has(id);
+    if(mevcut){
+      await deleteDoc(fref);
+      set.delete(id);
+    }else{
+      await setDoc(fref, { uid: user.uid, tip, refId: id, isim, foto, fiyat, eklenmeTarihi: new Date().toISOString() });
+      set.add(id);
+    }
+    if(tip === "arac") ilanlariGetir(); else parcalariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+async function loadFavorites(){
+  const user = auth.currentUser;
+  const aWrap = document.getElementById("favAracListe");
+  const pWrap = document.getElementById("favParcaListe");
+  if(!user) return;
+  aWrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  pWrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"favoriler"), where("uid","==",user.uid));
+    const snap = await getDocs(q);
+    let aHtml = "", pHtml = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      const row = `
+        <div class="mini-item">
+          <img src="${d.foto || ''}">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺</span></div>
+          <div class="mini-actions">
+            <button class="mi-btn" onclick="toggleFavori('${d.tip}','${d.refId}')">💔</button>
+          </div>
+        </div>
+      `;
+      if(d.tip === "arac") aHtml += row; else pHtml += row;
+    });
+    aWrap.innerHTML = aHtml || `<div class="empty-state">Favori aracınız yok.</div>`;
+    pWrap.innerHTML = pHtml || `<div class="empty-state">Favori parçanız yok.</div>`;
+  }catch(e){
+    aWrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+    pWrap.innerHTML = "";
+  }
+}
+
+/* ================= KULLANICI (GİRİŞ / KAYIT) ================= */
+
+window.registerUser = function(){
+  const adSoyad = document.getElementById("registerAdSoyad").value.trim();
+  const telefon = document.getElementById("registerTelefon").value.trim();
+  const email = document.getElementById("registerEmail").value;
+  const pass = document.getElementById("registerPassword").value;
+
+  createUserWithEmailAndPassword(auth,email,pass)
+    .then(async (cred)=>{
+      const user = cred.user;
+      const nihaiAd = adSoyad || email.split("@")[0];
+      await updateProfile(user, { displayName: nihaiAd });
+      await setDoc(doc(db,"users",user.uid), {
+        adSoyad: nihaiAd,
+        email,
+        telefon,
+        photoURL: "",
+        createdAt: new Date().toISOString(),
+        uid: user.uid,
+        bakiye: 0,
+        puan: 0,
+        adresler: []
+      });
+      bildirimEkle(user.uid, "sistem", "Kayıt Başarılı", "Özdoğanlar Otomotiv ailesine hoş geldiniz!");
+      alert("Kayıt başarılı!");
+    })
+    .catch(e=>{
+      alert(e.message);
+    });
+};
+
+window.loginUser = function(){
+  const email = document.getElementById("loginEmail").value;
+  const pass = document.getElementById("loginPassword").value;
+
+  signInWithEmailAndPassword(auth,email,pass)
+    .then(()=>{
+      if(email === ADMIN_EMAIL){
+        window.location.href = "#adminPanel";
+        setTimeout(()=>openAdminPanel(), 50);
+      }else{
+        alert("Giriş başarılı!");
+        location.hash = "#page-home";
+      }
+    })
+    .catch(e=>{
+      alert(e.message);
+    });
+};
+
+/* ================= CÜZDAN (KULLANICILAR ARASI BAKİYE) ================= */
+
+function doldurCuzdan(){
+  if(!currentUserData) return;
+  document.getElementById("walletBakiye").textContent = (currentUserData.bakiye || 0).toLocaleString("tr-TR") + " ₺";
+  document.getElementById("walletPuan").textContent = (currentUserData.puan || 0).toLocaleString("tr-TR") + " P";
+}
+
+/* ================= BAKİYE YÜKLEME TALEPLERİ (SATIN AL) ================= */
+
+window.setYuklemeTutar = function(v, btn){
+  document.getElementById("yuklemeTutar").value = v;
+  document.querySelectorAll("#yuklemeChipRow .amount-chip").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+};
+
+window.clearYuklemeChipSelection = function(){
+  document.querySelectorAll("#yuklemeChipRow .amount-chip").forEach(b=>b.classList.remove("active"));
+};
+
+function talepDurumBadge(durum){
+  if(durum === "onaylandi") return `<span class="status-badge approved">✅ Onaylandı</span>`;
+  if(durum === "reddedildi") return `<span class="status-badge rejected">❌ Reddedildi</span>`;
+  return `<span class="status-badge pending">⏳ Beklemede</span>`;
+}
+
+window.bakiyeYuklemeTalebiGonder = async function(){
+  const user = auth.currentUser;
+  const sonucEl = document.getElementById("yuklemeSonuc");
+  if(!user){ alert("Bu işlem için giriş yapmalısınız."); return; }
+
+  const tutar = Number(document.getElementById("yuklemeTutar").value);
+  const dekont = document.getElementById("yuklemeDekont").value.trim();
+
+  if(!tutar || tutar <= 0){ sonucEl.textContent = "Lütfen geçerli bir tutar girin."; return; }
+
+  sonucEl.textContent = "Talebiniz gönderiliyor...";
+  try{
+    await addDoc(collection(db,"bakiyeTalepleri"), {
+      uid: user.uid,
+      ad: currentUserData?.adSoyad || user.email,
+      email: currentUserData?.email || user.email,
+      tutar,
+      yontem: "Banka Havalesi/EFT",
+      dekont: dekont || "-",
+      durum: "beklemede",
+      tarih: new Date().toISOString()
+    });
+    sonucEl.textContent = "✅ Talebiniz alındı. Onaylandığında bakiyenize yansıyacak.";
+    document.getElementById("yuklemeTutar").value = "";
+    document.getElementById("yuklemeDekont").value = "";
+    clearYuklemeChipSelection();
+    loadKullaniciTaleplerim();
+  }catch(e){
+    sonucEl.textContent = "❌ " + e.message;
+  }
+};
+
+async function loadKullaniciTaleplerim(){
+  const user = auth.currentUser;
+  const el = document.getElementById("yuklemeTaleplerim");
+  if(!user || !el) return;
+  el.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"bakiyeTalepleri"), where("uid","==",user.uid));
+    const snap = await getDocs(q);
+    let talepler = [];
+    snap.forEach(v=>talepler.push({ id:v.id, ...v.data() }));
+    talepler.sort((a,b)=> new Date(b.tarih||0) - new Date(a.tarih||0));
+    el.innerHTML = talepler.slice(0,8).map(t=>`
+      <div class="request-item">
+        <div class="ri-info">
+          <h5>${Number(t.tutar||0).toLocaleString("tr-TR")} ₺ — ${t.yontem||"Banka Havalesi"}</h5>
+          <span>${new Date(t.tarih).toLocaleDateString("tr-TR")}</span>
+        </div>
+        ${talepDurumBadge(t.durum)}
+      </div>
+    `).join("") || `<div class="empty-state">Henüz bir yükleme talebiniz yok.</div>`;
+  }catch(e){
+    el.innerHTML = `<div class="empty-state">Talepler yüklenemedi.</div>`;
+  }
+}
+
+async function populateUserSelect(selectId, excludeUid){
+  const sel = document.getElementById(selectId);
+  if(!sel) return;
+  sel.innerHTML = `<option value="">Yükleniyor...</option>`;
+  try{
+    const snap = await getDocs(collection(db,"users"));
+    let opts = `<option value="">Kullanıcı seçin...</option>`;
+    snap.forEach(v=>{
+      if(excludeUid && v.id === excludeUid) return;
+      const d = v.data();
+      opts += `<option value="${v.id}">${(d.adSoyad || d.email || v.id)} — ${d.email || ""}</option>`;
+    });
+    sel.innerHTML = opts;
+  }catch(e){
+    sel.innerHTML = `<option value="">Kullanıcılar yüklenemedi</option>`;
+  }
+}
+
+async function islemKaydet(veri){
+  try{
+    await addDoc(collection(db,"islemler"), { ...veri, tarih: new Date().toISOString() });
+  }catch(e){
+    console.error(e);
+  }
+}
+
+window.kullaniciBakiyeGonder = async function(){
+  const user = auth.currentUser;
+  const sonucEl = document.getElementById("transferSonuc");
+  if(!user){ alert("Bu işlem için giriş yapmalısınız."); return; }
+
+  const aliciEmail = document.getElementById("transferAliciEmail").value.trim();
+  const tutar = Number(document.getElementById("transferTutar").value);
+  const aciklama = document.getElementById("transferAciklama").value.trim() || "Bakiye transferi";
+
+  if(!aliciEmail){ sonucEl.textContent = "Lütfen alıcının e-posta adresini girin."; return; }
+  if(aliciEmail.toLowerCase() === (user.email || "").toLowerCase()){ sonucEl.textContent = "Kendinize gönderim yapamazsınız."; return; }
+  if(!tutar || tutar <= 0){ sonucEl.textContent = "Geçerli bir tutar girin."; return; }
+
+  sonucEl.textContent = "İşlem yapılıyor...";
+
+  try{
+    const q = query(collection(db,"users"), where("email","==",aliciEmail));
+    const snap = await getDocs(q);
+    if(snap.empty){ sonucEl.textContent = "❌ Bu e-posta adresine kayıtlı kullanıcı bulunamadı."; return; }
+
+    const aliciUid = snap.docs[0].id;
+    const gonderenRef = doc(db,"users",user.uid);
+    const aliciRef = doc(db,"users",aliciUid);
+    let aliciAd = "";
+
+    await runTransaction(db, async (tx)=>{
+      const gonderenSnap = await tx.get(gonderenRef);
+      const aliciSnap = await tx.get(aliciRef);
+      if(!gonderenSnap.exists() || !aliciSnap.exists()) throw new Error("Kullanıcı bulunamadı.");
+
+      const gonderenBakiye = gonderenSnap.data().bakiye || 0;
+      if(gonderenBakiye < tutar) throw new Error("Yetersiz bakiye. İşlem iptal edildi.");
+
+      aliciAd = aliciSnap.data().adSoyad || aliciSnap.data().email || "Kullanıcı";
+
+      tx.update(gonderenRef, { bakiye: gonderenBakiye - tutar });
+      tx.update(aliciRef, { bakiye: (aliciSnap.data().bakiye || 0) + tutar });
+    });
+
+    currentUserData.bakiye = (currentUserData.bakiye || 0) - tutar;
+    doldurCuzdan();
+    doldurProfilBilgileri();
+
+    await islemKaydet({
+      tip: "kullanici-bakiye", gonderenUid: user.uid, gonderenAd: currentUserData.adSoyad || user.email,
+      aliciUid, aliciAd, tutar, aciklama
+    });
+    await bildirimEkle(user.uid, "bakiye", "Bakiye Gönderildi", `${aliciAd} kullanıcısına ${tutar} ₺ gönderdiniz.`);
+    await bildirimEkle(aliciUid, "bakiye", "Bakiye Aldınız", `${currentUserData.adSoyad || user.email} size ${tutar} ₺ gönderdi. Not: ${aciklama}`);
+
+    sonucEl.textContent = "✅ Gönderim başarılı!";
+    document.getElementById("transferAliciEmail").value = "";
+    document.getElementById("transferTutar").value = "";
+    document.getElementById("transferAciklama").value = "";
+  }catch(e){
+    sonucEl.textContent = "❌ " + e.message;
+  }
+};
+
+/* ================= ADMİN PANELİ ================= */
+
+window.openAdminPanel = function(){
+  const user = auth.currentUser;
+  if(!user || user.email !== ADMIN_EMAIL){
+    alert("Bu alana erişim yetkiniz yok.");
+    location.hash = "#page-home";
+    return;
+  }
+  showAdminSection("dashboard", document.querySelector('[data-admin-tab="dashboard"]'));
+  loadAdminBakiyeTalepleri();
+};
+
+window.adminSifreDegistir = async function(){
+  const admin = auth.currentUser;
+  const sonuc = document.getElementById("adminSifreSonuc");
+  if(!admin) return;
+  const mevcut = document.getElementById("adminMevcutSifre").value;
+  const yeni = document.getElementById("adminYeniSifre").value;
+  const yeni2 = document.getElementById("adminYeniSifre2").value;
+  if(!mevcut){ sonuc.textContent = "Lütfen mevcut şifrenizi girin."; return; }
+  if(!yeni || yeni.length < 6){ sonuc.textContent = "Yeni şifre en az 6 karakter olmalı."; return; }
+  if(yeni !== yeni2){ sonuc.textContent = "Yeni şifreler eşleşmiyor."; return; }
+  try{
+    const cred = EmailAuthProvider.credential(admin.email, mevcut);
+    await reauthenticateWithCredential(admin, cred);
+    await updatePassword(admin, yeni);
+    document.getElementById("adminMevcutSifre").value = "";
+    document.getElementById("adminYeniSifre").value = "";
+    document.getElementById("adminYeniSifre2").value = "";
+    sonuc.textContent = "";
+    alert("✅ Yönetici şifreniz başarıyla güncellendi!");
+  }catch(e){
+    if(e.code === "auth/wrong-password" || e.code === "auth/invalid-credential"){
+      sonuc.textContent = "Mevcut şifreniz hatalı.";
+    }else{
+      sonuc.textContent = "Hata: " + e.message;
+    }
+  }
+};
+
+window.showAdminSection = function(tab, btn){
+  const ids = ["dashboard","formlar","bakiyeTalepleri","bakiyeGonder","puanGonder","aracForm","parcaForm","marketForm","oneCikan","satinAlmalar","guvenlik"];
+  ids.forEach(id=>{
+    const el = document.getElementById("admin-"+id);
+    if(el) el.style.display = (id === tab) ? "block" : "none";
+  });
+  document.querySelectorAll("#adminMenu .modal-submit").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+
+  if(tab === "dashboard") loadAdminDashboard();
+  if(tab === "formlar") loadAdminFormlarList();
+  if(tab === "bakiyeTalepleri") loadAdminBakiyeTalepleri();
+  if(tab === "bakiyeGonder") populateUserSelect("adminBakiyeUser", null);
+  if(tab === "puanGonder") populateUserSelect("adminPuanUser", null);
+  if(tab === "aracForm") showAdminSubTab("arac","ekle", document.getElementById("aracSubBtnEkle"));
+  if(tab === "parcaForm") showAdminSubTab("parca","ekle", document.getElementById("parcaSubBtnEkle"));
+  if(tab === "marketForm") showAdminSubTab("market","ekle", document.getElementById("marketSubBtnEkle"));
+  if(tab === "oneCikan") showAdminSubTab("oneCikan","ekle", document.getElementById("oneCikanSubBtnEkle"));
+  if(tab === "satinAlmalar") loadAdminSatinAlmaGecmisi();
+};
+
+window.showAdminSubTab = function(kategori, sub, btn){
+  const subs = ["ekle","duzenle","kaldir"];
+  subs.forEach(s=>{
+    const el = document.getElementById(kategori+"-sub-"+s);
+    if(el) el.style.display = (s === sub) ? "block" : "none";
+  });
+  if(btn){
+    const menu = btn.parentElement;
+    if(menu) menu.querySelectorAll(".sub-tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+  }
+  if(kategori === "arac" && sub === "duzenle") loadAdminAracList("duzenle");
+  if(kategori === "arac" && sub === "kaldir") loadAdminAracList("kaldir");
+  if(kategori === "parca" && sub === "duzenle") loadAdminParcaList("duzenle");
+  if(kategori === "parca" && sub === "kaldir") loadAdminParcaList("kaldir");
+  if(kategori === "market" && sub === "duzenle") loadAdminMarketList("duzenle");
+  if(kategori === "market" && sub === "kaldir") loadAdminMarketList("kaldir");
+  if(kategori === "oneCikan") loadAdminOneCikanList(sub);
+};
+
+async function loadAdminDashboard(){
+  const elUsers = document.getElementById("statUsers");
+  const elAraclar = document.getElementById("statAraclar");
+  const elParcalar = document.getElementById("statParcalar");
+  const elBakiye = document.getElementById("statBakiye");
+  const elPuan = document.getElementById("statPuan");
+  const elSonKullanicilar = document.getElementById("dashSonKullanicilar");
+  const elSonIlanlar = document.getElementById("dashSonIlanlar");
+  const elSonIslemler = document.getElementById("dashSonIslemler");
+
+  try{
+    const [usersSnap, aracSnap, parcaSnap] = await Promise.all([
+      getDocs(collection(db,"users")),
+      getDocs(collection(db,"ilanlar")),
+      getDocs(collection(db,"parcalar"))
+    ]);
+
+    let toplamBakiye = 0, toplamPuan = 0;
+    let kullanicilar = [];
+    usersSnap.forEach(v=>{
+      const d = v.data();
+      toplamBakiye += Number(d.bakiye || 0);
+      toplamPuan += Number(d.puan || 0);
+      kullanicilar.push({ id:v.id, ...d });
+    });
+
+    elUsers.textContent = usersSnap.size;
+    elAraclar.textContent = aracSnap.size;
+    elParcalar.textContent = parcaSnap.size;
+    elBakiye.textContent = toplamBakiye.toLocaleString("tr-TR");
+    elPuan.textContent = toplamPuan.toLocaleString("tr-TR");
+
+    kullanicilar.sort((a,b)=> new Date(b.createdAt||0) - new Date(a.createdAt||0));
+    elSonKullanicilar.innerHTML = kullanicilar.slice(0,5).map(u=>`
+      <div class="mini-item">
+        <img src="${u.photoURL || ''}" onerror="this.style.display='none'">
+        <div class="mi-info"><h5>${u.adSoyad || u.email || 'Kullanıcı'}</h5><span>${u.email || ''}</span></div>
+      </div>
+    `).join("") || `<div class="empty-state">Kayıt yok.</div>`;
+
+    let ilanlar = [];
+    aracSnap.forEach(v=>ilanlar.push({ id:v.id, tur:"🚗", ...v.data() }));
+    parcaSnap.forEach(v=>ilanlar.push({ id:v.id, tur:"⚙️", ...v.data() }));
+    ilanlar.sort((a,b)=> new Date(b.eklenmeTarihi||0) - new Date(a.eklenmeTarihi||0));
+    elSonIlanlar.innerHTML = ilanlar.slice(0,5).map(i=>`
+      <div class="mini-item">
+        <img src="${i.foto || ''}" onerror="this.style.display='none'">
+        <div class="mi-info"><h5>${i.tur} ${i.isim || ''}</h5><span>${i.fiyat || '0'} ₺</span></div>
+      </div>
+    `).join("") || `<div class="empty-state">İlan yok.</div>`;
+
+    try{
+      const txQ = query(collection(db,"islemler"), orderBy("tarih","desc"), limit(6));
+      const txSnap = await getDocs(txQ);
+      let txHtml = "";
+      txSnap.forEach(v=>{
+        const t = v.data();
+        const etiket = t.tip === "admin-bakiye" ? "Admin → Bakiye" :
+                       t.tip === "admin-puan" ? "Admin → Puan" :
+                       t.tip === "bakiye-yukleme" ? "Bakiye Yükleme (Onay)" :
+                       t.tip === "kullanici-bakiye" ? "Kullanıcı Transferi" :
+                       t.tip === "arac-satin-alma" ? "Araç Satın Alma" :
+                       t.tip === "parca-satin-alma" ? "Parça Satın Alma" :
+                       t.tip === "market-satin-alma" ? "Market Alışverişi" : "İşlem";
+        txHtml += `
+          <div class="tx-item">
+            <div><span class="tx-l">${etiket}</span><span class="tx-s">${t.aliciAd || t.gonderenAd || ''}</span></div>
+            <span class="tx-amt ${t.tip==='market-satin-alma' ? 'neg' : 'pos'}">${t.tutar || 0} ${t.tip==='admin-puan'||t.tip==='market-satin-alma' ? 'P' : '₺'}</span>
+          </div>
+        `;
+      });
+      elSonIslemler.innerHTML = txHtml || `<div class="empty-state">Henüz işlem yok.</div>`;
+    }catch(e){
+      elSonIslemler.innerHTML = `<div class="empty-state">İşlemler yüklenemedi.</div>`;
+    }
+  }catch(e){
+    alert(e.message);
+  }
+}
+
+async function loadAdminBakiyeTalepleri(){
+  const el = document.getElementById("adminBakiyeTalepListe");
+  const badge = document.getElementById("bakiyeTalepBadge");
+  if(!el) return;
+  el.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const snap = await getDocs(collection(db,"bakiyeTalepleri"));
+    let talepler = [];
+    snap.forEach(v=>talepler.push({ id:v.id, ...v.data() }));
+    talepler.sort((a,b)=> new Date(b.tarih||0) - new Date(a.tarih||0));
+
+    const bekleyen = talepler.filter(t=>t.durum === "beklemede" || !t.durum);
+    if(badge){
+      if(bekleyen.length > 0){ badge.style.display = "inline-flex"; badge.textContent = bekleyen.length; }
+      else{ badge.style.display = "none"; }
+    }
+
+    el.innerHTML = talepler.slice(0,30).map(t=>{
+      const durum = t.durum || "beklemede";
+      const aksiyon = durum === "beklemede" ? `
+        <div class="ri-actions">
+          <button class="ri-btn approve" onclick="adminBakiyeTalepOnayla('${t.id}','${t.uid}',${Number(t.tutar||0)},'${(t.ad||'Kullanıcı').replace(/'/g,"")}')">✅ Onayla</button>
+          <button class="ri-btn reject" onclick="adminBakiyeTalepReddet('${t.id}','${t.uid}')">❌ Reddet</button>
+        </div>
+      ` : talepDurumBadge(durum);
+      return `
+        <div class="request-item">
+          <div class="ri-info">
+            <h5>${t.ad || t.email || 'Kullanıcı'} — ${Number(t.tutar||0).toLocaleString("tr-TR")} ₺</h5>
+            <span>${t.yontem||''} ${t.dekont && t.dekont !== '-' ? '· Dekont: '+t.dekont : ''} · ${new Date(t.tarih).toLocaleDateString("tr-TR")}</span>
+          </div>
+          ${aksiyon}
+        </div>
+      `;
+    }).join("") || `<div class="empty-state">Henüz bir yükleme talebi yok.</div>`;
+  }catch(e){
+    el.innerHTML = `<div class="empty-state">Talepler yüklenemedi.</div>`;
+  }
+}
+
+window.adminBakiyeTalepOnayla = async function(id, uid, tutar, ad){
+  const admin = auth.currentUser;
+  if(!admin || admin.email !== ADMIN_EMAIL){ alert("Yetkiniz yok."); return; }
+  if(!confirm(`${ad} kullanıcısına ${tutar} ₺ yüklensin mi?`)) return;
+  try{
+    await updateDoc(doc(db,"bakiyeTalepleri",id), { durum:"onaylandi", onayTarihi:new Date().toISOString() });
+    await updateDoc(doc(db,"users",uid), { bakiye: increment(tutar) });
+    await islemKaydet({ tip:"bakiye-yukleme", gonderenUid: admin.uid, gonderenAd:"Yönetici", aliciUid: uid, aliciAd: ad, tutar, aciklama:"Bakiye yükleme talebi onayı" });
+    await bildirimEkle(uid, "bakiye", "Bakiye Yüklendi", `Bakiye yükleme talebiniz onaylandı. Hesabınıza ${tutar} ₺ yüklendi.`);
+    loadAdminBakiyeTalepleri();
+    loadAdminDashboard();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminBakiyeTalepReddet = async function(id, uid){
+  const admin = auth.currentUser;
+  if(!admin || admin.email !== ADMIN_EMAIL){ alert("Yetkiniz yok."); return; }
+  if(!confirm("Bu yükleme talebini reddetmek istediğinize emin misiniz?")) return;
+  try{
+    await updateDoc(doc(db,"bakiyeTalepleri",id), { durum:"reddedildi", redTarihi:new Date().toISOString() });
+    await bildirimEkle(uid, "bakiye", "Bakiye Talebi Reddedildi", "Gönderdiğiniz bakiye yükleme talebi yönetici tarafından reddedildi. Detaylar için bizimle iletişime geçebilirsiniz.");
+    loadAdminBakiyeTalepleri();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminBakiyeGonder = async function(){
+  const sonucEl = document.getElementById("adminBakiyeSonuc");
+  const admin = auth.currentUser;
+  if(!admin || admin.email !== ADMIN_EMAIL){ alert("Yetkiniz yok."); return; }
+
+  let aliciUid = document.getElementById("adminBakiyeUser").value;
+  const email = document.getElementById("adminBakiyeEmail").value.trim();
+  const tutar = Number(document.getElementById("adminBakiyeTutar").value);
+  const aciklama = document.getElementById("adminBakiyeAciklama").value.trim() || "Admin bakiye gönderimi";
+
+  if(email){
+    sonucEl.textContent = "Kullanıcı aranıyor...";
+    try{
+      const q = query(collection(db,"users"), where("email","==",email));
+      const qs = await getDocs(q);
+      if(qs.empty){ sonucEl.textContent = "❌ Bu e-postaya sahip kullanıcı bulunamadı."; return; }
+      aliciUid = qs.docs[0].id;
+    }catch(e){
+      sonucEl.textContent = "❌ " + e.message;
+      return;
+    }
+  }
+
+  if(!aliciUid){ sonucEl.textContent = "Lütfen bir kullanıcı seçin veya e-posta girin."; return; }
+  if(!tutar || tutar <= 0){ sonucEl.textContent = "Geçerli bir tutar girin."; return; }
+
+  sonucEl.textContent = "Gönderiliyor...";
+  try{
+    const aliciRef = doc(db,"users",aliciUid);
+    const aliciSnap = await getDoc(aliciRef);
+    const aliciAd = aliciSnap.exists() ? (aliciSnap.data().adSoyad || aliciSnap.data().email) : "Kullanıcı";
+    await updateDoc(aliciRef, { bakiye: increment(tutar) });
+    await islemKaydet({ tip:"admin-bakiye", gonderenUid: admin.uid, gonderenAd:"Yönetici", aliciUid, aliciAd, tutar, aciklama });
+    await bildirimEkle(aliciUid, "bakiye", "Bakiye Yüklendi", `Hesabınıza ${tutar} ₺ yüklendi. Not: ${aciklama}`);
+    sonucEl.textContent = `✅ ${aliciAd} kullanıcısına ${tutar} ₺ gönderildi.`;
+    document.getElementById("adminBakiyeTutar").value = "";
+    document.getElementById("adminBakiyeAciklama").value = "";
+    document.getElementById("adminBakiyeEmail").value = "";
+    loadAdminDashboard();
+  }catch(e){
+    sonucEl.textContent = "❌ " + e.message;
+  }
+};
+
+window.adminPuanGonder = async function(){
+  const sonucEl = document.getElementById("adminPuanSonuc");
+  const admin = auth.currentUser;
+  if(!admin || admin.email !== ADMIN_EMAIL){ alert("Yetkiniz yok."); return; }
+
+  let aliciUid = document.getElementById("adminPuanUser").value;
+  const email = document.getElementById("adminPuanEmail").value.trim();
+  const tutar = Number(document.getElementById("adminPuanTutar").value);
+  const aciklama = document.getElementById("adminPuanAciklama").value.trim() || "Admin puan gönderimi";
+
+  if(email){
+    sonucEl.textContent = "Kullanıcı aranıyor...";
+    try{
+      const q = query(collection(db,"users"), where("email","==",email));
+      const qs = await getDocs(q);
+      if(qs.empty){ sonucEl.textContent = "❌ Bu e-postaya sahip kullanıcı bulunamadı."; return; }
+      aliciUid = qs.docs[0].id;
+    }catch(e){
+      sonucEl.textContent = "❌ " + e.message;
+      return;
+    }
+  }
+
+  if(!aliciUid){ sonucEl.textContent = "Lütfen bir kullanıcı seçin veya e-posta girin."; return; }
+  if(!tutar || tutar <= 0){ sonucEl.textContent = "Geçerli bir puan miktarı girin."; return; }
+
+  sonucEl.textContent = "Gönderiliyor...";
+  try{
+    const aliciRef = doc(db,"users",aliciUid);
+    const aliciSnap = await getDoc(aliciRef);
+    const aliciAd = aliciSnap.exists() ? (aliciSnap.data().adSoyad || aliciSnap.data().email) : "Kullanıcı";
+    await updateDoc(aliciRef, { puan: increment(tutar) });
+    await islemKaydet({ tip:"admin-puan", gonderenUid: admin.uid, gonderenAd:"Yönetici", aliciUid, aliciAd, tutar, aciklama });
+    await bildirimEkle(aliciUid, "puan", "Puan Yüklendi", `Hesabınıza ${tutar} puan yüklendi. Not: ${aciklama}`);
+    sonucEl.textContent = `✅ ${aliciAd} kullanıcısına ${tutar} puan gönderildi.`;
+    document.getElementById("adminPuanTutar").value = "";
+    document.getElementById("adminPuanAciklama").value = "";
+    document.getElementById("adminPuanEmail").value = "";
+    loadAdminDashboard();
+  }catch(e){
+    sonucEl.textContent = "❌ " + e.message;
+  }
+};
+
+/* ================= PUAN MARKET ================= */
+
+async function marketUrunleriGetir(){
+  const liste = document.getElementById("marketListesi");
+  if(!liste) return;
+  liste.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const snap = await getDocs(collection(db,"market"));
+    if(snap.empty){
+      liste.innerHTML = `<div class="empty-state">Şu an Puan Market'te ürün bulunmuyor.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const u = v.data();
+      html += `
+        <div class="card">
+          <img class="card-img" src="${u.resim || ''}">
+          <div class="card-body">
+            <div class="card-tag-row"><span class="card-tag">Puan Market</span></div>
+            <h3>${u.isim || ''}</h3>
+            <p class="meta">${u.aciklama || ''}</p>
+            ${indirimliPuanHtml(u.puanFiyat, u.indirim)}
+            <button class="card-btn" onclick="urunSatinAl('${v.id}','${temizle(u.isim)}',${Math.round((Number(u.puanFiyat)||0) * (1 - (Number(u.indirim)||0)/100))})">🛒 Satın Al</button>
+          </div>
+        </div>
+      `;
+    });
+    liste.innerHTML = html;
+  }catch(e){
+    liste.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+
+  const bar = document.getElementById("marketBalanceBar");
+  const user = auth.currentUser;
+  if(user && currentUserData){
+    bar.style.display = "flex";
+    document.getElementById("marketMyPoints").textContent = (currentUserData.puan || 0).toLocaleString("tr-TR");
+  }else if(bar){
+    bar.style.display = "none";
+  }
+}
+marketUrunleriGetir();
+
+window.urunSatinAl = async function(urunId, urunAdi, fiyat){
+  const user = auth.currentUser;
+  if(!user){
+    alert("Satın almak için giriş yapmalısınız.");
+    location.hash = "#authModal";
+    return;
+  }
+  if(!confirm(`${urunAdi} (${fiyat} Puan) satın almak istediğinize emin misiniz?`)) return;
+
+  const userRef = doc(db,"users",user.uid);
+  try{
+    await runTransaction(db, async (tx)=>{
+      const uSnap = await tx.get(userRef);
+      const mevcutPuan = (uSnap.exists() ? uSnap.data().puan : 0) || 0;
+      if(mevcutPuan < fiyat) throw new Error("Yetersiz puanınız var.");
+      tx.update(userRef, { puan: mevcutPuan - fiyat });
+    });
+
+    currentUserData.puan = (currentUserData.puan || 0) - fiyat;
+    await islemKaydet({ tip:"market-satin-alma", gonderenUid:user.uid, gonderenAd: currentUserData.adSoyad || user.email, aliciUid:user.uid, aliciAd: urunAdi, tutar: fiyat, aciklama: `"${urunAdi}" ürünü satın alındı.` });
+    await bildirimEkle(user.uid, "market", "Satın Alma Başarılı", `"${urunAdi}" ürününü ${fiyat} puan karşılığında satın aldınız.`);
+
+    alert("✅ Satın alma başarılı!");
+    marketUrunleriGetir();
+    doldurCuzdan();
+    doldurProfilBilgileri();
+  }catch(e){
+    alert("❌ " + e.message);
+  }
+};
+
+window.marketUrunEkle = async function(){
+  const admin = auth.currentUser;
+  if(!admin || admin.email !== ADMIN_EMAIL){ alert("Yetkiniz yok."); return; }
+  const isim = document.getElementById("marketIsim").value.trim();
+  const puanFiyat = Number(document.getElementById("marketFiyat").value);
+  const indirim = Number(document.getElementById("marketIndirim").value) || 0;
+  const resimInput = document.getElementById("marketResim");
+  const resim = resimInput.value.trim();
+  const aciklama = document.getElementById("marketAciklama").value.trim();
+  const btn = document.getElementById("marketUrunEkleBtn");
+  if(!isim || !puanFiyat){ alert("Ürün adı ve puan fiyatı zorunludur."); return; }
+  if(!resim){ alert("Lütfen bir ürün resmi URL'si girin."); return; }
+
+  const eskiYazi = btn.textContent;
+  btn.disabled = true; btn.textContent = "⏳ Ekleniyor...";
+  try{
+    await addDoc(collection(db,"market"), { isim, puanFiyat, indirim, resim, aciklama, eklenmeTarihi: new Date().toISOString() });
+    alert("Ürün Puan Market'e eklendi!");
+    document.getElementById("marketIsim").value = "";
+    document.getElementById("marketFiyat").value = "";
+    document.getElementById("marketIndirim").value = "";
+    resimInput.value = "";
+    document.getElementById("marketAciklama").value = "";
+    loadAdminMarketList();
+    marketUrunleriGetir();
+  }catch(e){
+    alert(e.message);
+  }finally{
+    btn.disabled = false; btn.textContent = eskiYazi;
+  }
+};
+
+async function loadAdminMarketList(mode){
+  mode = mode || "duzenle";
+  const wrap = document.getElementById(mode === "kaldir" ? "adminMarketKaldirListe" : "adminMarketDuzenleListe");
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const snap = await getDocs(collection(db,"market"));
+    if(snap.empty){
+      wrap.innerHTML = `<div class="empty-state">Henüz ürün eklenmedi.</div>`;
+      return;
+    }
+    let html = "";
+    snap.forEach(v=>{
+      const d = v.data();
+      const etiket = d.indirim ? ` · %${d.indirim} indirim` : "";
+      const aksiyon = mode === "kaldir"
+        ? `<button class="mi-btn" onclick="marketUrunSil('${v.id}')">🗑</button>`
+        : `<button class="mi-btn" onclick="adminMarketDuzenleAc('${v.id}')">✏️</button>`;
+      html += `
+        <div class="mini-item">
+          <img src="${d.resim || ''}" onerror="this.style.display='none'">
+          <div class="mi-info"><h5>${d.isim || ''}</h5><span>${d.puanFiyat || 0} Puan${etiket}</span></div>
+          <div class="mini-actions">${aksiyon}</div>
+        </div>
+      `;
+    });
+    wrap.innerHTML = html;
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.marketUrunSil = async function(id){
+  if(!confirm("Bu ürünü Puan Market'ten kaldırmak istediğinize emin misiniz?")) return;
+  try{
+    await deleteDoc(doc(db,"market",id));
+    loadAdminMarketList("kaldir");
+    marketUrunleriGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminMarketDuzenleAc = async function(id){
+  try{
+    const snap = await getDoc(doc(db,"market",id));
+    if(!snap.exists()) return;
+    const d = snap.data();
+    document.getElementById("adminEditMarketIsim").value = d.isim || "";
+    document.getElementById("adminEditMarketFiyat").value = d.puanFiyat || "";
+    document.getElementById("adminEditMarketIndirim").value = d.indirim || "";
+    document.getElementById("adminEditMarketResim").value = d.resim || "";
+    document.getElementById("adminEditMarketAciklama").value = d.aciklama || "";
+    window.currentAdminEditMarketId = id;
+    location.hash = "#editAdminMarketModal";
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminMarketUrunGuncelle = async function(){
+  const id = window.currentAdminEditMarketId;
+  if(!id) return;
+  try{
+    await updateDoc(doc(db,"market",id), {
+      isim: document.getElementById("adminEditMarketIsim").value,
+      puanFiyat: Number(document.getElementById("adminEditMarketFiyat").value) || 0,
+      indirim: Number(document.getElementById("adminEditMarketIndirim").value) || 0,
+      resim: document.getElementById("adminEditMarketResim").value,
+      aciklama: document.getElementById("adminEditMarketAciklama").value
+    });
+    alert("Ürün güncellendi!");
+    loadAdminMarketList();
+    marketUrunleriGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+/* ================= ÖNE ÇIKAN YÖNETİMİ ================= */
+
+async function loadAdminOneCikanList(mode){
+  mode = mode || "ekle";
+  const wrapId = mode === "kaldir" ? "adminOneCikanKaldirListe" : mode === "duzenle" ? "adminOneCikanDuzenleListe" : "adminOneCikanEkleListe";
+  const wrap = document.getElementById(wrapId);
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const [aracSnap, parcaSnap] = await Promise.all([
+      getDocs(collection(db,"ilanlar")),
+      getDocs(collection(db,"parcalar"))
+    ]);
+    let html = "";
+    let sayac = 0;
+
+    aracSnap.forEach(v=>{
+      const d = v.data();
+      const featured = !!d.oneCikan;
+      if(mode === "ekle" && featured) return;
+      if(mode !== "ekle" && !featured) return;
+      sayac++;
+      let aksiyon = "";
+      if(mode === "ekle") aksiyon = `<button class="mi-btn" onclick="adminOneCikanEkle('arac','${v.id}')" title="Öne Çıkar">⭐</button>`;
+      if(mode === "duzenle") aksiyon = `<button class="mi-btn" onclick="adminIlanDuzenleAc('${v.id}')" title="Düzenle">✏️</button>`;
+      if(mode === "kaldir") aksiyon = `<button class="mi-btn" onclick="adminOneCikanKaldir('arac','${v.id}')" title="Öne Çıkandan Kaldır">🗑</button>`;
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}" onerror="this.style.display='none'">
+          <div class="mi-info"><h5>🚗 ${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺</span></div>
+          <div class="mini-actions">${aksiyon}</div>
+        </div>
+      `;
+    });
+
+    parcaSnap.forEach(v=>{
+      const d = v.data();
+      const featured = !!d.oneCikan;
+      if(mode === "ekle" && featured) return;
+      if(mode !== "ekle" && !featured) return;
+      sayac++;
+      let aksiyon = "";
+      if(mode === "ekle") aksiyon = `<button class="mi-btn" onclick="adminOneCikanEkle('parca','${v.id}')" title="Öne Çıkar">⭐</button>`;
+      if(mode === "duzenle") aksiyon = `<button class="mi-btn" onclick="adminParcaDuzenleAc('${v.id}')" title="Düzenle">✏️</button>`;
+      if(mode === "kaldir") aksiyon = `<button class="mi-btn" onclick="adminOneCikanKaldir('parca','${v.id}')" title="Öne Çıkandan Kaldır">🗑</button>`;
+      html += `
+        <div class="mini-item">
+          <img src="${d.foto || ''}" onerror="this.style.display='none'">
+          <div class="mi-info"><h5>⚙️ ${d.isim || ''}</h5><span>${d.fiyat || '0'} ₺</span></div>
+          <div class="mini-actions">${aksiyon}</div>
+        </div>
+      `;
+    });
+
+    if(sayac === 0){
+      const bosMesaj = mode === "ekle" ? "Tüm ilanlar zaten öne çıkan durumda ya da hiç ilan yok." : "Henüz öne çıkan ilan yok.";
+      wrap.innerHTML = `<div class="empty-state">${bosMesaj}</div>`;
+    }else{
+      wrap.innerHTML = html;
+    }
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+window.adminOneCikanEkle = async function(tip, id){
+  try{
+    const koleksiyon = tip === "arac" ? "ilanlar" : "parcalar";
+    await updateDoc(doc(db, koleksiyon, id), { oneCikan: true });
+    loadAdminOneCikanList("ekle");
+    if(tip === "arac"){ ilanlariGetir(); loadAdminAracList("duzenle"); loadAdminAracList("kaldir"); }
+    else{ parcalariGetir(); loadAdminParcaList("duzenle"); loadAdminParcaList("kaldir"); }
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+window.adminOneCikanKaldir = async function(tip, id){
+  if(!confirm("Bu ilanı öne çıkanlardan kaldırmak istediğinize emin misiniz? İlanın kendisi silinmeyecek.")) return;
+  try{
+    const koleksiyon = tip === "arac" ? "ilanlar" : "parcalar";
+    await updateDoc(doc(db, koleksiyon, id), { oneCikan: false });
+    loadAdminOneCikanList("kaldir");
+    if(tip === "arac"){ ilanlariGetir(); loadAdminAracList("duzenle"); loadAdminAracList("kaldir"); }
+    else{ parcalariGetir(); loadAdminParcaList("duzenle"); loadAdminParcaList("kaldir"); }
+    oneCikanIlanlariGetir();
+  }catch(e){
+    alert(e.message);
+  }
+};
+
+/* ================= SATIN ALMA GEÇMİŞİ (ADMİN) ================= */
+
+async function loadAdminSatinAlmaGecmisi(){
+  const wrap = document.getElementById("adminSatinAlmaListe");
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="empty-state">Yükleniyor...</div>`;
+  try{
+    const q = query(collection(db,"islemler"), orderBy("tarih","desc"), limit(150));
+    const snap = await getDocs(q);
+    const satinAlmaTipleri = ["arac-satin-alma","parca-satin-alma","market-satin-alma"];
+    const satinAlmalar = [];
+    snap.forEach(v=>{
+      const d = v.data();
+      if(satinAlmaTipleri.includes(d.tip)) satinAlmalar.push(d);
+    });
+
+    if(satinAlmalar.length === 0){
+      wrap.innerHTML = `<div class="empty-state">Henüz satın alma işlemi yok.</div>`;
+      return;
+    }
+
+    wrap.innerHTML = satinAlmalar.map(d=>{
+      const etiket = d.tip === "arac-satin-alma" ? "🚗 Araç Satın Alma"
+                   : d.tip === "parca-satin-alma" ? "⚙️ Parça Satın Alma"
+                   : "🛒 Puan Market Alışverişi";
+      const birim = d.tip === "market-satin-alma" ? "P" : "₺";
+      const adresHtml = d.teslimatAdresi ? `
+        <div class="tx-address">
+          <span>📍 ${d.teslimatAdresi.baslik || "Adres"}${d.teslimatAdresi.sehir ? " — " + d.teslimatAdresi.sehir : ""}: ${d.teslimatAdresi.adres || "-"}</span>
+          <span>📞 ${d.teslimatAdresi.telefon || "-"}</span>
+        </div>` : "";
+      return `
+        <div class="mini-item" style="flex-direction:column;align-items:stretch;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+            <div class="mi-info" style="white-space:normal;">
+              <h5 style="white-space:normal;">${etiket} — ${d.aliciAd || ""}</h5>
+              <span style="display:block;">👤 ${d.gonderenAd || "-"}</span>
+              <span style="display:block;">🗓 ${tarihFormatla(d.tarih)}</span>
+            </div>
+            <span class="tx-amt neg" style="white-space:nowrap;font-weight:700;">${(d.tutar||0).toLocaleString("tr-TR")} ${birim}</span>
+          </div>
+          ${adresHtml}
+        </div>
+      `;
+    }).join("");
+  }catch(e){
+    wrap.innerHTML = `<div class="empty-state">${e.message}</div>`;
+  }
+}
+
+</script>
+<div id="adminPanel" class="modal-overlay">
+
+<div class="modal-box admin-panel">
+
+<a href="#page-home" class="modal-close">×</a>
+
+<div class="admin-head">
+  <div class="admin-head-ico">👑</div>
+  <div>
+    <h3>Yönetim Paneli</h3>
+    <p style="color:var(--muted);font-size:13px;">Özdoğanlar Otomotiv — Profesyonel Kontrol Merkezi</p>
+  </div>
+  <span class="admin-security-badge" style="margin-left:auto;">🔒 Güvenli Oturum</span>
+</div>
+
+<div class="admin-menu" id="adminMenu">
+  <button class="modal-submit active" data-admin-tab="dashboard" onclick="showAdminSection('dashboard',this)">📊 Dashboard</button>
+  <button class="modal-submit" data-admin-tab="formlar" onclick="showAdminSection('formlar',this)">📋 Formlar</button>
+  <button class="modal-submit" data-admin-tab="bakiyeTalepleri" onclick="showAdminSection('bakiyeTalepleri',this)">💳 Bakiye Talepleri<span class="admin-tab-badge" id="bakiyeTalepBadge" style="display:none;">0</span></button>
+  <button class="modal-submit" data-admin-tab="bakiyeGonder" onclick="showAdminSection('bakiyeGonder',this)">💰 Bakiye Gönder</button>
+  <button class="modal-submit" data-admin-tab="puanGonder" onclick="showAdminSection('puanGonder',this)">🏆 Puan Gönder</button>
+  <button class="modal-submit" data-admin-tab="aracForm" onclick="showAdminSection('aracForm',this)">🚗 Araç Yönetimi</button>
+  <button class="modal-submit" data-admin-tab="parcaForm" onclick="showAdminSection('parcaForm',this)">⚙️ Parça Yönetimi</button>
+  <button class="modal-submit" data-admin-tab="marketForm" onclick="showAdminSection('marketForm',this)">🛒 Market Yönetimi</button>
+  <button class="modal-submit" data-admin-tab="oneCikan" onclick="showAdminSection('oneCikan',this)">⭐ Öne Çıkan Yönetimi</button>
+  <button class="modal-submit" data-admin-tab="satinAlmalar" onclick="showAdminSection('satinAlmalar',this)">🧾 Satın Alma Geçmişi</button>
+  <button class="modal-submit" data-admin-tab="guvenlik" onclick="showAdminSection('guvenlik',this)">🔒 Hesap Güvenliği</button>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="admin-dashboard" class="admin-section">
+  <div class="stat-grid">
+    <div class="stat-card"><span class="st-ico">👥</span><span class="st-val" id="statUsers">-</span><span class="st-lbl">TOPLAM KULLANICI</span></div>
+    <div class="stat-card"><span class="st-ico">🚗</span><span class="st-val" id="statAraclar">-</span><span class="st-lbl">TOPLAM ARAÇ İLANI</span></div>
+    <div class="stat-card"><span class="st-ico">⚙️</span><span class="st-val" id="statParcalar">-</span><span class="st-lbl">TOPLAM PARÇA İLANI</span></div>
+    <div class="stat-card"><span class="st-ico">💰</span><span class="st-val" id="statBakiye">-</span><span class="st-lbl">TOPLAM BAKİYE (₺)</span></div>
+    <div class="stat-card"><span class="st-ico">🏆</span><span class="st-val" id="statPuan">-</span><span class="st-lbl">TOPLAM PUAN</span></div>
+  </div>
+
+  <div class="admin-columns">
+    <div class="admin-col-box">
+      <h5>Son Kayıt Olan Kullanıcılar</h5>
+      <div class="mini-list" id="dashSonKullanicilar"><div class="empty-state">Yükleniyor...</div></div>
+    </div>
+    <div class="admin-col-box">
+      <h5>Son Eklenen İlanlar</h5>
+      <div class="mini-list" id="dashSonIlanlar"><div class="empty-state">Yükleniyor...</div></div>
+    </div>
+    <div class="admin-col-box">
+      <h5>Son Yapılan İşlemler</h5>
+      <div class="mini-list" id="dashSonIslemler"><div class="empty-state">Yükleniyor...</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ADMİN BAKİYE GÖNDERME ================= -->
+<div id="admin-formlar" class="admin-section" style="display:none;">
+  <h4>📋 Gönderilen Randevu Formları</h4>
+  <div class="mini-list" id="adminFormlarListe"><div class="empty-state">Yükleniyor...</div></div>
+</div>
+
+<div id="admin-bakiyeTalepleri" class="admin-section" style="display:none;">
+  <h4>💳 Bakiye Yükleme Talepleri</h4>
+  <p class="modal-sub" style="margin-bottom:14px;">Kullanıcıların banka havalesi/EFT ile gönderdiğini bildirdiği yükleme taleplerini buradan onaylayın veya reddedin. Onaylanan tutar otomatik olarak kullanıcının bakiyesine eklenir.</p>
+  <div class="mini-list" id="adminBakiyeTalepListe"><div class="empty-state">Yükleniyor...</div></div>
+</div>
+
+<div id="admin-bakiyeGonder" class="admin-section" style="display:none;">
+  <h4>💰 Kullanıcıya Bakiye Gönder</h4>
+  <div class="send-box">
+    <div class="field">
+      <label>Kullanıcı Seç</label>
+      <select id="adminBakiyeUser"><option value="">Yükleniyor...</option></select>
+    </div>
+    <div class="field">
+      <label>veya E-posta ile Gir <span class="indirim-field-note">(opsiyonel)</span></label>
+      <input id="adminBakiyeEmail" type="email" placeholder="ornek@mail.com">
+    </div>
+    <div class="field">
+      <label>Tutar (₺)</label>
+      <input id="adminBakiyeTutar" type="number" min="1" placeholder="Örn: 500">
+    </div>
+    <div class="field">
+      <label>Açıklama</label>
+      <input id="adminBakiyeAciklama" type="text" placeholder="Örn: Referans bonusu">
+    </div>
+    <button class="modal-submit" onclick="adminBakiyeGonder()">✅ Bakiye Gönder</button>
+    <div class="send-result" id="adminBakiyeSonuc"></div>
+  </div>
+</div>
+
+<!-- ================= ADMİN PUAN GÖNDERME ================= -->
+<div id="admin-puanGonder" class="admin-section" style="display:none;">
+  <h4>🏆 Kullanıcıya Puan Gönder</h4>
+  <div class="send-box">
+    <div class="field">
+      <label>Kullanıcı Seç</label>
+      <select id="adminPuanUser"><option value="">Yükleniyor...</option></select>
+    </div>
+    <div class="field">
+      <label>veya E-posta ile Gir <span class="indirim-field-note">(opsiyonel)</span></label>
+      <input id="adminPuanEmail" type="email" placeholder="ornek@mail.com">
+    </div>
+    <div class="field">
+      <label>Puan Miktarı</label>
+      <input id="adminPuanTutar" type="number" min="1" placeholder="Örn: 250">
+    </div>
+    <div class="field">
+      <label>Açıklama</label>
+      <input id="adminPuanAciklama" type="text" placeholder="Örn: Kampanya ödülü">
+    </div>
+    <button class="modal-submit" onclick="adminPuanGonder()">✅ Puan Gönder</button>
+    <div class="send-result" id="adminPuanSonuc"></div>
+  </div>
+</div>
+
+<!-- ================= ARAÇ YÖNETİMİ ================= -->
+<div id="admin-aracForm" class="admin-section" style="display:none;">
+  <h4>🚗 Araç İlan İşlemleri</h4>
+
+  <div class="admin-subtabs">
+    <button class="sub-tab-btn active" id="aracSubBtnEkle" onclick="showAdminSubTab('arac','ekle',this)">➕ İlan Ekle</button>
+    <button class="sub-tab-btn" id="aracSubBtnDuzenle" onclick="showAdminSubTab('arac','duzenle',this)">✏️ İlan Düzenle</button>
+    <button class="sub-tab-btn" id="aracSubBtnKaldir" onclick="showAdminSubTab('arac','kaldir',this)">🗑 İlan Kaldır</button>
+  </div>
+
+  <div id="arac-sub-ekle" class="admin-subsection">
+    <div class="send-box">
+      <div class="field">
+        <label>Araç Adı</label>
+        <input id="ilanIsim" type="text">
+      </div>
+      <div class="field">
+        <label>Fiyat</label>
+        <input id="ilanFiyat" type="text">
+      </div>
+      <div class="field">
+        <label>Kilometre</label>
+        <input id="ilanKm" type="number" min="0" placeholder="Örn: 85000">
+      </div>
+      <div class="field">
+        <label>Model Yılı</label>
+        <input id="ilanYil" type="number" min="1950" max="2100" placeholder="Örn: 2019">
+      </div>
+      <div class="field">
+        <label>Vites</label>
+        <select id="ilanVites">
+          <option value="">Seçiniz</option>
+          <option value="Manuel">Manuel</option>
+          <option value="Otomatik">Otomatik</option>
+          <option value="Yarı Otomatik">Yarı Otomatik</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Yakıt Tipi</label>
+        <select id="ilanYakit">
+          <option value="">Seçiniz</option>
+          <option value="Benzin">Benzin</option>
+          <option value="Dizel">Dizel</option>
+          <option value="LPG">LPG</option>
+          <option value="Hibrit">Hibrit</option>
+          <option value="Elektrik">Elektrik</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label>
+        <input id="ilanIndirim" type="number" min="0" max="90" placeholder="Örn: 15">
+      </div>
+      <div class="checkbox-field">
+        <input id="ilanOneCikan" type="checkbox">
+        <label for="ilanOneCikan">⭐ Öne Çıkan İlan olarak ana sayfada göster</label>
+      </div>
+      <div class="field">
+        <label>Fotoğraf URL</label>
+        <input id="ilanFoto" type="text" placeholder="https://... fotoğraf linki">
+        <label>Açıklama</label>
+        <textarea id="ilanAciklama" placeholder="Araç hakkında bilgi..."></textarea>
+      </div>
+      <button class="modal-submit" id="ilanEkleBtn" onclick="ilanEkle()">✅ Araç Ekle</button>
+    </div>
+  </div>
+
+  <div id="arac-sub-duzenle" class="admin-subsection" style="display:none;">
+    <h4>Araç İlanlarını Düzenle</h4>
+    <div class="mini-list" id="adminAracDuzenleListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+
+  <div id="arac-sub-kaldir" class="admin-subsection" style="display:none;">
+    <h4>Araç İlanı Kaldır</h4>
+    <div class="mini-list" id="adminAracKaldirListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+</div>
+
+<!-- ================= PARÇA YÖNETİMİ ================= -->
+<div id="admin-parcaForm" class="admin-section" style="display:none;">
+  <h4>⚙️ Parça İlan İşlemleri</h4>
+
+  <div class="admin-subtabs">
+    <button class="sub-tab-btn active" id="parcaSubBtnEkle" onclick="showAdminSubTab('parca','ekle',this)">➕ İlan Ekle</button>
+    <button class="sub-tab-btn" id="parcaSubBtnDuzenle" onclick="showAdminSubTab('parca','duzenle',this)">✏️ İlan Düzenle</button>
+    <button class="sub-tab-btn" id="parcaSubBtnKaldir" onclick="showAdminSubTab('parca','kaldir',this)">🗑 İlan Kaldır</button>
+  </div>
+
+  <div id="parca-sub-ekle" class="admin-subsection">
+    <div class="send-box">
+      <div class="field">
+        <label>Parça Adı</label>
+        <input id="parcaIsim" type="text">
+      </div>
+      <div class="field">
+        <label>Fiyat</label>
+        <input id="parcaFiyat" type="text">
+      </div>
+      <div class="field">
+        <label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label>
+        <input id="parcaIndirim" type="number" min="0" max="90" placeholder="Örn: 15">
+      </div>
+      <div class="checkbox-field">
+        <input id="parcaOneCikan" type="checkbox">
+        <label for="parcaOneCikan">⭐ Öne Çıkan İlan olarak ana sayfada göster</label>
+      </div>
+      <div class="field">
+        <label>Fotoğraf URL</label>
+        <input id="parcaFoto" type="text" placeholder="https://... fotoğraf linki">
+        <label>Açıklama</label>
+        <textarea id="parcaAciklama" placeholder="Parça hakkında bilgi..."></textarea>
+      </div>
+      <button class="modal-submit" id="parcaEkleBtn" onclick="parcaEkle()">✅ Parça Ekle</button>
+    </div>
+  </div>
+
+  <div id="parca-sub-duzenle" class="admin-subsection" style="display:none;">
+    <h4>Parça İlanlarını Düzenle</h4>
+    <div class="mini-list" id="adminParcaDuzenleListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+
+  <div id="parca-sub-kaldir" class="admin-subsection" style="display:none;">
+    <h4>Parça İlanı Kaldır</h4>
+    <div class="mini-list" id="adminParcaKaldirListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+</div>
+
+<!-- ================= MARKET YÖNETİMİ ================= -->
+<div id="admin-marketForm" class="admin-section" style="display:none;">
+  <h4>🛒 Market Ürün İşlemleri</h4>
+
+  <div class="admin-subtabs">
+    <button class="sub-tab-btn active" id="marketSubBtnEkle" onclick="showAdminSubTab('market','ekle',this)">➕ İlan Ekle</button>
+    <button class="sub-tab-btn" id="marketSubBtnDuzenle" onclick="showAdminSubTab('market','duzenle',this)">✏️ İlan Düzenle</button>
+    <button class="sub-tab-btn" id="marketSubBtnKaldir" onclick="showAdminSubTab('market','kaldir',this)">🗑 İlan Kaldır</button>
+  </div>
+
+  <div id="market-sub-ekle" class="admin-subsection">
+    <div class="send-box">
+      <div class="field">
+        <label>Ürün Adı</label>
+        <input id="marketIsim" type="text">
+      </div>
+      <div class="field">
+        <label>Puan Fiyatı</label>
+        <input id="marketFiyat" type="number" min="1">
+      </div>
+      <div class="field">
+        <label>İndirim (%) <span class="indirim-field-note">(opsiyonel)</span></label>
+        <input id="marketIndirim" type="number" min="0" max="90" placeholder="Örn: 15">
+      </div>
+      <div class="field">
+        <label>Ürün Resmi URL</label>
+        <input id="marketResim" type="text" placeholder="https://... fotoğraf linki">
+        <label>Açıklama</label>
+        <textarea id="marketAciklama" placeholder="Ürün hakkında bilgi..."></textarea>
+      </div>
+      <button class="modal-submit" id="marketUrunEkleBtn" onclick="marketUrunEkle()">✅ Ürünü Yayınla</button>
+    </div>
+  </div>
+
+  <div id="market-sub-duzenle" class="admin-subsection" style="display:none;">
+    <h4>Market Ürünlerini Düzenle</h4>
+    <div class="mini-list" id="adminMarketDuzenleListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+
+  <div id="market-sub-kaldir" class="admin-subsection" style="display:none;">
+    <h4>Market Ürünü Kaldır</h4>
+    <div class="mini-list" id="adminMarketKaldirListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+</div>
+
+<!-- ================= ÖNE ÇIKAN YÖNETİMİ ================= -->
+<div id="admin-oneCikan" class="admin-section" style="display:none;">
+  <h4>⭐ Öne Çıkan İlan Yönetimi</h4>
+  <p class="modal-sub" style="margin-bottom:14px;">Araç veya parça ilanlarını ana sayfadaki "Öne Çıkan İlanlar" bölümüne ekleyin, düzenleyin veya kaldırın. Bir ilan tamamen silindiğinde otomatik olarak buradan da kalkar.</p>
+
+  <div class="admin-subtabs">
+    <button class="sub-tab-btn active" id="oneCikanSubBtnEkle" onclick="showAdminSubTab('oneCikan','ekle',this)">➕ Öne Çıkana Ekle</button>
+    <button class="sub-tab-btn" id="oneCikanSubBtnDuzenle" onclick="showAdminSubTab('oneCikan','duzenle',this)">✏️ İlan Düzenle</button>
+    <button class="sub-tab-btn" id="oneCikanSubBtnKaldir" onclick="showAdminSubTab('oneCikan','kaldir',this)">🗑 İlan Kaldır</button>
+  </div>
+
+  <div id="oneCikan-sub-ekle" class="admin-subsection">
+    <h4>Öne Çıkarılabilecek İlanlar</h4>
+    <div class="mini-list" id="adminOneCikanEkleListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+
+  <div id="oneCikan-sub-duzenle" class="admin-subsection" style="display:none;">
+    <h4>Öne Çıkan İlanı Düzenle</h4>
+    <div class="mini-list" id="adminOneCikanDuzenleListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+
+  <div id="oneCikan-sub-kaldir" class="admin-subsection" style="display:none;">
+    <h4>Öne Çıkandan Kaldır</h4>
+    <div class="mini-list" id="adminOneCikanKaldirListe"><div class="empty-state">Yükleniyor...</div></div>
+  </div>
+</div>
+
+<!-- ================= SATIN ALMA GEÇMİŞİ ================= -->
+<div id="admin-satinAlmalar" class="admin-section" style="display:none;">
+  <h4>🧾 Satın Alma Geçmişi</h4>
+  <p class="modal-sub" style="margin-bottom:14px;">Kullanıcıların bakiyeleriyle yaptığı araç ve parça alımları ile Puan Market alışverişlerinin tam geçmişi. Bakiye ile yapılan araç/parça alımlarında teslimat adresi ve telefon numarası da görüntülenir.</p>
+  <div class="mini-list" id="adminSatinAlmaListe"><div class="empty-state">Yükleniyor...</div></div>
+</div>
+
+<!-- ================= HESAP GÜVENLİĞİ ================= -->
+<div id="admin-guvenlik" class="admin-section" style="display:none;">
+  <h4>🔒 Hesap Güvenliği</h4>
+  <p class="modal-sub" style="margin-bottom:18px;">Yönetici hesabınızın şifresini buradan güvenle güncelleyebilirsiniz. Güvenlik amacıyla mevcut şifrenizi doğrulamanız istenir.</p>
+
+  <div class="admin-sec-box">
+    <h5>Şifre Değiştir</h5>
+    <div class="field">
+      <label>Mevcut Şifre</label>
+      <input id="adminMevcutSifre" type="password" placeholder="Mevcut şifreniz">
+    </div>
+    <div class="field">
+      <label>Yeni Şifre</label>
+      <input id="adminYeniSifre" type="password" placeholder="En az 6 karakter">
+    </div>
+    <div class="field">
+      <label>Yeni Şifre (Tekrar)</label>
+      <input id="adminYeniSifre2" type="password" placeholder="Yeni şifrenizi tekrar girin">
+    </div>
+    <button class="modal-submit" onclick="adminSifreDegistir()">🔒 Şifreyi Güncelle</button>
+    <div class="send-result" id="adminSifreSonuc"></div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
